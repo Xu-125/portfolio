@@ -434,6 +434,166 @@ body::after{
   .card .cl img{max-height:17vh;width:auto}
 }
 
+/* ══════════════ 手机端：解除一屏锁定，改为自然纵向流动 ══════════════ */
+@media(max-width:760px){
+  /* 1) 关掉整屏吸附与 100vh 硬锁 —— 这是手机端挤在一起的根源 */
+  .scroller{scroll-snap-type:none;height:100dvh;-webkit-overflow-scrolling:touch}
+  .sec{
+    height:auto;min-height:auto;scroll-snap-align:none;overflow:visible;
+    padding:clamp(30px,7vw,44px) clamp(18px,5vw,26px) clamp(34px,8vw,48px);
+  }
+  .sec:first-child{padding-top:clamp(74px,17vw,96px)}
+  .sec + .sec{border-top:1px solid var(--hair-2)}
+  /* 进场动画在长页里逐段触发即可 */
+  .rise{transform:translateY(12px)}
+
+  /* 顶栏收窄，字号缩小防换行 */
+  .top{padding:14px clamp(18px,5vw,26px)}
+  .top nav{gap:15px}
+  .top nav button{font-size:9.5px;letter-spacing:.13em}
+
+  /* ---------- 首页 ---------- */
+  #s-home{display:flex;flex-direction:column;gap:clamp(22px,5.5vw,32px)}
+  .lead .ttl{font-size:clamp(42px,13vw,64px);line-height:.92}
+  .lead .sub{margin-top:12px}
+  .edu{margin-top:clamp(18px,4.5vw,26px);max-width:100%;gap:11px}
+  .edu .e{flex-wrap:wrap;gap:4px 10px}
+  .edu .e b{font-size:clamp(16px,4.6vw,20px)}
+  .edu .e s{font-size:11px}
+  .edu .e u{font-size:10px;flex-basis:100%}
+
+  /* 肖像与能力：并排一行，肖像不再压缩 */
+  .side{
+    grid-column:auto;grid-row:auto;max-height:none;
+    flex-direction:row;align-items:flex-end;justify-content:space-between;
+    gap:clamp(14px,4vw,22px);
+  }
+  .side .pf{width:clamp(112px,34vw,168px)}
+  .side .pf img{max-height:none;width:100%}
+  .caps{max-width:none;flex:1;display:flex;flex-direction:column;gap:clamp(13px,3.4vw,20px)}
+  .capC .v{font-size:clamp(26px,8vw,38px)}
+  .capC .lb{font-size:11px}
+  .capC .sb{font-size:9.5px}
+
+  /* ---------- 实习经历：改为竖向堆叠，不再横向拖 ---------- */
+  .xp{grid-column:auto;grid-row:auto;gap:clamp(14px,3.5vw,20px)}
+  .axwrap{flex:none}
+  .axview{
+    overflow:visible;cursor:default;
+    -webkit-overflow-scrolling:auto;
+  }
+  .axrail{
+    flex-direction:column;min-width:0;height:auto;
+    padding:clamp(15px,4vw,22px) 0 0;gap:clamp(13px,3.4vw,19px);
+  }
+  /* 竖向基线：左侧一条竖线贯穿 */
+  .axrail::before{
+    left:4px;right:auto;top:clamp(15px,4vw,22px);bottom:8px;
+    width:1px;height:auto;
+    background:linear-gradient(180deg,var(--hair) 0%,var(--hair) 88%,transparent 100%);
+  }
+  .xc{
+    flex:none;width:100%;padding-left:clamp(20px,5.5vw,28px);
+    background:transparent!important;
+  }
+  .xc + .xc{border-left:0;border-top:1px solid var(--hair-2)}
+  /* 轴点移到左侧竖线上 */
+  .xc::before{
+    left:0;top:clamp(24px,6.4vw,32px);transform:none;
+  }
+  .xc:hover::before{transform:scale(1.25)}
+  .xc.now::before{transform:none}
+  .xc .inner{padding-top:clamp(13px,3.4vw,19px);padding-bottom:0}
+  .xc .og{font-size:clamp(17px,5vw,21px)}
+  .xc.now .og{font-size:clamp(18px,5.4vw,23px)}
+  .xc .rl{font-size:10.5px}
+  .xc .kn{margin-top:clamp(9px,2.4vw,13px)}
+  .xc .kn .kv{font-size:clamp(28px,8.6vw,40px)}
+  .xc.now .kn .kv{font-size:clamp(30px,9.2vw,43px)}
+  .xc .kn .kk{font-size:10px}
+  /* 次级数据在手机上恢复显示，横向铺开省高度 */
+  .xc .more{
+    display:flex!important;flex-direction:row;flex-wrap:wrap;
+    gap:5px clamp(13px,3.4vw,20px);margin-top:clamp(11px,2.8vw,15px);
+  }
+  .xc .more i{font-size:10px}
+  /* 拖动提示在竖排下无意义 */
+  .axhint{display:none}
+
+  /* ---------- 作品：3D 转盘换成竖向滑动卡 ---------- */
+  #s-work{display:flex;flex-direction:column;gap:clamp(16px,4vw,22px)}
+  .wwrap{flex:none;gap:clamp(15px,4vw,21px)}
+  .stage{
+    flex:none;position:static;perspective:none;cursor:default;
+    touch-action:auto;min-height:0;
+  }
+  .track{
+    position:static;inset:auto;transform-style:flat;
+    display:flex;flex-direction:column;gap:clamp(17px,4.5vw,25px);
+  }
+  /* 卡片回归静态流式，全部展开可读 */
+  .fc{
+    position:static;left:auto;top:auto;width:100%;height:auto;
+    margin:0;transform:none!important;opacity:1!important;
+    filter:none!important;z-index:auto!important;
+    transform-style:flat;transition:none;pointer-events:auto!important;
+    cursor:pointer;
+  }
+  .fc .face{
+    position:static;inset:auto;border-radius:14px;
+    border-color:var(--hair);
+    box-shadow:0 16px 38px -20px rgba(28,26,23,.18);
+  }
+  .fc:not(.on) .face{box-shadow:0 16px 38px -20px rgba(28,26,23,.18)}
+  .fc:active .face{box-shadow:0 10px 26px -16px rgba(28,26,23,.2)}
+  .fc .shot{flex:none;aspect-ratio:16/10;height:auto}
+  .fc .idx{top:11px;left:12px;font-size:11px}
+  /* 触屏没有 hover，"打开原文"徽标常显 */
+  .fc .peek{opacity:1;transform:none;top:10px;right:11px;padding:6px 11px;font-size:8.5px}
+  .fc .meta{padding:clamp(15px,4vw,20px) clamp(15px,4vw,20px) clamp(14px,3.6vw,18px)}
+  .fc h3{font-size:clamp(18px,5.2vw,22px)}
+  .fc .bg{margin-top:clamp(11px,2.8vw,15px)}
+  .fc .bg .v{font-size:clamp(32px,9.5vw,44px)}
+  .fc .rows{display:flex;margin-top:clamp(11px,2.8vw,15px)}
+  .fc .rows i{font-size:10px;padding:6px 0}
+  .fc .rows i b{font-size:14px;min-width:78px}
+  .fc .open{margin-top:clamp(13px,3.2vw,17px);padding-top:clamp(12px,3vw,15px)}
+  .fc .open span{font-size:10px;letter-spacing:.14em}
+  .fc .open .ic{width:31px;height:31px}
+  /* 底部导航条整体隐藏：竖排已全展开，不需要翻页 */
+  .wfoot{display:none}
+  .whint{display:none}
+
+  /* ---------- 名片 ---------- */
+  /* 末屏留出补偿高度，保证导航能完整滚到位 */
+  #s-card{justify-content:flex-start;min-height:calc(100dvh - 1px)}
+  .card{grid-template-columns:1fr;border-radius:14px}
+  .card .cl{max-height:none;border-right:0;border-bottom:1px solid var(--hair-2);padding:clamp(20px,5vw,26px)}
+  .card .cl img{max-height:none;width:clamp(120px,38vw,170px)}
+  .card .cr{padding:clamp(20px,5vw,26px)}
+  .card .cx{flex-direction:column;align-items:flex-start;gap:13px}
+  .card .cx a{font-size:11.5px}
+}
+
+/* 超窄屏（≤360px）再收一档 —— 390/393 是主流机型宽度，不并入此档 */
+@media(max-width:360px){
+  .lead .ttl{font-size:clamp(36px,12.5vw,44px)}
+  /* 宽度实在不够时才让肖像与能力上下排 */
+  .side{flex-direction:column;align-items:flex-start;gap:16px}
+  .side .pf{width:clamp(100px,40vw,132px)}
+  .caps{width:100%}
+  .top nav{gap:11px}
+  .top nav button{font-size:9px;letter-spacing:.1em}
+  .xc .more{flex-direction:column;gap:5px}
+}
+
+/* 横屏手机：高度紧张，压缩纵向留白 */
+@media(max-width:900px) and (max-height:520px) and (orientation:landscape){
+  .sec{padding-top:clamp(52px,11vh,68px);padding-bottom:clamp(20px,5vh,30px)}
+  .lead .ttl{font-size:clamp(34px,7vw,48px)}
+  .side .pf{width:clamp(88px,14vw,120px)}
+}
+
 @media(prefers-reduced-motion:reduce){
   *{transition-duration:.01ms!important;animation:none!important}
   .rise{opacity:1;transform:none}
@@ -656,7 +816,10 @@ var WORK = [
     view.scrollLeft = Math.max(0, Math.min(max, target));
   }
 
+  var axMobile = function(){ return window.matchMedia('(max-width:760px)').matches; };
+
   view.addEventListener('pointerdown', function(e){
+    if (axMobile()) return;             /* 竖排下不接管手势 */
     if (e.pointerType==='mouse' && e.button!==0) return;
     down=true; sx=e.clientX; sl=view.scrollLeft; target=sl;
     view.classList.add('grabbing');
@@ -680,6 +843,7 @@ var WORK = [
 
   /* 竖向滚轮转横向，让触控板也能推 */
   view.addEventListener('wheel', function(e){
+    if (axMobile()) return;
     var maxSL = view.scrollWidth - view.clientWidth;
     if (maxSL <= 1) return;
     var dx = Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : e.deltaY;
@@ -690,6 +854,12 @@ var WORK = [
   }, {passive:false});
 
   function syncBar(){
+    if (axMobile()){
+      if (bar) bar.style.width='0%';
+      /* 竖排：所有卡片同等呈现，不做 now 高亮 */
+      [].slice.call(view.querySelectorAll('.xc')).forEach(function(c){ c.classList.remove('now'); });
+      return;
+    }
     var maxSL = view.scrollWidth - view.clientWidth;
     var pct = maxSL > 1 ? (view.scrollLeft / maxSL) : 0;
     if (bar) bar.style.width = (Math.min(1,Math.max(0,pct))*100).toFixed(1)+'%';
@@ -753,7 +923,18 @@ var DEEP = 340;    // 每层后退深度
 var TILT = 34;     // 侧卡 Y 轴旋转角
 var VIS  = 2;      // 每侧可见层数
 
+var isMobile = function(){ return window.matchMedia('(max-width:760px)').matches; };
+
 function place(f){
+  if (isMobile()){
+    /* 手机端为竖向流式布局：清掉 inline 样式，避免覆盖 CSS */
+    cards.forEach(function(c){
+      c.style.transform=''; c.style.opacity=''; c.style.filter='';
+      c.style.zIndex=''; c.style.pointerEvents='';
+      c.classList.remove('on');
+    });
+    return;
+  }
   var n = cards.length;
   var cw = cards.length ? cards[0].offsetWidth : 380;
   /* 把连续位置折进 0..n，保证 pos 长期累加也不失真 */
@@ -784,6 +965,7 @@ function place(f){
   });
 }
 function sync(){
+  if (isMobile()) return;
   [].slice.call(dots.querySelectorAll('button')).forEach(function(b,j){ b.classList.toggle('on', j===cur); });
   var it=WORK[cur];
   wOrg.textContent=it.org; wTitle.textContent=it.t;
@@ -815,6 +997,7 @@ var dg=false, sx=0, sy=0, mx=0, my=0, base=0, horiz=null;
 var THRESH=200;
 
 function down(e){
+  if (isMobile()) return;              /* 手机端由原生滚动接管 */
   if (e.button!==undefined && e.button!==0) return;
   dg=true; horiz=null; mx=0; my=0; base=pos;
   sx = e.touches ? e.touches[0].clientX : e.clientX;
@@ -856,6 +1039,7 @@ stage.addEventListener('touchend', up);
 /* 点击：侧卡→居中；中心卡→跳转 */
 cards.forEach(function(c,i){
   c.addEventListener('click', function(e){
+    if (isMobile()) return;            /* 手机端：整卡即链接，直接放行 */
     if (horiz || Math.abs(mx)>7){ e.preventDefault(); return; }
     if (i!==cur){ e.preventDefault(); go(i); }
   });
@@ -871,6 +1055,7 @@ wNext.addEventListener('click', function(){ go(cur+1); });
 /* 横向滚轮 / 触控板横扫：一次手势只翻一张 */
 var wLast=0, wFired=false;
 stage.addEventListener('wheel', function(e){
+  if (isMobile()) return;
   if (Math.abs(e.deltaX) <= Math.abs(e.deltaY)) return;
   e.preventDefault();
   var now = Date.now();
@@ -884,6 +1069,16 @@ stage.addEventListener('wheel', function(e){
 }, {passive:false});
 
 setPos(0);
+
+/* 视口跨越断点时重算布局 */
+(function(){
+  var wasM = isMobile();
+  window.addEventListener('resize', function(){
+    var m = isMobile();
+    if (m !== wasM){ wasM = m; setPos(pos); }
+    else if (!m){ place(pos); }
+  });
+})();
 
 (function(){
   var card=document.getElementById('card'), wrap=card.parentNode;
@@ -906,7 +1101,9 @@ var nav=document.getElementById('nav'), progBar=document.getElementById('progBar
   nav.innerHTML=h;
   nav.addEventListener('click', function(e){
     var b=e.target.closest('button');
-    if (b) scroller.scrollTo({top:parseInt(b.dataset.i,10)*scroller.clientHeight, behavior:'smooth'});
+    if (!b) return;
+    var t=secs[parseInt(b.dataset.i,10)];
+    if (t) scroller.scrollTo({top:t.offsetTop, behavior:'smooth'});
   });
 })();
 
@@ -915,13 +1112,18 @@ function syncScroll(){
   var top=scroller.scrollTop, vh=scroller.clientHeight;
   if (top===lastTop && vh===lastVh) return;
   lastTop=top; lastVh=vh;
-  var idx=Math.max(0,Math.min(secs.length-1,Math.round(top/vh)));
+
+  /* 按各 section 真实位置判定，兼容手机端不等高布局 */
+  var probe = top + vh*0.34, idx = 0;
+  for (var i=0;i<secs.length;i++){
+    if (secs[i].offsetTop <= probe) idx = i;
+  }
   if (idx!==curSec){
     curSec=idx;
     secs.forEach(function(s,i){ s.classList.toggle('in', i<=idx); });
     [].slice.call(nav.querySelectorAll('button')).forEach(function(b,j){ b.classList.toggle('on', j===idx); });
   }
-  var max=Math.max(1,(secs.length-1)*vh);
+  var max=Math.max(1, scroller.scrollHeight - vh);
   progBar.style.width=Math.min(100,(top/max)*100).toFixed(1)+'%';
 }
 (function loop(){ syncScroll(); requestAnimationFrame(loop); })();
