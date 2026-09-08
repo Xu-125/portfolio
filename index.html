@@ -137,11 +137,13 @@ body::after{
 .axview{
   flex:1;min-height:0;overflow-x:auto;overflow-y:hidden;
   cursor:grab;scrollbar-width:none;-ms-overflow-style:none;
-  scroll-behavior:smooth;
+  -webkit-overflow-scrolling:touch;
+  overscroll-behavior-x:contain;
 }
 .axview::-webkit-scrollbar{height:0}
-.axview.grabbing{cursor:grabbing;scroll-behavior:auto}
+.axview.grabbing{cursor:grabbing}
 .axview.grabbing .xc{pointer-events:none}
+.axview.grabbing,.axview.grabbing *{user-select:none;-webkit-user-select:none}
 
 /* 轨道：内容宽度由卡片决定 */
 .axrail{
@@ -645,26 +647,36 @@ var WORK = [
 (function(){
   var view=document.getElementById('axView'), bar=document.getElementById('axBar');
   if(!view) return;
-  var down=false, sx=0, sl=0, moved=0;
+  var down=false, sx=0, sl=0, target=0, raf=0;
+  var RATE=1.35;   /* 位移放大，小幅拖动也有明显响应 */
 
-  view.addEventListener('mousedown', function(e){
-    if (e.button !== 0) return;
-    down=true; moved=0;
-    sx=e.clientX; sl=view.scrollLeft;
+  function apply(){
+    raf=0;
+    var max=view.scrollWidth-view.clientWidth;
+    view.scrollLeft = Math.max(0, Math.min(max, target));
+  }
+
+  view.addEventListener('pointerdown', function(e){
+    if (e.pointerType==='mouse' && e.button!==0) return;
+    down=true; sx=e.clientX; sl=view.scrollLeft; target=sl;
     view.classList.add('grabbing');
-    e.preventDefault();
+    try{ view.setPointerCapture(e.pointerId); }catch(err){}
+    if (e.pointerType==='mouse') e.preventDefault();
   });
-  window.addEventListener('mousemove', function(e){
+  view.addEventListener('pointermove', function(e){
     if(!down) return;
-    moved = e.clientX - sx;
-    view.scrollLeft = sl - moved;
+    e.preventDefault();
+    target = sl - (e.clientX - sx) * RATE;
+    if(!raf) raf=requestAnimationFrame(apply);   /* 每帧只写一次 */
   });
-  window.addEventListener('mouseup', function(){
+  function end(e){
     if(!down) return;
     down=false; view.classList.remove('grabbing');
-  });
-
-  /* 触屏原生横滑即可，无需拦截 */
+    try{ view.releasePointerCapture(e.pointerId); }catch(err){}
+  }
+  view.addEventListener('pointerup', end);
+  view.addEventListener('pointercancel', end);
+  view.addEventListener('dragstart', function(e){ e.preventDefault(); });
 
   /* 竖向滚轮转横向，让触控板也能推 */
   view.addEventListener('wheel', function(e){
@@ -672,7 +684,6 @@ var WORK = [
     if (maxSL <= 1) return;
     var dx = Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : e.deltaY;
     var next = view.scrollLeft + dx;
-    /* 到两端时把滚动交还给纵向翻屏 */
     if ((next <= 0 && dx < 0) || (next >= maxSL && dx > 0)) return;
     e.preventDefault();
     view.scrollLeft = next;
@@ -703,7 +714,7 @@ var dots=document.getElementById('dots'), wHint=document.getElementById('wHint')
 var wOrg=document.getElementById('wOrg'), wTitle=document.getElementById('wTitle');
 var wCnt=document.getElementById('wCnt');
 var wPrev=document.getElementById('wPrev'), wNext=document.getElementById('wNext');
-var cur=0;
+var cur=0, pos=0;
 
 (function(){
   var h='';
@@ -745,9 +756,10 @@ var VIS  = 2;      // 每侧可见层数
 function place(f){
   var n = cards.length;
   var cw = cards.length ? cards[0].offsetWidth : 380;
+  /* 把连续位置折进 0..n，保证 pos 长期累加也不失真 */
+  var fm = ((f % n) + n) % n;
   cards.forEach(function(c,i){
-    /* 环形最短距离：让首尾相接，任何位置左右都有牌 */
-    var off = i - f;
+    var off = i - fm;
     if (off >  n/2) off -= n;
     if (off < -n/2) off += n;
     var ab = Math.abs(off);
@@ -778,12 +790,24 @@ function sync(){
   wCnt.innerHTML='<b>'+(cur+1<10?'0'+(cur+1):cur+1)+'</b> / '+cards.length;
 }
 
-function layout(){ place(cur); sync(); }
+function layout(){ place(pos); sync(); }
+
+/* pos 为连续位置（可超出 0..n-1），cur 为其取模结果 —— 两者始终同坐标系 */
+function setPos(p){
+  pos = p;
+  var n = cards.length;
+  cur = ((Math.round(p) % n) + n) % n;
+  layout();
+}
 function go(i){
-  var n=cards.length;
-  i = ((i % n) + n) % n;   /* 环形取模，首尾相接 */
-  if(i===cur) return;
-  cur=i; layout();
+  var n = cards.length;
+  i = ((i % n) + n) % n;
+  if (i === cur) return;
+  /* 取到目标的最短环形增量，保证只走最近的那条路 */
+  var d = i - cur;
+  if (d >  n/2) d -= n;
+  if (d < -n/2) d += n;
+  setPos(pos + d);
 }
 
 /* ---- 拖动跟手 ---- */
@@ -792,7 +816,7 @@ var THRESH=200;
 
 function down(e){
   if (e.button!==undefined && e.button!==0) return;
-  dg=true; horiz=null; mx=0; my=0; base=cur;
+  dg=true; horiz=null; mx=0; my=0; base=pos;
   sx = e.touches ? e.touches[0].clientX : e.clientX;
   sy = e.touches ? e.touches[0].clientY : e.clientY;
   stage.classList.add('grabbing');
@@ -806,18 +830,19 @@ function move(e){
   if (horiz===null && (Math.abs(mx)>7 || Math.abs(my)>7)) horiz = Math.abs(mx)>Math.abs(my);
   if (!horiz) return;
   if (e.cancelable) e.preventDefault();
-  var f = base - mx/THRESH;
-  place(f);
+  place(base - mx/THRESH);          /* 跟手：直接渲染连续位置 */
 }
 function up(){
   if(!dg) return;
   dg=false; stage.classList.remove('grabbing');
   if (horiz && Math.abs(mx)>10){
-    var n=cards.length;
-    var t=Math.round(base - mx/THRESH);
-    cur=((t % n) + n) % n;
+    var raw = base - mx/THRESH;
+    /* 单次手势最多走一张，避免一拖飞过好几张 */
+    var step = Math.max(-1, Math.min(1, Math.round(raw - base)));
+    setPos(base + step);
+  } else {
+    setPos(base);                   /* 未达阈值：吸回原位 */
   }
-  layout();
   setTimeout(function(){ horiz=null; mx=0; }, 40);
 }
 
@@ -843,17 +868,22 @@ dots.addEventListener('click', function(e){
 wPrev.addEventListener('click', function(){ go(cur-1); });
 wNext.addEventListener('click', function(){ go(cur+1); });
 
-/* 横向滚轮切换 */
-var wl=false;
+/* 横向滚轮 / 触控板横扫：一次手势只翻一张 */
+var wLast=0, wFired=false;
 stage.addEventListener('wheel', function(e){
   if (Math.abs(e.deltaX) <= Math.abs(e.deltaY)) return;
   e.preventDefault();
-  if (wl) return;
-  wl=true; go(cur + (e.deltaX>0?1:-1));
-  setTimeout(function(){ wl=false; }, 330);
+  var now = Date.now();
+  /* 间隔超过 190ms 视为新手势，重新允许触发 */
+  if (now - wLast > 190) wFired = false;
+  wLast = now;
+  if (wFired) return;              /* 同一次惯性滚动内只认第一下 */
+  if (Math.abs(e.deltaX) < 6) return;
+  wFired = true;
+  go(cur + (e.deltaX>0 ? 1 : -1));
 }, {passive:false});
 
-layout();
+setPos(0);
 
 (function(){
   var card=document.getElementById('card'), wrap=card.parentNode;
