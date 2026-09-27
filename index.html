@@ -1221,14 +1221,14 @@ function setLanguage(lang){
   wPrev.setAttribute('aria-label',I18N[lang].previous);
   wNext.setAttribute('aria-label',I18N[lang].next);
   renderNav(); renderCaps(); renderIntern(); renderWork(); setPos(pos); syncScroll();
-  try{ localStorage.setItem('portfolio-language-v2',lang); }catch(err){}
+  try{ localStorage.setItem('portfolio-language-v3',lang); }catch(err){}
 }
 
 [].slice.call(document.querySelectorAll('.lang-switch button[data-lang]')).forEach(function(b){
   b.addEventListener('click',function(){ setLanguage(b.getAttribute('data-lang')); });
 });
 var savedLang='zh';
-try{ savedLang=localStorage.getItem('portfolio-language-v2') || 'zh'; }catch(err){}
+try{ savedLang=localStorage.getItem('portfolio-language-v3') || 'zh'; }catch(err){}
 setLanguage(savedLang);
 
 var lastTop=-1, lastVh=-1, curSec=-1;
