@@ -1224,9 +1224,8 @@ function setLanguage(lang){
   try{ localStorage.setItem('portfolio-language-v2',lang); }catch(err){}
 }
 
-document.querySelector('.lang-switch').addEventListener('click',function(e){
-  var b=e.target.closest('button[data-lang]');
-  if (b) setLanguage(b.getAttribute('data-lang'));
+[].slice.call(document.querySelectorAll('.lang-switch button[data-lang]')).forEach(function(b){
+  b.addEventListener('click',function(){ setLanguage(b.getAttribute('data-lang')); });
 });
 var savedLang='en';
 try{ savedLang=localStorage.getItem('portfolio-language-v2') || 'en'; }catch(err){}
