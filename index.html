@@ -1227,8 +1227,8 @@ function setLanguage(lang){
 [].slice.call(document.querySelectorAll('.lang-switch button[data-lang]')).forEach(function(b){
   b.addEventListener('click',function(){ setLanguage(b.getAttribute('data-lang')); });
 });
-var savedLang='en';
-try{ savedLang=localStorage.getItem('portfolio-language-v2') || 'en'; }catch(err){}
+var savedLang='zh';
+try{ savedLang=localStorage.getItem('portfolio-language-v2') || 'zh'; }catch(err){}
 setLanguage(savedLang);
 
 var lastTop=-1, lastVh=-1, curSec=-1;
