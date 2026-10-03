@@ -1401,25 +1401,25 @@ function syncScroll(){
 
   var COPY={
     zh:{
-      welcome:'可以从这些侧面认识我。',
+      welcome:'想更快认识我，可以从下面几个问题开始。',
       prompts:[
-        {q:'我擅长把什么事情做好？',a:'我擅长把复杂产品讲清楚，并让内容真正进入传播和增长链路：从理解产品与用户开始，到内容策划、渠道分发、节点运营和数据复盘，不把内容停留在“做出来”，而是继续关注“有没有被理解、被采用、被传播”。',target:'s-work',label:'看相关作品'},
-        {q:'我的能力组合有什么特点？',a:'我同时理解内容、传播、分发和营销，也习惯用系统性视角把它们串起来。新闻训练让我重视事实和表达，增长经历让我关注用户行为与转化，AI 实践让我能更快地把策略变成内容、工作流和可操作原型。',target:'s-home',label:'看经历脉络'},
-        {q:'我如何理解用户？',a:'我会先理解用户所处的情境、真实阻力和表达方式，再决定说什么、在哪说、怎么降低理解与行动门槛。无论是产品宣讲、课程运营还是互动体验，我关注的都不只是曝光，而是用户下一步会不会行动。',target:'s-work',label:'看项目证据'},
-        {q:'一个文科生为什么会做技术？',a:'我不是为了成为纯工程师，而是希望减少“有想法但落不了地”的距离。我能理解产品与技术逻辑，使用 Agent 和 Vibe Coding 完成内容站、互动网页和工作流原型，也知道技术最终要服务于人的理解和使用。',target:'s-work',label:'看 Vibe Coding 作品'},
-        {q:'我怎么处理复杂项目？',a:'我习惯先拆清目标、对象和约束，再把研究、策略、内容、渠道、执行和复盘组织成闭环。面对信息分散或协作者较多的项目，我会建立结构、统一口径、明确节奏，并根据反馈持续调整。',target:'s-work',label:'看 AI 工作系统'},
-        {q:'哪件作品最像我？',a:'如果看业务能力，可以从豆包工作 0→1 冷启动开始；如果看跨学科与独立创造，Odyssey 更像我——它把心理学、社会学、内容设计、交互体验与 Vibe Coding 放在了同一个作品里。',target:'s-work',label:'看代表作品'}
+        {q:'我最擅长什么？',a:'我最擅长把复杂产品讲清楚，再把内容放进完整的传播与增长链路。做飞书和豆包工作时，我不仅参与内容策划，也做竞品研究、冷启动规划、渠道分发和数据复盘；既关注内容质量，也关注用户有没有理解、采用和继续传播。',target:'s-work',label:'看相关作品'},
+        {q:'我的能力组合是什么？',a:'我的能力不是单点的“会写内容”，而是内容、传播、分发、营销与系统性思维的组合。人民网和中国日报训练了事实判断与表达，海尔和小红书让我理解用户运营与转化，飞书的经历让我能围绕产品目标组织完整传播项目。',target:'s-home',label:'看经历脉络'},
+        {q:'我怎么理解用户？',a:'我习惯先看用户正处在什么场景、卡在哪里、会用什么语言理解产品，再决定内容和渠道。在小红书的 Coding Agent 宣讲中，首周 DAU 提升 15%，课程覆盖 853 人次、NPS 91；在海尔，社群活跃度从 30% 提升到 65%。',target:'s-home',label:'看用户增长经历'},
+        {q:'我如何用 AI 工作？',a:'我会把 AI 嵌进研究、整理、生产和复盘，而不是只用来生成文案。在飞书，我搭建 Agent 工作流，把内容生产周期缩短 60%；也通过 Vibe Coding 独立完成内容网站和 Odyssey 互动体验，把想法直接做成可操作的产品。',target:'s-work',label:'看 AI 与 Vibe Coding'},
+        {q:'我的英文能力怎么样？',a:'我的 CET-6 成绩是 652，英语口语流利。曾在中国日报独立承担英文翻译与国际传播，完成 35 期对外专题并带来 80 万+海外曝光；在海尔参与 16 期全英文出海课程，海外创客使用率达到 75%。',target:'s-home',label:'看国际传播经历'},
+        {q:'除了内容，我还能做什么？',a:'我还可以做产品 PR、增长策略、用户教育、国际传播和轻量产品原型。我的优势是能把用户洞察转成传播策略，再把策略落实为内容、渠道动作、AI 工作流或互动网页，并根据数据继续迭代。',target:'s-work',label:'看代表项目'}
       ]
     },
     en:{
-      welcome:'Here are six ways to get to know me.',
+      welcome:'Choose a question for a quick introduction.',
       prompts:[
-        {q:'What do I consistently do well?',a:'I turn complex products into clear stories and connect content to the full communication and growth journey—from product and user understanding to planning, distribution, campaign moments and performance review. I care not only that content is made, but that it is understood, adopted and shared.',target:'s-work',label:'View related work'},
-        {q:'What is distinctive about my skill set?',a:'I combine content, communications, distribution and marketing with systems thinking. Journalism trained me to value evidence and clarity; growth work taught me to follow user behavior and conversion; AI practice helps me turn strategy into content, workflows and working prototypes faster.',target:'s-home',label:'View experience'},
-        {q:'How do I think about users?',a:'I start with the user’s context, real friction and natural language, then decide what to say, where to say it and how to lower the barrier to understanding and action. Across launches, courses and interactive experiences, I look beyond reach to what users do next.',target:'s-work',label:'View project evidence'},
-        {q:'Why does a humanities graduate build with technology?',a:'I do not use technology to imitate a full-time engineer. I use it to shorten the distance between an idea and a usable experience. With agents and Vibe Coding, I can build content sites, interactive pages and workflow prototypes while keeping human understanding at the center.',target:'s-work',label:'View Vibe Coding work'},
-        {q:'How do I handle complex projects?',a:'I clarify the goal, audience and constraints first, then organize research, strategy, content, channels, execution and review into one loop. When information or stakeholders are fragmented, I build structure, align definitions, set the rhythm and keep adjusting from feedback.',target:'s-work',label:'View AI workflow'},
-        {q:'Which work feels most like me?',a:'For business impact, start with the 0→1 Doubao Work launch. For interdisciplinary independent creation, Odyssey is closest to me—it brings psychology, sociology, content design, interaction and Vibe Coding into one experience.',target:'s-work',label:'View selected work'}
+        {q:'What do I do best?',a:'I am strongest at making complex products clear and connecting content to the full communication and growth journey. At Lark and Doubao Work, I worked across competitive research, launch planning, content, distribution and performance review—not just content production.',target:'s-work',label:'View related work'},
+        {q:'What is my skill combination?',a:'My strength is not a single content skill, but a combination of content, communications, distribution, marketing and systems thinking. People’s Daily Online and China Daily sharpened my judgment and writing; Haier and Xiaohongshu developed my user-growth thinking; Lark taught me to organize communications around product goals.',target:'s-home',label:'View experience'},
+        {q:'How do I understand users?',a:'I begin with the user’s situation, friction and natural language before deciding the message and channel. For a Coding Agent roadshow at Xiaohongshu, first-week DAU increased 15%, the course reached 853 participants and earned NPS 91. At Haier, community activity rose from 30% to 65%.',target:'s-home',label:'View growth experience'},
+        {q:'How do I work with AI?',a:'I embed AI into research, synthesis, production and review instead of using it only to draft copy. At Lark, an agent workflow shortened the content cycle by 60%. Through Vibe Coding, I also independently built a content site and the Odyssey interactive experience.',target:'s-work',label:'View AI and Vibe Coding'},
+        {q:'How strong is my English?',a:'I scored 652 on CET-6 and speak English fluently. At China Daily, I independently handled English translation and international communications across 35 features, generating 800K+ overseas impressions. At Haier, I supported 16 English-language global courses with 75% overseas-maker adoption.',target:'s-home',label:'View global experience'},
+        {q:'What else can I do beyond content?',a:'I can contribute to product PR, growth strategy, user education, global communications and lightweight product prototyping. I translate user insight into communication strategy, then deliver it through content, channels, AI workflows or interactive web experiences—and iterate from results.',target:'s-work',label:'View selected projects'}
       ]
     }
   };
