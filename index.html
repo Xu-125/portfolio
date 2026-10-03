@@ -807,14 +807,14 @@ body::after{
 
 <button class="ask-launcher" id="askLauncher" type="button" aria-controls="askPanel" aria-expanded="false">
   <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H8l-4 4z"/><path d="M8 9h8M8 12h5"/></svg>
-  <span data-i18n="ask.launcher">问问 Hazel</span>
+  <span data-i18n="ask.launcher">HR 快速了解</span>
 </button>
 <aside class="ask-panel" id="askPanel" aria-hidden="true" aria-labelledby="askTitle">
   <div class="ask-head">
     <div>
-      <div class="kicker" data-i18n="ask.kicker">Portfolio copilot</div>
-      <h2 id="askTitle" data-i18n="ask.title">问问 Hazel</h2>
-      <p data-i18n="ask.subtitle">快速了解我的经历、代表项目与 AI 工作方式。</p>
+      <div class="kicker" data-i18n="ask.kicker">招聘视角速览</div>
+      <h2 id="askTitle" data-i18n="ask.title">快速了解 Hazel</h2>
+      <p data-i18n="ask.subtitle">从招聘视角查看能力、优势、岗位匹配与代表作品。</p>
     </div>
     <button class="ask-close" id="askClose" type="button" aria-label="关闭">
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
@@ -822,13 +822,7 @@ body::after{
   </div>
   <div class="ask-messages" id="askMessages" aria-live="polite"></div>
   <div class="ask-prompts" id="askPrompts"></div>
-  <form class="ask-form" id="askForm">
-    <input id="askInput" type="text" autocomplete="off" data-i18n-placeholder="ask.placeholder" placeholder="例如：她最适合什么岗位？">
-    <button type="submit" aria-label="发送">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M14 6l6 6-6 6"/></svg>
-    </button>
-  </form>
-  <div class="ask-note" data-i18n="ask.note">回答仅基于本网站公开内容，不会虚构未展示的经历。</div>
+  <div class="ask-note" data-i18n="ask.note">预设内容基于本网站公开经历，不调用 AI 模型，也不消耗 token。</div>
 </aside>
 
 <script>
@@ -945,7 +939,7 @@ var WORK = [
    img:'img/cover-odyssey.svg',
    rows:[['3 步','人生坐标选择'],['互动匹配','生成同路人建议'],['本地收藏','保存个人结果']],
    roles:['概念策划','交互设计','Vibe Coding','前端开发'],
-   u:'https://github.com/Xu-125/odyssey-guide'}
+   u:'https://xu-125.github.io/odyssey-guide/explore/'}
 ];
 
 var I18N = {
@@ -957,11 +951,11 @@ var I18N = {
     'edu.ouc.school':'中国海洋大学','edu.ouc.degree':'新闻学 · 本科','edu.ouc.note':'GPA 3.93 · 专业 1/81',
     'section.experience':'实习经历','section.work':'代表作品','section.contact':'欢迎联系','work.tag':'3 个旗舰案例 · 8 个项目',
     'os.label':'AI 工作系统','os.research':'研究与洞察','os.strategy':'策略与判断','os.create':'Agent 协作生产','os.distribute':'多平台分发','os.review':'数据复盘',
-    'ask.launcher':'问问 Hazel','ask.kicker':'作品集助手','ask.title':'问问 Hazel','ask.subtitle':'快速了解我的经历、代表项目与 AI 工作方式。','ask.placeholder':'例如：她最适合什么岗位？','ask.note':'回答仅基于本网站公开内容，不会虚构未展示的经历。',
+    'ask.launcher':'HR 快速了解','ask.kicker':'招聘视角速览','ask.title':'快速了解 Hazel','ask.subtitle':'从招聘视角查看能力、优势、岗位匹配与代表作品。','ask.note':'预设内容基于本网站公开经历，不调用 AI 模型，也不消耗 token。',
     'hint.dragExperience':'拖动查看','hint.dragWork':'拖动切换 · 点击卡片打开原文',
     'contact.roles':'增长策略运营 · 产品 PR · 出海内容','contact.summary':'做过 AI 产品从 0 到 1 的冷启动与全球传播',
     'interest.ai':'AI 实践','interest.computational':'计算传播','interest.sociology':'社会学','interest.psychology':'心理学',
-    open:'打开原文',repo:'查看 GitHub',ownership:'个人负责',positions:'个职位',previous:'上一个',next:'下一个',item:'第 {n} 个'
+    open:'打开原文',repo:'打开互动体验',ownership:'个人负责',positions:'个职位',previous:'上一个',next:'下一个',item:'第 {n} 个'
   },
   en:{
     title:'Hazel Xu | Portfolio',
@@ -971,11 +965,11 @@ var I18N = {
     'edu.ouc.school':'Ocean University of China','edu.ouc.degree':'B.A. in Journalism','edu.ouc.note':'GPA 3.93 · Ranked 1/81',
     'section.experience':'Experience','section.work':'Selected Work','section.contact':'Get in touch','work.tag':'3 flagship cases · 8 more projects',
     'os.label':'AI operating system','os.research':'Research & insight','os.strategy':'Strategy & judgment','os.create':'Agent-assisted creation','os.distribute':'Multi-channel distribution','os.review':'Performance review',
-    'ask.launcher':'Ask Hazel','ask.kicker':'Portfolio copilot','ask.title':'Ask Hazel','ask.subtitle':'Explore my experience, selected projects and AI-native workflow.','ask.placeholder':'Try: What roles fit her best?','ask.note':'Answers use only information published on this portfolio.',
+    'ask.launcher':'HR quick view','ask.kicker':'Recruiter’s view','ask.title':'Get to know Hazel','ask.subtitle':'Review strengths, differentiators, role fit and selected work.','ask.note':'Preset evidence from this portfolio only. No AI model or token usage.',
     'hint.dragExperience':'Drag to explore','hint.dragWork':'Drag to browse · Click a card to view the original',
     'contact.roles':'Growth Strategy · Product PR · Global Content','contact.summary':'Building AI products from zero to one and bringing their stories to global audiences',
     'interest.ai':'Applied AI','interest.computational':'Computational Communication','interest.sociology':'Sociology','interest.psychology':'Psychology',
-    open:'View project',repo:'View GitHub',ownership:'Owned',positions:'positions',previous:'Previous',next:'Next',item:'Project {n}'
+    open:'View project',repo:'Open experience',ownership:'Owned',positions:'positions',previous:'Previous',next:'Next',item:'Project {n}'
   }
 };
 
@@ -1399,50 +1393,42 @@ function syncScroll(){
 }
 (function loop(){ syncScroll(); requestAnimationFrame(loop); })();
 
-/* Ask Hazel：基于本站公开信息的轻量双语问答 */
+/* HR 快速了解：基于本站公开信息的固定证据问答，不调用模型 */
 (function(){
   var launcher=document.getElementById('askLauncher'), panel=document.getElementById('askPanel');
   var closeBtn=document.getElementById('askClose'), messages=document.getElementById('askMessages');
-  var prompts=document.getElementById('askPrompts'), form=document.getElementById('askForm'), input=document.getElementById('askInput');
-  if(!launcher||!panel||!closeBtn||!messages||!prompts||!form||!input) return;
+  var prompts=document.getElementById('askPrompts');
+  if(!launcher||!panel||!closeBtn||!messages||!prompts) return;
 
   var COPY={
     zh:{
-      welcome:'你好，我是 Hazel 的作品集助手。你可以问我她适合什么岗位、如何使用 AI、做过哪些项目，或怎样联系她。',
-      prompts:['她最适合什么岗位？','她如何使用 AI？','最有代表性的项目？','介绍 Odyssey 项目'],
-      jumpWork:'查看作品',jumpExperience:'查看经历',jumpContact:'联系 Hazel',
-      answers:{
-        roles:'Hazel 的优势集中在 AI 产品传播、产品 PR、增长策略与全球内容。她既能做产品和竞品研究，也能把复杂能力转成用户能理解的内容，并继续跟进渠道分发与数据复盘。',
-        ai:'她把 AI 放进完整工作流：研究与信息整理 → 策略判断 → Agent 协作生产 → 多平台适配 → 数据复盘。公开案例中，Agent 工作流将内容生产周期缩短了 60%。',
-        projects:'三个优先阅读的案例是：豆包工作 0→1 冷启动与官宣、AI 直播周、新媒体内容官网。它们分别证明了产品发布、整合传播和 AI 协同开发能力。',
-        odyssey:'Odyssey 是 Hazel 独立完成的 Vibe Coding 作品。她负责概念策划、内容结构、交互设计和 Next.js 开发，将人生坐标选择、同路人匹配与本地收藏做成完整体验。',
-        experience:'她的经历覆盖字节跳动飞书、小红书、海尔集团、中国日报和人民网，形成了产品增长、AI 传播、全球内容与新闻写作的复合能力。',
-        education:'她就读于上海交通大学传播学硕士，本科毕业于中国海洋大学新闻学专业，GPA 3.93，专业排名 1/81。',
-        contact:'可以通过邮箱 xuhaoxuan01@126.com 联系 Hazel，也可以在联系页查看她的微信号。',
-        fallback:'我目前只根据这个作品集回答。你可以换一种问法，询问岗位匹配、AI 工作方式、代表项目、Odyssey、教育经历或联系方式。'
-      }
+      welcome:'以下内容按 HR 快速筛选路径整理，全部来自页面已有经历和作品。请选择一个问题查看。',
+      prompts:[
+        {q:'你擅长什么？',a:'Hazel 擅长把复杂 AI 产品转成市场能理解、愿意采用和传播的内容。能力链条覆盖产品与竞品研究、发布策略、内容策划、多平台分发和数据复盘。',target:'s-home',label:'查看经历'},
+        {q:'你特别的能力有哪些？',a:'她的特别之处是三种能力的组合：一是产品与用户洞察，二是新闻传播与英文内容基本功，三是使用 Agent 和 Vibe Coding 把想法快速做成真实产品。既能做策略，也能亲自完成内容与原型。',target:'s-work',label:'查看能力证据'},
+        {q:'你最适合什么岗位？',a:'优先匹配 AI 产品 PR、产品市场、增长策略、开发者或用户教育内容、全球内容运营。相比纯品牌传播岗位，她更适合需要理解产品并参与增长落地的复合型岗位。',target:'s-home',label:'查看经历'},
+        {q:'哪些项目能证明？',a:'建议重点看三个业务案例：豆包工作 0→1 冷启动、AI 直播周、新媒体内容官网；再看 Odyssey，验证她能独立完成概念、交互与 Vibe Coding 开发。',target:'s-work',label:'查看作品'},
+        {q:'她与普通内容运营有何不同？',a:'她不是只执行内容排期，而是从产品问题和增长目标出发，参与研究、策略、内容生产、分发和复盘；同时能用 AI 工作流提效，并把概念做成可操作网页。',target:'s-work',label:'查看 AI 工作系统'},
+        {q:'可能需要补充了解什么？',a:'面试中建议继续追问：各项业务指标的个人贡献边界、与产品和研发的协作方式、英文口语和海外市场实战，以及更长期的商业化或增长闭环经验。',target:'s-card',label:'联系 Hazel'}
+      ]
     },
     en:{
-      welcome:'Hi, I am Hazel’s portfolio copilot. Ask about role fit, her AI-native workflow, selected projects, Odyssey, or how to contact her.',
-      prompts:['What roles fit her best?','How does she work with AI?','Which projects stand out?','Tell me about Odyssey'],
-      jumpWork:'View work',jumpExperience:'View experience',jumpContact:'Contact Hazel',
-      answers:{
-        roles:'Hazel is strongest at AI product communications, product PR, growth strategy and global content. She combines product research with clear storytelling, multi-channel distribution and performance review.',
-        ai:'Her AI-native workflow connects research and synthesis, strategic judgment, agent-assisted creation, multi-channel adaptation and performance review. One published result shows a 60% reduction in the content production cycle.',
-        projects:'Start with three flagship cases: the 0→1 Doubao Work launch, AI Live Week, and the AI-built content portfolio site. Together they demonstrate product launch, integrated communications and AI-assisted development.',
-        odyssey:'Odyssey is an independent Vibe Coding project by Hazel. She shaped the concept, content architecture, interaction design and Next.js implementation for a life-coordinate selection, guide matching and local collection experience.',
-        experience:'Her experience spans ByteDance Lark, Xiaohongshu, Haier, China Daily and People’s Daily Online, combining product growth, AI communications, global content and journalism.',
-        education:'She is pursuing an M.A. in Communication at Shanghai Jiao Tong University and earned a B.A. in Journalism from Ocean University of China, with a 3.93 GPA and a 1/81 ranking.',
-        contact:'Email Hazel at xuhaoxuan01@126.com, or visit the contact section for her WeChat handle.',
-        fallback:'I answer only from this portfolio. Try asking about role fit, AI workflow, selected work, Odyssey, education, experience or contact details.'
-      }
+      welcome:'This recruiter-oriented view summarizes evidence already published on the portfolio. Select a question to review.',
+      prompts:[
+        {q:'What is she best at?',a:'Hazel is strong at translating complex AI products into stories people understand, adopt and share. Her workflow spans product research, launch strategy, content planning, multi-channel distribution and performance review.',target:'s-home',label:'View experience'},
+        {q:'What makes her distinctive?',a:'Her differentiator is the combination of product and user insight, journalism and English-language storytelling, plus the ability to use agents and Vibe Coding to turn ideas into working products. She can shape strategy and execute the content or prototype herself.',target:'s-work',label:'View evidence'},
+        {q:'Which roles fit her best?',a:'Best-fit roles include AI product communications, product marketing, growth strategy, developer or user education content, and global content operations. She is strongest in hybrid roles that connect product understanding with growth execution.',target:'s-home',label:'View experience'},
+        {q:'Which projects prove it?',a:'Start with the 0→1 Doubao Work launch, AI Live Week and the AI-built content portfolio site. Then review Odyssey as evidence of independent concept design, interaction design and Vibe Coding execution.',target:'s-work',label:'View work'},
+        {q:'How is she different from a content operator?',a:'She works backward from product and growth questions rather than only executing a content calendar. She connects research, strategic judgment, production, distribution and review, and can also build interactive web prototypes.',target:'s-work',label:'View AI workflow'},
+        {q:'What should an interviewer probe?',a:'Useful follow-ups include ownership boundaries behind the published metrics, cross-functional collaboration with product and engineering, spoken English and overseas-market execution, and deeper commercial or growth-loop experience.',target:'s-card',label:'Contact Hazel'}
+      ]
     }
   };
 
   function setOpen(open){
     panel.classList.toggle('open',open); panel.setAttribute('aria-hidden',String(!open));
     launcher.setAttribute('aria-expanded',String(open));
-    if(open){ if(!messages.children.length) addBot(COPY[currentLang].welcome); setTimeout(function(){input.focus();},120); }
+    if(open&&!messages.children.length) addBot(COPY[currentLang].welcome);
   }
   function addMessage(text,type,target,label){
     var box=document.createElement('div'); box.className='ask-msg '+type; box.textContent=text;
@@ -1456,33 +1442,21 @@ function syncScroll(){
     messages.appendChild(box); messages.scrollTop=messages.scrollHeight;
   }
   function addBot(text,target,label){addMessage(text,'bot',target,label);}
-  function answer(raw){
-    var q=(raw||'').trim(); if(!q) return;
-    addMessage(q,'user'); input.value='';
-    var s=q.toLowerCase(), c=COPY[currentLang], key='fallback', target='', label='';
-    if(/岗位|职位|适合|role|position|fit|hire/.test(s)){key='roles';target='s-home';label=c.jumpExperience;}
-    else if(/odyssey|vibe|coding|独立开发|奥德赛/.test(s)){key='odyssey';target='s-work';label=c.jumpWork;}
-    else if(/ai|agent|人工智能|工作流|workflow/.test(s)){key='ai';target='s-work';label=c.jumpWork;}
-    else if(/项目|作品|案例|project|work|case/.test(s)){key='projects';target='s-work';label=c.jumpWork;}
-    else if(/经历|公司|实习|experience|company|intern/.test(s)){key='experience';target='s-home';label=c.jumpExperience;}
-    else if(/教育|学校|学历|education|school|university|gpa/.test(s)){key='education';target='s-home';label=c.jumpExperience;}
-    else if(/联系|邮箱|微信|contact|email|wechat/.test(s)){key='contact';target='s-card';label=c.jumpContact;}
-    window.setTimeout(function(){addBot(c.answers[key],target,label);},180);
+  function choose(item){
+    addMessage(item.q,'user'); window.setTimeout(function(){addBot(item.a,item.target,item.label);},120);
   }
   function renderPrompts(){
-    prompts.innerHTML=''; COPY[currentLang].prompts.forEach(function(text){
-      var b=document.createElement('button'); b.type='button'; b.textContent=text; b.addEventListener('click',function(){answer(text);}); prompts.appendChild(b);
+    prompts.innerHTML=''; COPY[currentLang].prompts.forEach(function(item){
+      var b=document.createElement('button'); b.type='button'; b.textContent=item.q; b.addEventListener('click',function(){choose(item);}); prompts.appendChild(b);
     });
   }
   window.refreshAskHazel=function(){
     renderPrompts(); messages.innerHTML='';
     if(panel.classList.contains('open')) addBot(COPY[currentLang].welcome);
     closeBtn.setAttribute('aria-label',currentLang==='zh'?'关闭':'Close');
-    form.querySelector('button').setAttribute('aria-label',currentLang==='zh'?'发送':'Send');
   };
   launcher.addEventListener('click',function(){setOpen(!panel.classList.contains('open'));});
   closeBtn.addEventListener('click',function(){setOpen(false);});
-  form.addEventListener('submit',function(e){e.preventDefault();answer(input.value);});
   window.addEventListener('keydown',function(e){if(e.key==='Escape'&&panel.classList.contains('open'))setOpen(false);});
   renderPrompts();
 })();
