@@ -718,8 +718,8 @@ body::after{
         <button type="button" data-scroll-target="s-card" data-i18n="hero.contact">联系我</button>
       </div>
       <div class="edu">
-        <div class="e"><b data-i18n="edu.sjtu.school">上海交通大学</b><s data-i18n="edu.sjtu.degree">传播学 · 硕士</s><u data-i18n="edu.sjtu.note">学硕保送</u></div>
-        <div class="e"><b data-i18n="edu.ouc.school">中国海洋大学</b><s data-i18n="edu.ouc.degree">新闻学 · 本科</s><u data-i18n="edu.ouc.note">GPA 3.93 · 专业 1/81</u></div>
+        <div class="e"><b data-i18n="edu.sjtu.school">上海交通大学</b><s data-i18n="edu.sjtu.degree">传播学 · 硕士</s></div>
+        <div class="e"><b data-i18n="edu.ouc.school">中国海洋大学</b><s data-i18n="edu.ouc.degree">新闻学 · 本科</s></div>
       </div>
     </div>
 
@@ -1004,7 +1004,7 @@ function renderCaps(){
   var list=currentLang==='en'?CAPS_EN:CAPS;
   var h='';
   list.forEach(function(c){
-    h += '<div class="capC"><div class="v">'+c.v+'</div><div class="lb">'+c.lb+'</div></div>';
+    h += '<div class="capC"><div class="v">'+c.v+'</div></div>';
   });
   document.getElementById('capL').innerHTML=h;
 }
@@ -1018,7 +1018,7 @@ function renderIntern(){
     h += '<div class="xc'+(i===0?' now':'')+'"><div class="inner">'
        + '<div class="wn">'+it.when+'</div>'
        + '<div class="og">'+it.org+'</div><div class="rl">'+it.role+'</div>'
-       + '<div class="kn"><div class="kv">'+it.hero[0]+'</div><div class="kk">'+it.hero[1]+'</div></div>'
+       + '<div class="kn"><div class="kv">'+it.hero[0]+'</div></div>'
        + '</div></div>';
   });
   document.getElementById('xpGrid').innerHTML=h;
