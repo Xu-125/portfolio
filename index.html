@@ -708,13 +708,11 @@ body::after{
   <!-- ===== 1 ===== -->
   <section class="sec in" id="s-home" data-nav="Profile" data-nav-zh="关于" data-nav-en="Profile">
     <div class="lead rise">
-      <div class="eyebrow" data-i18n="hero.eyebrow">AI 产品传播 × 增长策略</div>
       <h1 class="ttl" data-i18n="name.primary">徐皓萱</h1>
       <div class="sub">
         <span class="lat" data-i18n="name.secondary">Hazel Xu</span>
       </div>
-      <div class="position" data-i18n="hero.position">让复杂的 AI 产品，被市场理解、采用与传播。</div>
-      <p class="promise" data-i18n="hero.promise">连接产品洞察、内容策略与增长落地，做过 AI 产品从 0 到 1 冷启动、全球传播与 Agent 工作流提效。</p>
+      <div class="position" data-i18n="hero.position">AI 产品传播 · 增长策略 · 国际内容</div>
       <div class="hero-actions">
         <button type="button" class="primary" data-scroll-target="s-work" data-i18n="hero.viewWork">查看代表作品</button>
         <button type="button" data-scroll-target="s-card" data-i18n="hero.contact">联系我</button>
@@ -731,14 +729,9 @@ body::after{
     </div>
 
     <div class="xp rise d2">
-      <div class="bh"><h2 data-i18n="section.experience">实习经历</h2><span class="rule"></span><span class="tag" id="xpTag"></span></div>
+      <div class="bh"><h2 data-i18n="section.experience">实习经历</h2><span class="rule"></span></div>
       <div class="axwrap">
         <div class="axview" id="axView"><div class="axrail" id="xpGrid"></div></div>
-        <div class="axhint">
-          <svg viewBox="0 0 24 24"><path d="M8 12h8M8 12l3-3M8 12l3 3"/><path d="M16 12l-3-3M16 12l-3 3"/></svg>
-          <span data-i18n="hint.dragExperience">拖动查看</span>
-          <span class="ln"><i id="axBar"></i></span>
-        </div>
       </div>
     </div>
   </section>
@@ -945,7 +938,7 @@ var I18N = {
   zh:{
     title:'徐皓萱 Hazel Xu',
     'name.primary':'徐皓萱','name.secondary':'Hazel Xu',
-    'hero.eyebrow':'AI 产品传播 × 增长策略','hero.position':'让复杂的 AI 产品，被市场理解、采用与传播。','hero.promise':'连接产品洞察、内容策略与增长落地，做过 AI 产品从 0 到 1 冷启动、全球传播与 Agent 工作流提效。','hero.viewWork':'查看代表作品','hero.contact':'联系我',
+    'hero.eyebrow':'AI 产品传播 × 增长策略','hero.position':'AI 产品传播 · 增长策略 · 国际内容','hero.promise':'','hero.viewWork':'查看代表作品','hero.contact':'联系我',
     'edu.sjtu.school':'上海交通大学','edu.sjtu.degree':'传播学 · 硕士','edu.sjtu.note':'学硕保送',
     'edu.ouc.school':'中国海洋大学','edu.ouc.degree':'新闻学 · 本科','edu.ouc.note':'GPA 3.93 · 专业 1/81',
     'section.experience':'实习经历','section.work':'代表作品','section.contact':'欢迎联系','work.tag':'3 个旗舰案例 · 8 个项目',
@@ -959,7 +952,7 @@ var I18N = {
   en:{
     title:'Hazel Xu | Portfolio',
     'name.primary':'Hazel Xu','name.secondary':'徐皓萱',
-    'hero.eyebrow':'AI Product Communications × Growth Strategy','hero.position':'Turning complex AI products into stories people understand, adopt and share.','hero.promise':'Connecting product insight, content strategy and growth execution across 0→1 AI launches, global communications and agent-powered workflows.','hero.viewWork':'View selected work','hero.contact':'Contact me',
+    'hero.eyebrow':'AI Product Communications × Growth Strategy','hero.position':'AI Product Communications · Growth Strategy · Global Content','hero.promise':'','hero.viewWork':'View selected work','hero.contact':'Contact me',
     'edu.sjtu.school':'Shanghai Jiao Tong University','edu.sjtu.degree':'M.A. in Communication','edu.sjtu.note':'Recommended admission',
     'edu.ouc.school':'Ocean University of China','edu.ouc.degree':'B.A. in Journalism','edu.ouc.note':'GPA 3.93 · Ranked 1/81',
     'section.experience':'Experience','section.work':'Selected Work','section.contact':'Get in touch','work.tag':'3 flagship cases · 8 more projects',
@@ -1011,7 +1004,7 @@ function renderCaps(){
   var list=currentLang==='en'?CAPS_EN:CAPS;
   var h='';
   list.forEach(function(c){
-    h += '<div class="capC"><div class="v">'+c.v+'</div><div class="lb">'+c.lb+'</div><div class="sb">'+c.sb+'</div></div>';
+    h += '<div class="capC"><div class="v">'+c.v+'</div><div class="lb">'+c.lb+'</div></div>';
   });
   document.getElementById('capL').innerHTML=h;
 }
@@ -1026,10 +1019,9 @@ function renderIntern(){
        + '<div class="wn">'+it.when+'</div>'
        + '<div class="og">'+it.org+'</div><div class="rl">'+it.role+'</div>'
        + '<div class="kn"><div class="kv">'+it.hero[0]+'</div><div class="kk">'+it.hero[1]+'</div></div>'
-       + '<div class="more">'+mm+'</div></div></div>';
+       + '</div></div>';
   });
   document.getElementById('xpGrid').innerHTML=h;
-  document.getElementById('xpTag').textContent = list.length+' '+I18N[currentLang].positions;
 }
 
 renderCaps();
