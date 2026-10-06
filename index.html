@@ -1220,6 +1220,27 @@ html[lang="en"] .contact-copy small{font-family:'Times New Roman',Times,serif!im
   .contact-icon{width:34px;height:34px}.contact-copy small{font-size:10px!important}.contact-copy b{font-size:13px}
   .card .contact-grid .wechat-action{grid-template-columns:34px minmax(0,1fr) 16px;min-height:68px;align-self:stretch}
 }
+/* ===== final contact legibility and icon fix ===== */
+.card .cx.contact-grid{display:grid!important;grid-template-columns:1fr!important;gap:8px!important;margin-top:clamp(22px,2.6vh,32px)!important;padding-top:0!important}
+.card .cx.contact-grid .contact-item{width:100%!important;min-height:64px!important;padding:10px 13px!important;grid-template-columns:36px minmax(0,1fr) 18px!important;gap:12px!important;border:1px solid rgba(40,36,49,.09)!important;border-radius:14px!important;text-decoration:none!important}
+.card .cx.contact-grid .contact-icon{display:flex!important;width:36px!important;height:36px!important;padding:0!important;border:0!important;border-radius:11px!important;background:#ebe8f5!important;color:#6556aa!important;flex:none!important}
+.card .cx.contact-grid .contact-icon.wechat-icon{background:#e7f6ee!important;color:#079b50!important}
+.card .cx.contact-grid .contact-icon>svg:not(.wechat-logo){display:block!important;width:18px!important;height:18px!important;fill:none!important;stroke:#6556aa!important;stroke-width:1.8!important;stroke-linecap:round!important;stroke-linejoin:round!important;opacity:1!important;visibility:visible!important}
+.card .cx.contact-grid .contact-icon>svg:not(.wechat-logo) path{fill:none!important;stroke:#6556aa!important}
+.card .cx.contact-grid .contact-icon .wechat-logo{display:block!important;width:19px!important;height:17px!important;opacity:1!important;visibility:visible!important;fill:#079b50!important;stroke:none!important}
+.card .cx.contact-grid .contact-icon .wechat-logo path{fill:#079b50!important;stroke:none!important}.card .cx.contact-grid .contact-icon .wechat-logo circle{fill:#fff!important;stroke:none!important}
+.card .cx.contact-grid .contact-copy{display:flex!important;min-width:0!important;padding:0!important;border:0!important;gap:3px!important;color:#292531!important}
+.card .cx.contact-grid .contact-copy small{font-family:'Noto Sans SC','PingFang SC','Microsoft YaHei',sans-serif!important;font-size:10.5px!important;font-weight:500!important;line-height:1.2!important;letter-spacing:0!important;color:#777181!important}
+html[lang="en"] .card .cx.contact-grid .contact-copy small{font-family:'Times New Roman',Times,serif!important;font-size:12px!important;font-weight:400!important}
+.card .cx.contact-grid .contact-copy b{display:block!important;width:100%!important;max-width:none!important;font-family:'Times New Roman',Times,serif!important;font-size:15px!important;font-weight:400!important;line-height:1.2!important;letter-spacing:0!important;white-space:normal!important;overflow:visible!important;text-overflow:clip!important;overflow-wrap:anywhere!important;color:#292531!important}
+.card .cx.contact-grid .contact-arrow{display:block!important;width:16px!important;height:16px!important;fill:none!important;stroke:#81759e!important;stroke-width:1.7!important;stroke-linecap:round!important;stroke-linejoin:round!important;opacity:.8!important;visibility:visible!important}
+.card .cx.contact-grid .contact-arrow path{fill:none!important;stroke:#81759e!important}
+.card .cx.contact-grid .wechat-action{grid-template-columns:36px minmax(0,1fr) 18px!important;min-height:64px!important}
+@media(max-width:760px){
+  .card .cx.contact-grid{gap:8px!important;margin-top:22px!important}
+  .card .cx.contact-grid .contact-item{min-height:66px!important;padding:10px 12px!important;grid-template-columns:36px minmax(0,1fr) 18px!important}
+  .card .cx.contact-grid .contact-copy b{font-size:14.5px!important;overflow-wrap:anywhere!important}
+}
 </style>
 </head>
 <body>
