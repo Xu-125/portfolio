@@ -1101,6 +1101,24 @@ html:not([lang="en"]) input{
   #s-home.in .lead,#s-home.in .side,.ask-launcher::before,.ask-launcher::after,.ask-launcher svg{animation:none!important}
   .xc.now{transform:none}
 }
+/* ===== contact cleanup and actionable WeChat entry ===== */
+.card .rl{margin-top:clamp(16px,2vh,22px)}
+.card .cx{margin-top:clamp(22px,3vh,34px)}
+.card .cx .wechat-action{
+  appearance:none;border:0;display:inline-grid;grid-template-columns:18px auto;grid-template-rows:auto auto;align-items:center;column-gap:9px;row-gap:2px;
+  padding:9px 13px;border-radius:11px;background:#f1eff5;color:var(--ink-2);text-align:left;cursor:pointer;transition:transform .2s,background .3s,color .3s,box-shadow .3s;
+}
+.card .cx .wechat-action .wechat-logo{grid-column:1;grid-row:1/3;align-self:center}
+.card .cx .wechat-action .wechat-id{grid-column:2;grid-row:1;font-size:12px;line-height:1.25;color:inherit}
+.card .cx .wechat-action .wechat-hint{grid-column:2;grid-row:2;font-size:9.5px;line-height:1.3;font-weight:400;color:var(--ink-4);white-space:normal}
+.card .cx .wechat-action:hover{background:#e9f7ef;color:#176b39;box-shadow:0 10px 24px -20px rgba(7,193,96,.6)}
+.card .cx .wechat-action:active{transform:scale(.98)}
+.card .cx .wechat-action.copied{background:#e6f8ed;color:#087f3d}.card .cx .wechat-action.copied .wechat-hint{color:#087f3d}
+@media(max-width:760px){
+  .card .rl{margin-top:17px;padding-top:15px}.card .cx{margin-top:23px}
+  .card .cx .wechat-action{width:100%;min-height:58px;padding:10px 14px}
+  .card .cx .wechat-action .wechat-id{font-size:13px}.card .cx .wechat-action .wechat-hint{font-size:11px}
+}
 </style>
 </head>
 <body>
@@ -1190,11 +1208,7 @@ html:not([lang="en"]) input{
         <div class="cr">
           <div class="nm" data-i18n="name.primary">徐皓萱</div>
           <div class="lt" data-i18n="name.secondary">Hazel Xu</div>
-          <p class="rl"><span data-i18n="contact.roles">增长策略运营 · 产品 PR · 出海内容</span><em data-i18n="contact.summary">做过 AI 产品从 0 到 1 的冷启动与全球传播</em></p>
-          <div class="iv">
-            <div class="il">Interested In</div>
-            <div class="ic"><span data-i18n="interest.ai">AI 实践</span><span data-i18n="interest.computational">计算传播</span><span data-i18n="interest.sociology">社会学</span><span data-i18n="interest.psychology">心理学</span></div>
-          </div>
+          <p class="rl"><span data-i18n="contact.roles">AI 产品、增长策略、国际传播</span></p>
           <div class="cx">
             <a href="mailto:xuhaoxuan01@126.com">
               <svg viewBox="0 0 24 24"><path d="M3 6h18v12H3z"/><path d="M3 7l9 6 9-6"/></svg>
@@ -1204,14 +1218,15 @@ html:not([lang="en"]) input{
               <svg viewBox="0 0 24 24"><path d="M3 6h18v12H3z"/><path d="M3 7l9 6 9-6"/></svg>
               xuhaoxuan@sjtu.edu.cn
             </a>
-            <span>
-              <svg class="wechat-logo" viewBox="0 0 28 24" aria-label="微信">
+            <button class="wechat-action" id="wechatAction" type="button" aria-label="复制微信号并打开微信">
+              <svg class="wechat-logo" viewBox="0 0 28 24" aria-hidden="true">
                 <path d="M11.2 2C5.02 2 0 5.9 0 10.7c0 2.75 1.66 5.19 4.24 6.79l-.86 3.17 3.64-1.84c1.31.39 2.73.59 4.18.59.45 0 .9-.02 1.33-.06a7.45 7.45 0 0 1-.35-2.23c0-4.62 4.16-8.37 9.28-8.37.3 0 .6.01.89.04C21.17 4.92 16.69 2 11.2 2Z"/>
                 <path d="M28 17.12c0-3.83-4.05-6.93-9.05-6.93s-9.05 3.1-9.05 6.93 4.05 6.93 9.05 6.93c1.21 0 2.37-.18 3.42-.5l2.97 1.5-.7-2.58C26.69 21.2 28 19.29 28 17.12Z"/>
                 <circle cx="7.2" cy="9.1" r="1.05"/><circle cx="15.1" cy="9.1" r="1.05"/><circle cx="15.8" cy="16.25" r=".9"/><circle cx="22.1" cy="16.25" r=".9"/>
               </svg>
-              XuHxx1250
-            </span>
+              <span class="wechat-id">XuHxx1250</span>
+              <small class="wechat-hint" id="wechatHint" data-i18n="wechat.hint">点击复制并打开微信</small>
+            </button>
           </div>
         </div>
       </div>
@@ -1367,8 +1382,8 @@ var I18N = {
     'os.label':'AI 工作系统','os.research':'研究与洞察','os.strategy':'策略与判断','os.create':'Agent 协作生产','os.distribute':'多平台分发','os.review':'数据复盘',
     'ask.launcher':'快速了解','ask.kicker':'Hazel at a glance','ask.title':'快速了解','ask.subtitle':'从六个侧面了解我的能力、思考方式与作品。',
     'hint.dragExperience':'按住并横向拖动，查看全部经历','hint.dragWork':'拖动切换 · 点击卡片打开原文',
-    'contact.roles':'增长策略运营 · 产品 PR · 出海内容','contact.summary':'做过 AI 产品从 0 到 1 的冷启动与全球传播',
-    'interest.ai':'AI 实践','interest.computational':'计算传播','interest.sociology':'社会学','interest.psychology':'心理学',
+    'contact.roles':'AI 产品、增长策略、国际传播',
+    'wechat.hint':'点击复制并打开微信','wechat.copied':'微信号已复制，请在添加朋友中粘贴',
     open:'打开原文',repo:'打开互动体验',ownership:'个人负责',positions:'个职位',previous:'上一个',next:'下一个',item:'第 {n} 个'
   },
   en:{
@@ -1381,8 +1396,8 @@ var I18N = {
     'os.label':'AI operating system','os.research':'Research & insight','os.strategy':'Strategy & judgment','os.create':'Agent-assisted creation','os.distribute':'Multi-channel distribution','os.review':'Performance review',
     'ask.launcher':'Quick view','ask.kicker':'Hazel at a glance','ask.title':'Quick view','ask.subtitle':'Six perspectives on my capabilities, thinking and work.',
     'hint.dragExperience':'Hold and drag horizontally to view all roles','hint.dragWork':'Drag to browse · Click a card to view the original',
-    'contact.roles':'Growth Strategy · Product PR · Global Content','contact.summary':'Building AI products from zero to one and bringing their stories to global audiences',
-    'interest.ai':'Applied AI','interest.computational':'Computational Communication','interest.sociology':'Sociology','interest.psychology':'Psychology',
+    'contact.roles':'AI Products · Growth Strategy · Global Communications',
+    'wechat.hint':'Copy WeChat ID and open WeChat','wechat.copied':'WeChat ID copied. Paste it in Add Contacts.',
     open:'View project',repo:'Open experience',ownership:'Owned',positions:'positions',previous:'Previous',next:'Next',item:'Project {n}'
   }
 };
@@ -1947,6 +1962,27 @@ function syncScroll(){
   closeBtn.addEventListener('click',function(){setOpen(false);});
   window.addEventListener('keydown',function(e){if(e.key==='Escape'&&panel.classList.contains('open'))setOpen(false);});
   renderPrompts();
+})();
+
+/* 微信：复制微信号，并尝试唤起客户端 */
+(function(){
+  var btn=document.getElementById('wechatAction'), hint=document.getElementById('wechatHint');
+  if(!btn||!hint)return;
+  var wechatId='XuHxx1250', resetTimer=0;
+  function fallbackCopy(text){
+    var ta=document.createElement('textarea');ta.value=text;ta.setAttribute('readonly','');
+    ta.style.position='fixed';ta.style.opacity='0';document.body.appendChild(ta);ta.select();
+    try{document.execCommand('copy');}catch(err){}document.body.removeChild(ta);
+  }
+  function showCopied(){
+    btn.classList.add('copied');hint.textContent=I18N[currentLang]['wechat.copied'];
+    clearTimeout(resetTimer);resetTimer=setTimeout(function(){btn.classList.remove('copied');hint.textContent=I18N[currentLang]['wechat.hint'];},4200);
+  }
+  btn.addEventListener('click',function(){
+    var copied=navigator.clipboard&&window.isSecureContext?navigator.clipboard.writeText(wechatId):Promise.resolve(fallbackCopy(wechatId));
+    copied.catch(function(){fallbackCopy(wechatId);}).then(showCopied);
+    window.setTimeout(function(){window.location.href='weixin://';},90);
+  });
 })();
 
 window.addEventListener('keydown', function(e){
