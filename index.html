@@ -1192,6 +1192,30 @@ html[lang="en"] .card .rl,html[lang="en"] .card .nm,html[lang="en"] #s-card .bh 
   .card .cl::before{inset:12% 18%;box-shadow:0 0 0 17px rgba(111,90,198,.032),0 0 0 34px rgba(69,177,183,.022)}
   .card .cx .wechat-action{width:auto;min-height:44px;align-self:flex-start;padding:9px 12px}.card .cx .wechat-action .wechat-id{font-size:13px}
 }
+/* ===== unified contact method cards ===== */
+.card .contact-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:clamp(24px,3vh,36px);padding-top:0}
+.card .contact-grid .contact-item{
+  position:relative;min-width:0;min-height:88px;padding:14px 13px!important;border:1px solid rgba(40,36,49,.08)!important;border-radius:15px!important;background:#f7f6fa!important;color:#2d2934!important;
+  display:grid!important;grid-template-columns:30px minmax(0,1fr) 15px;align-items:center;gap:10px;text-align:left;transition:transform .25s cubic-bezier(.22,1,.36,1),background .25s,border-color .25s!important;
+}
+.card .contact-grid .contact-item:hover{transform:translateY(-3px);background:#f0edf8!important;border-color:rgba(111,90,198,.2)!important;color:#2d2934!important;box-shadow:none!important}
+.contact-icon{width:30px;height:30px;border-radius:10px;display:flex;align-items:center;justify-content:center;background:#ece9f5;color:#6556aa}
+.contact-icon svg{width:14px!important;height:14px!important}.contact-icon.wechat-icon{background:#e8f6ee}
+.contact-copy{min-width:0;display:flex!important;flex-direction:column;align-items:flex-start!important;gap:4px!important;color:inherit!important;background:none!important;padding:0!important;border:0!important}
+.contact-copy small{font-family:'Noto Sans SC','PingFang SC',sans-serif!important;font-size:9px!important;line-height:1.2;color:rgba(40,36,49,.5)!important;letter-spacing:.02em!important}
+html[lang="en"] .contact-copy small{font-family:'Times New Roman',Times,serif!important;font-size:10px!important}
+.contact-copy b{max-width:100%;font-family:'Times New Roman',Times,serif;font-size:11.5px;font-weight:400;line-height:1.25;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:#292531}
+.contact-arrow{width:13px!important;height:13px!important;color:rgba(40,36,49,.42);transition:transform .25s,color .25s}.contact-item:hover .contact-arrow{transform:translate(2px,-2px);color:#6556aa}
+.card .contact-grid .wechat-action{width:100%;grid-template-columns:30px minmax(0,1fr) 15px;grid-template-rows:1fr}
+.card .contact-grid .wechat-action .contact-icon{grid-column:1;grid-row:1}.card .contact-grid .wechat-action .contact-copy{grid-column:2;grid-row:1}.card .contact-grid .wechat-action .contact-arrow{grid-column:3;grid-row:1}
+.card .contact-grid .wechat-hint{position:absolute;left:50%;bottom:calc(100% + 7px);transform:translate(-50%,5px);width:max-content;max-width:240px;padding:6px 9px;border-radius:8px;background:#24212d;color:#fff;font-family:'Noto Sans SC','PingFang SC',sans-serif;font-size:10px;line-height:1.3;opacity:0;pointer-events:none;transition:opacity .22s,transform .22s}
+.card .contact-grid .wechat-action.copied{background:#edf8f2!important;border-color:rgba(7,193,96,.18)!important}.card .contact-grid .wechat-action.copied .wechat-hint{opacity:1;transform:translate(-50%,0);background:#177444}
+@media(max-width:760px){
+  .card .contact-grid{grid-template-columns:1fr;gap:8px;margin-top:24px}
+  .card .contact-grid .contact-item{width:100%;min-height:68px;padding:11px 13px!important;border-radius:14px!important;grid-template-columns:34px minmax(0,1fr) 16px}
+  .contact-icon{width:34px;height:34px}.contact-copy small{font-size:10px!important}.contact-copy b{font-size:13px}
+  .card .contact-grid .wechat-action{grid-template-columns:34px minmax(0,1fr) 16px;min-height:68px;align-self:stretch}
+}
 </style>
 </head>
 <body>
@@ -1282,23 +1306,26 @@ html[lang="en"] .card .rl,html[lang="en"] .card .nm,html[lang="en"] #s-card .bh 
           <div class="nm" data-i18n="name.primary">徐皓萱</div>
           <div class="lt" data-i18n="name.secondary">Hazel Xu</div>
           <p class="rl"><span data-i18n="contact.roles">AI 产品、增长策略、国际传播</span></p>
-          <div class="cx">
-            <a href="mailto:xuhaoxuan01@126.com">
-              <svg viewBox="0 0 24 24"><path d="M3 6h18v12H3z"/><path d="M3 7l9 6 9-6"/></svg>
-              xuhaoxuan01@126.com
+          <div class="cx contact-grid">
+            <a class="contact-item" href="mailto:xuhaoxuan01@126.com">
+              <span class="contact-icon"><svg viewBox="0 0 24 24"><path d="M3 6h18v12H3z"/><path d="M3 7l9 6 9-6"/></svg></span>
+              <span class="contact-copy"><small data-i18n="contact.email.personal">个人邮箱</small><b>xuhaoxuan01@126.com</b></span>
+              <svg class="contact-arrow" viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg>
             </a>
-            <a href="mailto:xuhaoxuan@sjtu.edu.cn">
-              <svg viewBox="0 0 24 24"><path d="M3 6h18v12H3z"/><path d="M3 7l9 6 9-6"/></svg>
-              xuhaoxuan@sjtu.edu.cn
+            <a class="contact-item" href="mailto:xuhaoxuan@sjtu.edu.cn">
+              <span class="contact-icon"><svg viewBox="0 0 24 24"><path d="M3 6h18v12H3z"/><path d="M3 7l9 6 9-6"/></svg></span>
+              <span class="contact-copy"><small data-i18n="contact.email.sjtu">交大邮箱</small><b>xuhaoxuan@sjtu.edu.cn</b></span>
+              <svg class="contact-arrow" viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg>
             </a>
-            <button class="wechat-action" id="wechatAction" type="button" aria-label="复制微信号并打开微信">
-              <svg class="wechat-logo" viewBox="0 0 28 24" aria-hidden="true">
+            <button class="contact-item wechat-action" id="wechatAction" type="button" aria-label="复制微信号并打开微信">
+              <span class="contact-icon wechat-icon"><svg class="wechat-logo" viewBox="0 0 28 24" aria-hidden="true">
                 <path d="M11.2 2C5.02 2 0 5.9 0 10.7c0 2.75 1.66 5.19 4.24 6.79l-.86 3.17 3.64-1.84c1.31.39 2.73.59 4.18.59.45 0 .9-.02 1.33-.06a7.45 7.45 0 0 1-.35-2.23c0-4.62 4.16-8.37 9.28-8.37.3 0 .6.01.89.04C21.17 4.92 16.69 2 11.2 2Z"/>
                 <path d="M28 17.12c0-3.83-4.05-6.93-9.05-6.93s-9.05 3.1-9.05 6.93 4.05 6.93 9.05 6.93c1.21 0 2.37-.18 3.42-.5l2.97 1.5-.7-2.58C26.69 21.2 28 19.29 28 17.12Z"/>
                 <circle cx="7.2" cy="9.1" r="1.05"/><circle cx="15.1" cy="9.1" r="1.05"/><circle cx="15.8" cy="16.25" r=".9"/><circle cx="22.1" cy="16.25" r=".9"/>
-              </svg>
-              <span class="wechat-id">XuHxx1250</span>
-              <small class="wechat-hint" id="wechatHint" data-i18n="wechat.hint">点击复制并打开微信</small>
+              </svg></span>
+              <span class="contact-copy"><small data-i18n="contact.wechat">微信</small><b>XuHxx1250</b></span>
+              <svg class="contact-arrow" viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg>
+              <span class="wechat-hint" id="wechatHint" data-i18n="wechat.hint">点击复制并打开微信</span>
             </button>
           </div>
         </div>
@@ -1456,6 +1483,7 @@ var I18N = {
     'ask.launcher':'快速了解','ask.kicker':'Hazel at a glance','ask.title':'快速了解','ask.subtitle':'从六个侧面了解我的能力、思考方式与作品。',
     'hint.dragExperience':'按住并横向拖动，查看全部经历','hint.dragWork':'拖动切换 · 点击卡片打开原文',
     'contact.roles':'AI 产品、增长策略、国际传播',
+    'contact.email.personal':'个人邮箱','contact.email.sjtu':'交大邮箱','contact.wechat':'微信',
     'wechat.hint':'点击复制并打开微信','wechat.copied':'微信号已复制，请在添加朋友中粘贴',
     open:'打开原文',repo:'打开互动体验',ownership:'个人负责',positions:'个职位',previous:'上一个',next:'下一个',item:'第 {n} 个'
   },
@@ -1470,6 +1498,7 @@ var I18N = {
     'ask.launcher':'Quick view','ask.kicker':'Hazel at a glance','ask.title':'Quick view','ask.subtitle':'Six perspectives on my capabilities, thinking and work.',
     'hint.dragExperience':'Hold and drag horizontally to view all roles','hint.dragWork':'Drag to browse · Click a card to view the original',
     'contact.roles':'AI Products · Growth Strategy · Global Communications',
+    'contact.email.personal':'Personal email','contact.email.sjtu':'SJTU email','contact.wechat':'WeChat',
     'wechat.hint':'Copy WeChat ID and open WeChat','wechat.copied':'WeChat ID copied. Paste it in Add Contacts.',
     open:'View project',repo:'Open experience',ownership:'Owned',positions:'positions',previous:'Previous',next:'Next',item:'Project {n}'
   }
