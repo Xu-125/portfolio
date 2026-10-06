@@ -1200,7 +1200,11 @@ html[lang="en"] .card .rl,html[lang="en"] .card .nm,html[lang="en"] #s-card .bh 
 }
 .card .contact-grid .contact-item:hover{transform:translateY(-3px);background:#f0edf8!important;border-color:rgba(111,90,198,.2)!important;color:#2d2934!important;box-shadow:none!important}
 .contact-icon{width:30px;height:30px;border-radius:10px;display:flex;align-items:center;justify-content:center;background:#ece9f5;color:#6556aa}
-.contact-icon svg{width:14px!important;height:14px!important}.contact-icon.wechat-icon{background:#e8f6ee}
+.contact-icon>svg:not(.wechat-logo),.contact-arrow{display:block;fill:none!important;stroke:currentColor!important;stroke-width:1.65!important;stroke-linecap:round!important;stroke-linejoin:round!important}
+.contact-icon>svg:not(.wechat-logo) path,.contact-arrow path{fill:none!important;stroke:currentColor!important}
+.contact-icon>svg:not(.wechat-logo){width:15px!important;height:15px!important}.contact-icon.wechat-icon{background:#e8f6ee;color:#07a654}
+.contact-icon .wechat-logo{display:block;width:17px!important;height:15px!important;fill:#07a654!important;stroke:none!important;overflow:visible}
+.contact-icon .wechat-logo path{fill:#07a654!important;stroke:none!important}.contact-icon .wechat-logo circle{fill:#fff!important;stroke:none!important}
 .contact-copy{min-width:0;display:flex!important;flex-direction:column;align-items:flex-start!important;gap:4px!important;color:inherit!important;background:none!important;padding:0!important;border:0!important}
 .contact-copy small{font-family:'Noto Sans SC','PingFang SC',sans-serif!important;font-size:9px!important;line-height:1.2;color:rgba(40,36,49,.5)!important;letter-spacing:.02em!important}
 html[lang="en"] .contact-copy small{font-family:'Times New Roman',Times,serif!important;font-size:10px!important}
@@ -1314,7 +1318,7 @@ html[lang="en"] .contact-copy small{font-family:'Times New Roman',Times,serif!im
             </a>
             <a class="contact-item" href="mailto:xuhaoxuan@sjtu.edu.cn">
               <span class="contact-icon"><svg viewBox="0 0 24 24"><path d="M3 6h18v12H3z"/><path d="M3 7l9 6 9-6"/></svg></span>
-              <span class="contact-copy"><small data-i18n="contact.email.sjtu">交大邮箱</small><b>xuhaoxuan@sjtu.edu.cn</b></span>
+              <span class="contact-copy"><small data-i18n="contact.email.sjtu">学校邮箱</small><b>xuhaoxuan@sjtu.edu.cn</b></span>
               <svg class="contact-arrow" viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg>
             </a>
             <button class="contact-item wechat-action" id="wechatAction" type="button" aria-label="复制微信号并打开微信">
@@ -1483,7 +1487,7 @@ var I18N = {
     'ask.launcher':'快速了解','ask.kicker':'Hazel at a glance','ask.title':'快速了解','ask.subtitle':'从六个侧面了解我的能力、思考方式与作品。',
     'hint.dragExperience':'按住并横向拖动，查看全部经历','hint.dragWork':'拖动切换 · 点击卡片打开原文',
     'contact.roles':'AI 产品、增长策略、国际传播',
-    'contact.email.personal':'个人邮箱','contact.email.sjtu':'交大邮箱','contact.wechat':'微信',
+    'contact.email.personal':'个人邮箱','contact.email.sjtu':'学校邮箱','contact.wechat':'微信',
     'wechat.hint':'点击复制并打开微信','wechat.copied':'微信号已复制，请在添加朋友中粘贴',
     open:'打开原文',repo:'打开互动体验',ownership:'个人负责',positions:'个职位',previous:'上一个',next:'下一个',item:'第 {n} 个'
   },
@@ -1498,7 +1502,7 @@ var I18N = {
     'ask.launcher':'Quick view','ask.kicker':'Hazel at a glance','ask.title':'Quick view','ask.subtitle':'Six perspectives on my capabilities, thinking and work.',
     'hint.dragExperience':'Hold and drag horizontally to view all roles','hint.dragWork':'Drag to browse · Click a card to view the original',
     'contact.roles':'AI Products · Growth Strategy · Global Communications',
-    'contact.email.personal':'Personal email','contact.email.sjtu':'SJTU email','contact.wechat':'WeChat',
+    'contact.email.personal':'Personal email','contact.email.sjtu':'School email','contact.wechat':'WeChat',
     'wechat.hint':'Copy WeChat ID and open WeChat','wechat.copied':'WeChat ID copied. Paste it in Add Contacts.',
     open:'View project',repo:'Open experience',ownership:'Owned',positions:'positions',previous:'Previous',next:'Next',item:'Project {n}'
   }
