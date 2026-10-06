@@ -1911,16 +1911,16 @@ function syncScroll(){
   }
   function addEvidence(box,indexes){
     if(!indexes||!indexes.length)return;
-    var list=currentLang==='en'?WORK_EN:WORK;
+    var copyList=currentLang==='en'?WORK_EN:WORK;
     var wrap=document.createElement('div');wrap.className='ask-evidence';
     indexes.forEach(function(index){
-      var p=list[index];if(!p)return;
-      var card=document.createElement('a');card.className='evidence-card';card.href=p.u;card.target='_blank';card.rel='noopener';
-      var img=document.createElement('img');img.src=p.img;img.alt=p.t;
-      var copy=document.createElement('span');
-      var title=document.createElement('b');title.textContent=p.t;
-      var meta=document.createElement('small');meta.innerHTML='<span class="metric">'+p.big+'</span> · '+p.bigK;
-      copy.appendChild(title);copy.appendChild(meta);card.appendChild(img);card.appendChild(copy);wrap.appendChild(card);
+      var base=WORK[index], copy=copyList[index];if(!base||!copy)return;
+      var card=document.createElement('a');card.className='evidence-card';card.href=base.u;card.target='_blank';card.rel='noopener';
+      var img=document.createElement('img');img.src=base.img;img.alt=copy.t;
+      var text=document.createElement('span');
+      var title=document.createElement('b');title.textContent=copy.t;
+      var meta=document.createElement('small');meta.innerHTML='<span class="metric">'+copy.big+'</span> · '+copy.bigK;
+      text.appendChild(title);text.appendChild(meta);card.appendChild(img);card.appendChild(text);wrap.appendChild(card);
     });
     box.appendChild(wrap);
   }
