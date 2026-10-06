@@ -990,6 +990,68 @@ html:not([lang="en"]) input{
   .fc{width:min(84vw,286px);margin-left:calc(min(84vw,286px) / -2)}
   .dotrow button{width:38px}
 }
+/* ===== mobile redesign: calm hierarchy, generous rhythm ===== */
+@media(max-width:760px){
+  html,body{width:100%;min-width:0;overflow:hidden;background:#fbfafc}
+  .scroller{height:100dvh;overflow-y:auto;overflow-x:hidden;scroll-snap-type:none;padding-bottom:env(safe-area-inset-bottom)}
+  .sec{height:auto;min-height:100dvh;overflow:hidden;scroll-snap-align:none;padding-left:20px;padding-right:20px}
+  .sec + .sec{border-top:1px solid rgba(40,36,49,.07)}
+
+  .top{top:max(8px,env(safe-area-inset-top));width:calc(100% - 24px);min-height:58px;padding:5px 6px 5px 8px;border-radius:18px}
+  .top .lang-switch{padding:2px;margin-right:auto}.top .lang-switch button{min-width:44px;min-height:44px;font-size:11px}
+  .top nav{min-width:0;gap:0;justify-content:flex-end}.top nav button{min-width:44px;min-height:44px;padding:7px 4px;font-size:10px}
+
+  #s-home{padding-top:calc(88px + env(safe-area-inset-top));padding-bottom:44px;display:flex;flex-direction:column;gap:0}
+  #s-home::before{top:calc(72px + env(safe-area-inset-top));height:calc(100% - 88px - env(safe-area-inset-top));left:10px;right:10px;border-radius:28px;background:#f5f2fb!important}
+  #s-home::after{width:82vw;height:82vw;right:-46vw;top:8vh;opacity:.42}
+  .lead{padding:8px 6px 0;display:block}.lead .ttl{font-size:48px!important;line-height:.94!important;letter-spacing:-.075em!important}
+  .lead .sub{margin-top:13px}.lead .sub .lat{font-size:14px;color:#6a58c2}
+  .lead .position{max-width:310px;font-size:20px;line-height:1.45;margin-top:22px;color:#37323f}.lead .position::after{width:6px;height:6px;margin-left:7px}
+  .hero-actions{margin-top:23px;gap:9px}.hero-actions a,.hero-actions button{min-height:46px;padding:11px 18px;font-size:12px;border-radius:14px}
+
+  .edu{margin-top:30px;gap:0;border-top:1px solid rgba(40,36,49,.09)}
+  .edu .e{grid-template-columns:30px minmax(0,1fr);grid-template-rows:auto auto;column-gap:11px;row-gap:2px;width:100%;min-height:68px;padding:13px 0;background:none;border-radius:0;border-bottom:1px solid rgba(40,36,49,.09)}
+  .edu .e b{grid-column:2;grid-row:1;font-size:17px;line-height:1.35}.edu .e s{grid-column:2;grid-row:2;font-size:13px;margin:0;color:rgba(40,36,49,.52)}
+  .school-mark[src*="logo-sjtu"]{width:23px;height:23px;grid-row:1/3;align-self:center}.school-mark[src*="logo-ouc"]{width:28px;height:28px;grid-row:1/3;align-self:center}
+
+  .side{display:flex;width:100%;padding:30px 6px 0;gap:22px;align-items:stretch;transform:none!important}
+  .side::before,.side::after{display:none}.side .pf{order:1;flex:0 0 42%;width:auto;max-width:none;min-width:0;border-radius:24px;align-self:stretch;display:flex;align-items:flex-end;background:#ebe8f5!important}
+  .side .pf img{width:100%;height:100%;min-height:225px;max-height:265px;object-fit:contain;object-position:center bottom}
+  .caps{order:2;flex:1;width:auto;min-width:0;max-width:none;border-top:0;display:flex;flex-direction:column;justify-content:center;gap:0}
+  .capC{grid-template-columns:27px minmax(0,1fr)!important;grid-template-rows:auto auto;column-gap:9px;row-gap:2px;min-height:72px;padding:12px 0;border:0;border-bottom:1px solid rgba(40,36,49,.09);background:none;border-radius:0}
+  .capC:first-child{border-top:1px solid rgba(40,36,49,.09)}.cap-icon{grid-column:1;grid-row:1/3;width:25px;height:25px;align-self:center}
+  .capC .lb{grid-column:2;grid-row:1;font-size:13px;line-height:1.35;color:#393441}.capC .v{grid-column:2;grid-row:2;font-size:28px;line-height:1.05;text-align:left;justify-self:start;color:#6b58c7}
+
+  .xp{padding:36px 6px 0;gap:14px}.xp .bh h2{font-size:22px}.xp-guide{height:42px;margin-top:-48px;align-self:flex-end;position:relative;z-index:2}
+  .xp-guide-icon{width:42px;height:42px;border-radius:14px;background:#ede9f8;color:#6a58c2}.axwrap{border-radius:22px;background:rgba(255,255,255,.78)}
+  .axview{overflow-x:auto;overflow-y:hidden;padding-bottom:4px;scroll-snap-type:x proximity}.axrail{padding-top:23px;height:auto;align-items:stretch}
+  .xc{flex:0 0 min(78vw,278px);scroll-snap-align:start;padding-left:18px;padding-right:18px}.xc .inner{padding-top:16px;padding-bottom:18px}
+  .xc .wn{font-size:12px}.xc .og,.xc.now .og{font-size:20px;line-height:1.3}.xc .rl{font-size:13px;margin-top:6px}.xc .kn{margin-top:14px}.xc .kn .kv,.xc.now .kn .kv{font-size:34px}.xc .kn .kk{font-size:13px;margin-top:7px}.xc .more{display:none!important}.axhint{display:none}
+
+  #s-work{padding-top:calc(88px + env(safe-area-inset-top));padding-bottom:34px;min-height:100dvh;background:#f1eff5}#s-work .bh h2{font-size:22px}
+  .wwrap{gap:10px}.wwrap::before{content:'左右滑动切换 · 点击卡片打开';top:5px;max-width:calc(100% - 8px);padding:8px 13px;font-size:11px;border-radius:14px}
+  html[lang="en"] .wwrap::before{content:'Swipe to browse · tap the card to open'}
+  .stage{min-height:500px;margin-top:34px;perspective:1200px;touch-action:pan-y}.stage::before{width:430px;height:260px;opacity:.6}
+  .fc{width:min(82vw,310px);height:430px;margin-left:calc(min(82vw,310px) / -2);margin-top:-215px}.fc .face{border-radius:24px}.fc .shot{flex-basis:57%}
+  .fc .meta{padding:17px 18px 16px}.fc .og{font-size:12px}.fc h3{font-size:21px;line-height:1.25;margin-top:7px}.fc .bg{margin-top:13px}.fc .bg .v{font-size:34px}.fc .bg .k{font-size:12px}.fc .open{min-height:44px;padding-top:10px}.fc .open span{font-size:12px}.fc .open .ic{width:34px;height:34px}
+  .wfoot{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:12px;padding-top:14px}.wnow{grid-column:1;grid-row:1}.wnow .l1{font-size:10px}.wnow .l2{font-size:16px;line-height:1.35;white-space:normal}
+  .dotrow{display:none}.wnav{grid-column:2;grid-row:1;gap:8px}.wnav .cnt{font-size:12px}.wnav button.ar{width:44px;height:44px}.whint{display:none}
+
+  #s-card{padding-top:calc(88px + env(safe-area-inset-top));padding-bottom:calc(36px + env(safe-area-inset-bottom));justify-content:flex-start}#s-card::before{top:calc(72px + env(safe-area-inset-top));bottom:16px;left:10px;right:10px;border-radius:28px}
+  #s-card .bh{margin-bottom:22px}#s-card .bh h2{font-size:22px}.cwrap{align-items:flex-start;padding-bottom:0}.card{width:100%;grid-template-columns:1fr;border-radius:24px;box-shadow:none}
+  .card .cl{max-height:none;padding:24px 24px 0;border-bottom:0;background:#e8e3f7}.card .cl img{width:142px;max-height:none}.card .cr{padding:23px}
+  .card .nm{font-size:36px}.card .lt{font-size:13px}.card .rl{font-size:15px;line-height:1.62;margin-top:18px;padding-top:16px}.card .iv{margin-top:18px}.card .iv .il{font-size:12px}.card .iv .ic{gap:7px}.card .iv .ic span{font-size:13px;padding:8px 10px}
+  .card .cx{margin-top:22px;padding-top:0;flex-direction:column;align-items:stretch;gap:8px}.card .cx a,.card .cx span{width:100%;min-height:48px;font-size:13px;justify-content:flex-start;padding:12px 14px;white-space:normal;overflow-wrap:anywhere}
+
+  .ask-launcher{right:14px;bottom:calc(14px + env(safe-area-inset-bottom));min-width:50px;width:50px;min-height:50px;height:50px;padding:0;border-radius:50%}.ask-launcher span{display:none}.ask-launcher svg{width:17px;height:17px}
+  .ask-panel{left:10px;right:10px;bottom:calc(74px + env(safe-area-inset-bottom));width:auto;height:min(680px,calc(100dvh - 96px - env(safe-area-inset-top) - env(safe-area-inset-bottom)));border-radius:24px}
+  .ask-head{padding:18px}.ask-head h2{font-size:24px}.ask-head p{font-size:13px}.ask-messages{padding:16px 18px}.ask-msg{font-size:14px;line-height:1.62}.ask-prompts{padding:0 18px 12px}.ask-prompts button{min-height:44px;font-size:12px}.ask-form{padding:12px 18px 16px}.ask-form input{height:48px;font-size:16px}.ask-form button{width:48px;height:48px}.ask-note{font-size:11px}
+}
+@media(max-width:360px){
+  .sec{padding-left:16px;padding-right:16px}.lead .ttl{font-size:43px!important}.lead .position{font-size:18px}
+  .side{gap:15px}.side .pf{flex-basis:40%}.side .pf img{min-height:210px}.capC{min-height:68px}.capC .v{font-size:25px}
+  .top nav button{min-width:42px;font-size:9px}.top .lang-switch button{min-width:42px}.fc{width:min(86vw,296px);margin-left:calc(min(86vw,296px) / -2)}
+}
 </style>
 </head>
 <body>
