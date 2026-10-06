@@ -1052,6 +1052,55 @@ html:not([lang="en"]) input{
   .side{gap:15px}.side .pf{flex-basis:40%}.side .pf img{min-height:210px}.capC{min-height:68px}.capC .v{font-size:25px}
   .top nav button{min-width:42px;font-size:9px}.top .lang-switch button{min-width:42px}.fc{width:min(86vw,296px);margin-left:calc(min(86vw,296px) / -2)}
 }
+/* ===== mobile typography and interaction polish ===== */
+@media(max-width:760px){
+  html:not([lang="en"]) body,
+  html:not([lang="en"]) button,
+  html:not([lang="en"]) input{
+    font-family:'Noto Sans SC','PingFang SC','Microsoft YaHei',sans-serif;
+    letter-spacing:-.018em;
+  }
+  html:not([lang="en"]) .lat,
+  html:not([lang="en"]) .ai-tnr,
+  html:not([lang="en"]) .capC .v,
+  html:not([lang="en"]) .xc .wn,
+  html:not([lang="en"]) .xc .kn .kv,
+  html:not([lang="en"]) .fc .bg .v,
+  html:not([lang="en"]) .wnav .cnt,
+  html:not([lang="en"]) .card .lt,
+  html:not([lang="en"]) .card .cx,
+  html:not([lang="en"]) .edu .e s{
+    font-family:'Times New Roman',Times,'Noto Sans SC',sans-serif;
+    letter-spacing:0;
+    font-variant-numeric:tabular-nums;
+  }
+  .lead .ttl,.edu .e b,.xp .bh h2,#s-work .bh h2,#s-card .bh h2,.card .nm{font-family:'Noto Sans SC','PingFang SC','Microsoft YaHei',sans-serif;font-weight:400!important}
+  .lead .ttl{letter-spacing:-.085em!important}.lead .position{letter-spacing:-.035em}.card .nm{letter-spacing:-.055em}
+
+  #s-home.in .lead{animation:mobileHeroIn .56s cubic-bezier(.22,1,.36,1) both}
+  #s-home.in .side{animation:mobilePortraitIn .62s .1s cubic-bezier(.22,1,.36,1) both}
+  @keyframes mobileHeroIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+  @keyframes mobilePortraitIn{from{opacity:0;transform:translateY(18px) scale(.985)}to{opacity:1;transform:none}}
+
+  .hero-actions button,.top button,.wnav button,.card .cx a,.ask-prompts button{transition:transform .18s cubic-bezier(.22,1,.36,1),background .25s,color .25s}
+  .hero-actions button:active,.top button:active,.wnav button:active,.card .cx a:active,.ask-prompts button:active{transform:scale(.965)}
+  .xc{transition:background .32s,transform .32s cubic-bezier(.22,1,.36,1)}
+  .xc.now{transform:translateY(-3px)}
+  .stage.grabbing .fc.on .face{transform:scale(.985)}
+  .fc.on .face{transition:transform .22s cubic-bezier(.22,1,.36,1),box-shadow .5s,border-color .5s}
+  .fc.on:active .face{transform:scale(.975)}
+
+  .ask-launcher{isolation:isolate;background:#332c50;color:#fff;box-shadow:0 12px 30px -14px rgba(51,44,80,.55)}
+  .ask-launcher::before,.ask-launcher::after{content:'';position:absolute;inset:-1px;border-radius:inherit;border:1px solid rgba(117,102,199,.42);z-index:-1;pointer-events:none;animation:askPulse 3.6s cubic-bezier(.22,1,.36,1) infinite}
+  .ask-launcher::after{animation-delay:1.8s}
+  .ask-launcher svg{animation:askIconBreathe 3.6s ease-in-out infinite}
+  @keyframes askPulse{0%,52%,100%{opacity:0;transform:scale(1)}12%{opacity:.55}38%{opacity:0;transform:scale(1.42)}}
+  @keyframes askIconBreathe{0%,58%,100%{transform:translateY(0)}16%{transform:translateY(-2px)}28%{transform:translateY(0)}}
+}
+@media(prefers-reduced-motion:reduce){
+  #s-home.in .lead,#s-home.in .side,.ask-launcher::before,.ask-launcher::after,.ask-launcher svg{animation:none!important}
+  .xc.now{transform:none}
+}
 </style>
 </head>
 <body>
