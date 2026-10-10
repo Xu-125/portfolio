@@ -1241,25 +1241,27 @@ html[lang="en"] .card .cx.contact-grid .contact-copy small{font-family:'Times Ne
   .card .cx.contact-grid .contact-item{min-height:66px!important;padding:10px 12px!important;grid-template-columns:36px minmax(0,1fr) 18px!important}
   .card .cx.contact-grid .contact-copy b{font-size:14.5px!important;overflow-wrap:anywhere!important}
 }
-/* ===== AI micro-drama video viewer ===== */
-.video-modal{position:fixed;inset:0;z-index:150;display:flex;align-items:center;justify-content:center;padding:clamp(18px,4vw,54px);background:rgba(19,17,26,.78);opacity:0;visibility:hidden;pointer-events:none;transition:opacity .28s ease,visibility .28s}
-.video-modal.open{opacity:1;visibility:visible;pointer-events:auto}
-.video-dialog{position:relative;width:min(1040px,94vw);background:#111016;border:1px solid rgba(255,255,255,.12);border-radius:22px;overflow:hidden;box-shadow:0 38px 110px -30px rgba(0,0,0,.8);transform:translateY(14px) scale(.985);transition:transform .34s cubic-bezier(.22,1,.36,1)}
-.video-poster-preload{position:absolute;width:1px;height:1px;opacity:0;pointer-events:none}
-.video-modal.open .video-dialog{transform:none}.video-dialog video{display:block;width:100%;aspect-ratio:16/9;background:#09080d;object-fit:contain}
-.video-close{position:absolute;z-index:2;top:12px;right:12px;width:40px;height:40px;border:1px solid rgba(255,255,255,.18);border-radius:50%;display:flex;align-items:center;justify-content:center;background:rgba(18,16,24,.72);color:#fff;cursor:pointer;transition:background .2s,transform .2s}
-.video-close:hover{background:#6e5fd0;transform:scale(1.04)}.video-close svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round}
-.video-caption{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:14px 18px 16px;color:#fff}.video-caption b{font-size:15px;font-weight:500}.video-caption span{font-family:'Times New Roman',Times,serif;font-size:13px;color:rgba(255,255,255,.58)}
-@media(max-width:760px){.video-modal{padding:12px}.video-dialog{width:100%;border-radius:18px}.video-close{top:9px;right:9px;width:38px;height:38px}.video-caption{padding:12px 14px 14px}.video-caption b{font-size:13px}.video-caption span{font-size:12px}}
-@media(prefers-reduced-motion:reduce){.video-modal,.video-dialog,.video-close{transition:none!important}}
-/* ===== portrait video icon entry ===== */
-.side .pf .profile-video-launch{position:absolute;z-index:6;right:12px;bottom:12px;width:46px;height:46px;padding:0;border:1px solid rgba(255,255,255,.86);border-radius:50%;display:flex;align-items:center;justify-content:center;background:#292530;color:#fff;box-shadow:0 14px 30px -13px rgba(34,28,58,.55);cursor:pointer;transition:transform .28s cubic-bezier(.22,1,.36,1),background .25s,box-shadow .25s}
+/* ===== inline profile video ===== */
+.side{transition:gap .42s cubic-bezier(.22,1,.36,1)}
+.side .caps{transition:opacity .28s,transform .42s cubic-bezier(.22,1,.36,1),max-width .42s}
+.side .pf{transition:width .52s cubic-bezier(.22,1,.36,1),max-width .52s,aspect-ratio .52s,transform .55s var(--ease),box-shadow .55s}
+.side .pf .profile-video{position:absolute;inset:0;z-index:4;width:100%;height:100%;object-fit:contain;background:#111016;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .3s ease}
+.side .pf.video-open{width:min(100%,520px);max-width:520px;aspect-ratio:16/9;background:#111016!important}
+.side .pf.video-open>img{opacity:0;pointer-events:none}.side .pf.video-open .profile-video{opacity:1;visibility:visible;pointer-events:auto}
+.side .pf .profile-video-close{position:absolute;z-index:7;top:10px;right:10px;width:40px;height:40px;padding:0;border:1px solid rgba(255,255,255,.2);border-radius:50%;display:none;align-items:center;justify-content:center;background:rgba(18,16,24,.7);color:#fff;cursor:pointer}
+.side .pf.video-open .profile-video-close{display:flex}.side .pf .profile-video-close svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round}
+.side .pf .profile-video-launch{position:absolute;z-index:6;right:12px;bottom:12px;width:46px;height:46px;padding:0;border:1px solid rgba(255,255,255,.86);border-radius:50%;display:flex;align-items:center;justify-content:center;background:#292530;color:#fff;box-shadow:0 14px 30px -13px rgba(34,28,58,.55);cursor:pointer;transition:transform .28s cubic-bezier(.22,1,.36,1),background .25s,box-shadow .25s,opacity .2s}
+.side .pf.video-open .profile-video-launch{opacity:0;pointer-events:none}
 .side .pf .profile-video-launch::before,.side .pf .profile-video-launch::after{content:'';position:absolute;inset:-6px;border:1px solid rgba(112,88,214,.25);border-radius:50%;pointer-events:none;animation:profileVideoPulse 3.4s ease-out infinite}
 .side .pf .profile-video-launch::after{inset:-11px;border-color:rgba(68,169,184,.15);animation-delay:1.1s}.side .pf .profile-video-launch:hover{transform:scale(1.08);background:#6656c4;box-shadow:0 18px 34px -12px rgba(89,73,165,.58)}
 .side .pf .profile-video-launch svg{display:block;width:18px;height:18px;fill:#fff;stroke:none}.side .pf .profile-video-launch svg path{fill:#fff;stroke:none}
 @keyframes profileVideoPulse{0%{transform:scale(.9);opacity:0}28%{opacity:1}75%,100%{transform:scale(1.22);opacity:0}}
-@media(max-width:800px){.side .pf .profile-video-launch{right:9px;bottom:9px;width:44px;height:44px;min-width:44px;min-height:44px}.side .pf .profile-video-launch svg{width:17px;height:17px}}
-@media(prefers-reduced-motion:reduce){.side .pf .profile-video-launch::before,.side .pf .profile-video-launch::after{animation:none!important;opacity:.55}}
+.side.profile-playing .caps{opacity:0;max-width:0;overflow:hidden;pointer-events:none;transform:translateX(-12px)}
+@media(max-width:800px){
+  .side .pf .profile-video-launch{right:9px;bottom:9px;width:44px;height:44px;min-width:44px;min-height:44px}.side .pf .profile-video-launch svg{width:17px;height:17px}
+  .side.profile-playing{grid-template-columns:1fr;display:grid}.side.profile-playing .caps{display:none}.side.profile-playing .pf{width:100%;max-width:none;justify-self:stretch;aspect-ratio:16/9;min-height:0}.side.profile-playing .pf>img{min-height:0}
+}
+@media(prefers-reduced-motion:reduce){.side .pf,.side .caps,.side .pf .profile-video,.side .pf .profile-video-launch{transition:none!important}.side .pf .profile-video-launch::before,.side .pf .profile-video-launch::after{animation:none!important;opacity:.55}}
 </style>
 </head>
 <body>
@@ -1297,7 +1299,7 @@ html[lang="en"] .card .cx.contact-grid .contact-copy small{font-family:'Times Ne
 
     <div class="side rise d1">
       <div class="caps" id="capL"></div>
-      <div class="pf"><img src="img/portrait.png" alt="徐皓萱 Hazel Xu"><button class="profile-video-launch" id="profileVideoLaunch" type="button" aria-label="播放个人形象视频"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 7l8 5-8 5z"/></svg></button></div>
+      <div class="pf" id="profileMedia"><img src="img/portrait.png" alt="徐皓萱 Hazel Xu"><video class="profile-video" id="aiDramaVideo" controls playsinline preload="none" poster="img/cover-ai-drama.jpg"><source src="img/ai-drama-guide.mp4" type="video/mp4"></video><button class="profile-video-close" id="videoClose" type="button" aria-label="关闭视频"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button><button class="profile-video-launch" id="profileVideoLaunch" type="button" aria-label="播放个人形象视频"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 7l8 5-8 5z"/></svg></button></div>
     </div>
 
     <div class="xp rise d2">
@@ -1397,16 +1399,6 @@ html[lang="en"] .card .cx.contact-grid .contact-copy small{font-family:'Times Ne
   <div class="ask-messages" id="askMessages" aria-live="polite"></div>
   <div class="ask-prompts" id="askPrompts"></div>
 </aside>
-
-<div class="video-modal" id="videoModal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="个人形象视频">
-  <div class="video-dialog">
-    <img class="video-poster-preload" src="img/cover-ai-drama.jpg" alt="" aria-hidden="true">
-    <button class="video-close" id="videoClose" type="button" aria-label="关闭视频"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
-    <video id="aiDramaVideo" controls playsinline preload="none" poster="img/cover-ai-drama.jpg">
-      <source src="img/ai-drama-guide.mp4" type="video/mp4">
-    </video>
-  </div>
-</div>
 
 <script>
 var ARR = '<svg viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg>';
@@ -2144,24 +2136,23 @@ function syncScroll(){
   });
 })();
 
-/* 视频作品：站内播放与退出 */
-var videoModal=document.getElementById('videoModal'), videoEl=document.getElementById('aiDramaVideo'), videoClose=document.getElementById('videoClose'), profileVideoLaunch=document.getElementById('profileVideoLaunch');
+/* 头像区域：原位展开播放与收起 */
+var videoEl=document.getElementById('aiDramaVideo'), videoClose=document.getElementById('videoClose'), profileVideoLaunch=document.getElementById('profileVideoLaunch'), profileMedia=document.getElementById('profileMedia'), profileSide=profileMedia&&profileMedia.closest('.side');
 function openVideoModal(){
-  if(!videoModal||!videoEl)return;
+  if(!profileMedia||!videoEl)return;
   videoClose.setAttribute('aria-label',currentLang==='en'?'Close video':'关闭视频');
-  videoModal.classList.add('open');videoModal.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';
+  profileVideoLaunch.setAttribute('aria-expanded','true');profileMedia.classList.add('video-open');if(profileSide)profileSide.classList.add('profile-playing');
   videoEl.play().catch(function(){});videoClose.focus();
 }
 function closeVideoModal(){
-  if(!videoModal||!videoEl)return;
-  videoModal.classList.remove('open');videoModal.setAttribute('aria-hidden','true');document.body.style.overflow='';videoEl.pause();videoEl.currentTime=0;
+  if(!profileMedia||!videoEl)return;
+  profileVideoLaunch.setAttribute('aria-expanded','false');profileMedia.classList.remove('video-open');if(profileSide)profileSide.classList.remove('profile-playing');videoEl.pause();videoEl.currentTime=0;profileVideoLaunch.focus();
 }
-if(profileVideoLaunch)profileVideoLaunch.addEventListener('click',openVideoModal);
+if(profileVideoLaunch){profileVideoLaunch.setAttribute('aria-expanded','false');profileVideoLaunch.addEventListener('click',openVideoModal);}
 if(videoClose)videoClose.addEventListener('click',closeVideoModal);
-if(videoModal)videoModal.addEventListener('click',function(e){if(e.target===videoModal)closeVideoModal();});
 
 window.addEventListener('keydown', function(e){
-  if(e.key==='Escape'&&videoModal&&videoModal.classList.contains('open')){closeVideoModal();return;}
+  if(e.key==='Escape'&&profileMedia&&profileMedia.classList.contains('video-open')){closeVideoModal();return;}
   if (Math.round(scroller.scrollTop/scroller.clientHeight)!==1) return;
   if (e.key==='ArrowRight'){ e.preventDefault(); go(cur+1); }
   if (e.key==='ArrowLeft'){ e.preventDefault(); go(cur-1); }
