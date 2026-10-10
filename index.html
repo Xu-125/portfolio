@@ -1241,6 +1241,16 @@ html[lang="en"] .card .cx.contact-grid .contact-copy small{font-family:'Times Ne
   .card .cx.contact-grid .contact-item{min-height:66px!important;padding:10px 12px!important;grid-template-columns:36px minmax(0,1fr) 18px!important}
   .card .cx.contact-grid .contact-copy b{font-size:14.5px!important;overflow-wrap:anywhere!important}
 }
+/* ===== AI micro-drama video viewer ===== */
+.video-modal{position:fixed;inset:0;z-index:150;display:flex;align-items:center;justify-content:center;padding:clamp(18px,4vw,54px);background:rgba(19,17,26,.78);opacity:0;visibility:hidden;pointer-events:none;transition:opacity .28s ease,visibility .28s}
+.video-modal.open{opacity:1;visibility:visible;pointer-events:auto}
+.video-dialog{position:relative;width:min(1040px,94vw);background:#111016;border:1px solid rgba(255,255,255,.12);border-radius:22px;overflow:hidden;box-shadow:0 38px 110px -30px rgba(0,0,0,.8);transform:translateY(14px) scale(.985);transition:transform .34s cubic-bezier(.22,1,.36,1)}
+.video-modal.open .video-dialog{transform:none}.video-dialog video{display:block;width:100%;aspect-ratio:16/9;background:#09080d;object-fit:contain}
+.video-close{position:absolute;z-index:2;top:12px;right:12px;width:40px;height:40px;border:1px solid rgba(255,255,255,.18);border-radius:50%;display:flex;align-items:center;justify-content:center;background:rgba(18,16,24,.72);color:#fff;cursor:pointer;transition:background .2s,transform .2s}
+.video-close:hover{background:#6e5fd0;transform:scale(1.04)}.video-close svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round}
+.video-caption{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:14px 18px 16px;color:#fff}.video-caption b{font-size:15px;font-weight:500}.video-caption span{font-family:'Times New Roman',Times,serif;font-size:13px;color:rgba(255,255,255,.58)}
+@media(max-width:760px){.video-modal{padding:12px}.video-dialog{width:100%;border-radius:18px}.video-close{top:9px;right:9px;width:38px;height:38px}.video-caption{padding:12px 14px 14px}.video-caption b{font-size:13px}.video-caption span{font-size:12px}}
+@media(prefers-reduced-motion:reduce){.video-modal,.video-dialog,.video-close{transition:none!important}}
 </style>
 </head>
 <body>
@@ -1379,6 +1389,16 @@ html[lang="en"] .card .cx.contact-grid .contact-copy small{font-family:'Times Ne
   <div class="ask-prompts" id="askPrompts"></div>
 </aside>
 
+<div class="video-modal" id="videoModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="videoTitle">
+  <div class="video-dialog">
+    <button class="video-close" id="videoClose" type="button" aria-label="关闭视频"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    <video id="aiDramaVideo" controls playsinline preload="none" poster="img/cover-ai-drama.jpg">
+      <source src="img/ai-drama-guide.mp4" type="video/mp4">
+    </video>
+    <div class="video-caption"><b id="videoTitle">AI 短剧制作指南 · 创意成片</b><span>15 sec · 1280 × 720</span></div>
+  </div>
+</div>
+
 <script>
 var ARR = '<svg viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg>';
 
@@ -1493,7 +1513,15 @@ var WORK = [
    img:'img/cover-odyssey.svg',
    rows:[['3 步','人生坐标选择'],['互动匹配','生成同路人建议'],['本地收藏','保存个人结果']],
    roles:['概念策划','交互设计','Vibe Coding','前端开发'],
-   u:'https://xu-125.github.io/odyssey-guide/'}
+   u:'https://xu-125.github.io/odyssey-guide/'},
+
+  {r:12, org:'个人 AI 影像实践', t:'AI 短剧制作指南 · 创意成片',
+   big:'15 秒', bigK:'AI 动画短片',
+   why:'围绕“制作一支 AI 短剧”完成创意构思、画面生成与动态叙事，把 AI 影像工作流转化为可直接观看的成片。',
+   img:'img/cover-ai-drama.jpg',
+   rows:[['15 秒','完整横版成片'],['AI 影像','角色 · 场景 · 动态叙事'],['独立实践','创意与制作']],
+   roles:['创意构思','AI 影像生成','动态叙事','成片制作'],
+   u:'#ai-drama-video', video:true}
 ];
 
 var I18N = {
@@ -1503,14 +1531,14 @@ var I18N = {
     'hero.eyebrow':'AI 产品传播 × 增长策略','hero.position':'AI 产品、增长策略、国际传播','hero.promise':'','hero.viewWork':'查看代表作品','hero.contact':'联系我',
     'edu.sjtu.school':'上海交通大学','edu.sjtu.degree':'传播学 · 硕士','edu.sjtu.note':'学硕保送',
     'edu.ouc.school':'中国海洋大学','edu.ouc.degree':'新闻学 · 本科','edu.ouc.note':'GPA 3.93 · 专业 1/81',
-    'section.experience':'实习经历','section.work':'代表作品','section.contact':'欢迎联系','work.tag':'3 个旗舰案例 · 8 个项目',
+    'section.experience':'实习经历','section.work':'代表作品','section.contact':'欢迎联系','work.tag':'3 个旗舰案例 · 9 个项目',
     'os.label':'AI 工作系统','os.research':'研究与洞察','os.strategy':'策略与判断','os.create':'Agent 协作生产','os.distribute':'多平台分发','os.review':'数据复盘',
     'ask.launcher':'快速了解','ask.kicker':'Hazel at a glance','ask.title':'快速了解','ask.subtitle':'从六个侧面了解我的能力、思考方式与作品。',
     'hint.dragExperience':'按住并横向拖动，查看全部经历','hint.dragWork':'拖动切换 · 点击卡片打开原文',
     'contact.roles':'AI 产品、增长策略、国际传播',
     'contact.email.personal':'个人邮箱','contact.email.sjtu':'学校邮箱','contact.wechat':'微信',
     'wechat.hint':'点击复制并打开微信','wechat.copied':'微信号已复制，请在添加朋友中粘贴',
-    open:'打开原文',repo:'打开互动体验',ownership:'个人负责',positions:'个职位',previous:'上一个',next:'下一个',item:'第 {n} 个'
+    open:'打开原文',repo:'打开互动体验',play:'播放视频',ownership:'个人负责',positions:'个职位',previous:'上一个',next:'下一个',item:'第 {n} 个'
   },
   en:{
     title:'Hazel Xu | Portfolio',
@@ -1518,14 +1546,14 @@ var I18N = {
     'hero.eyebrow':'AI Product Communications × Growth Strategy','hero.position':'AI Product Communications · Growth Strategy · Global Content','hero.promise':'','hero.viewWork':'View selected work','hero.contact':'Contact me',
     'edu.sjtu.school':'Shanghai Jiao Tong University','edu.sjtu.degree':'M.A. in Communication','edu.sjtu.note':'Recommended admission',
     'edu.ouc.school':'Ocean University of China','edu.ouc.degree':'B.A. in Journalism','edu.ouc.note':'GPA 3.93 · Ranked 1/81',
-    'section.experience':'Experience','section.work':'Selected Work','section.contact':'Get in touch','work.tag':'3 flagship cases · 8 more projects',
+    'section.experience':'Experience','section.work':'Selected Work','section.contact':'Get in touch','work.tag':'3 flagship cases · 9 more projects',
     'os.label':'AI operating system','os.research':'Research & insight','os.strategy':'Strategy & judgment','os.create':'Agent-assisted creation','os.distribute':'Multi-channel distribution','os.review':'Performance review',
     'ask.launcher':'Quick view','ask.kicker':'Hazel at a glance','ask.title':'Quick view','ask.subtitle':'Six perspectives on my capabilities, thinking and work.',
     'hint.dragExperience':'Hold and drag horizontally to view all roles','hint.dragWork':'Drag to browse · Click a card to view the original',
     'contact.roles':'AI Products · Growth Strategy · Global Communications',
     'contact.email.personal':'Personal email','contact.email.sjtu':'School email','contact.wechat':'WeChat',
     'wechat.hint':'Copy WeChat ID and open WeChat','wechat.copied':'WeChat ID copied. Paste it in Add Contacts.',
-    open:'View project',repo:'Open experience',ownership:'Owned',positions:'positions',previous:'Previous',next:'Next',item:'Project {n}'
+    open:'View project',repo:'Open experience',play:'Play video',ownership:'Owned',positions:'positions',previous:'Previous',next:'Next',item:'Project {n}'
   }
 };
 
@@ -1559,7 +1587,8 @@ var WORK_EN = [
   {org:'Lark Official Account',t:'Lark CodeM Product Launch',big:'550K+',bigK:'Launch-period content reads',rows:[['550K+','Launch-period content reads'],['10M+','Video views across platforms'],['50K+','First-week follower growth']]},
   {org:'Lark Official Account',t:'Lark Aily Upgrade: Your AI Colleague',big:'1M+',bigK:'Reads on a single article',rows:[['1M+','Reads on a single article'],['Multi-agent','Upgraded team collaboration'],['AI colleague','Ready to work when @mentioned']]},
   {org:'Doubao Work Official Account',t:'Doubao Work: Model & Feature Update',big:'New',bigK:'Model and use-case updates',rows:[['Model update','Stronger reasoning'],['New use cases','Broader workflow support'],['Product release','Continuous iteration']]},
-  {org:'Independent Vibe Coding Project · GitHub',t:'Odyssey · Interactive Life Compass',big:'Vibe Coding',bigK:'Designed and built independently',why:'Independently shaped the concept, content architecture, interaction design and Next.js implementation for a life-stage diagnosis, guide matching and local collection experience.',rows:[['3 steps','Life-coordinate selection'],['Interactive match','Personal guide recommendation'],['Local collection','Save personal results']]}
+  {org:'Independent Vibe Coding Project · GitHub',t:'Odyssey · Interactive Life Compass',big:'Vibe Coding',bigK:'Designed and built independently',why:'Independently shaped the concept, content architecture, interaction design and Next.js implementation for a life-stage diagnosis, guide matching and local collection experience.',rows:[['3 steps','Life-coordinate selection'],['Interactive match','Personal guide recommendation'],['Local collection','Save personal results']]},
+  {org:'Independent AI Film Practice',t:'AI Micro-drama Production Guide',big:'15 sec',bigK:'AI animated short',why:'Developed the creative concept, generated the visual world and shaped the motion narrative into a complete, watchable AI short film.',rows:[['15 sec','Complete landscape film'],['AI filmmaking','Character · scene · motion'],['Independent','Concept and production']]}
 ];
 
 var currentLang='zh';
@@ -1680,12 +1709,14 @@ function renderWork(){
   var display=currentLang==='en'?WORK_EN:WORK;
   var h='';
   WORK.forEach(function(base,i){
-    var it=display[i], openLabel=base.r===11?I18N[currentLang].repo:I18N[currentLang].open;
-    h += '<a class="fc" data-i="'+i+'" href="'+base.u+'" target="_blank" rel="noopener">'
+    var it=display[i], openLabel=base.video?I18N[currentLang].play:(base.r===11?I18N[currentLang].repo:I18N[currentLang].open);
+    var cardAttrs=base.video?' href="#ai-drama-video" data-video="1"':' href="'+base.u+'" target="_blank" rel="noopener"';
+    var actionIcon=base.video?'<svg viewBox="0 0 24 24"><path d="M9 7l8 5-8 5z"/></svg>':'<svg viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg>';
+    h += '<a class="fc" data-i="'+i+'"'+cardAttrs+'>'
        +   '<div class="face">'
        +     '<div class="shot">'
        +       '<span class="idx">'+(base.r<10?'0'+base.r:base.r)+'</span>'
-       +       '<span class="peek">'+openLabel+'<svg viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg></span>'
+       +       '<span class="peek">'+openLabel+actionIcon+'</span>'
        +       '<img src="'+base.img+'" alt="'+it.t+'" loading="lazy" draggable="false">'
        +     '</div>'
        +     '<div class="meta">'
@@ -1693,7 +1724,7 @@ function renderWork(){
        +       '<h3>'+it.t+'</h3>'
        +       '<div class="bg"><span class="v">'+it.big+'</span><span class="k">'+it.bigK+'</span></div>'
        +       '<div class="open"><span>'+openLabel+'</span>'
-       +         '<i class="ic"><svg viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg></i></div>'
+       +         '<i class="ic">'+actionIcon+'</i></div>'
        +     '</div>'
        +   '</div>'
        + '</a>';
@@ -1711,7 +1742,8 @@ function bindCardEvents(){
   cards.forEach(function(c,i){
     c.addEventListener('click', function(e){
       if (horiz || Math.abs(mx)>7){ e.preventDefault(); return; }
-      if (i!==cur){ e.preventDefault(); go(i); }
+      if (i!==cur){ e.preventDefault(); go(i); return; }
+      if(WORK[i].video){e.preventDefault();openVideoModal();}
     });
     c.addEventListener('dragstart', function(e){ e.preventDefault(); });
   });
@@ -2112,7 +2144,24 @@ function syncScroll(){
   });
 })();
 
+/* 视频作品：站内播放与退出 */
+var videoModal=document.getElementById('videoModal'), videoEl=document.getElementById('aiDramaVideo'), videoClose=document.getElementById('videoClose'), videoTitle=document.getElementById('videoTitle');
+function openVideoModal(){
+  if(!videoModal||!videoEl)return;
+  videoTitle.textContent=currentLang==='en'?'AI Micro-drama Production Guide':'AI 短剧制作指南 · 创意成片';
+  videoClose.setAttribute('aria-label',currentLang==='en'?'Close video':'关闭视频');
+  videoModal.classList.add('open');videoModal.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';
+  videoEl.play().catch(function(){});videoClose.focus();
+}
+function closeVideoModal(){
+  if(!videoModal||!videoEl)return;
+  videoModal.classList.remove('open');videoModal.setAttribute('aria-hidden','true');document.body.style.overflow='';videoEl.pause();videoEl.currentTime=0;
+}
+if(videoClose)videoClose.addEventListener('click',closeVideoModal);
+if(videoModal)videoModal.addEventListener('click',function(e){if(e.target===videoModal)closeVideoModal();});
+
 window.addEventListener('keydown', function(e){
+  if(e.key==='Escape'&&videoModal&&videoModal.classList.contains('open')){closeVideoModal();return;}
   if (Math.round(scroller.scrollTop/scroller.clientHeight)!==1) return;
   if (e.key==='ArrowRight'){ e.preventDefault(); go(cur+1); }
   if (e.key==='ArrowLeft'){ e.preventDefault(); go(cur-1); }
