@@ -1262,9 +1262,20 @@ html[lang="en"] .card .cx.contact-grid .contact-copy small{font-family:'Times Ne
   .side.profile-playing{grid-template-columns:1fr;display:grid}.side.profile-playing .caps{display:none}.side.profile-playing .pf{width:100%;max-width:none;justify-self:stretch;aspect-ratio:16/9;min-height:0}.side.profile-playing .pf>img{min-height:0}
 }
 @media(prefers-reduced-motion:reduce){.side .pf,.side .caps,.side .pf .profile-video,.side .pf .profile-video-launch{transition:none!important}.side .pf .profile-video-launch::before,.side .pf .profile-video-launch::after{animation:none!important;opacity:.55}}
+/* ===== Odyssey card: demo video + website link ===== */
+.fc.has-demo{cursor:default}.fc.has-demo .shot{cursor:pointer}.fc.has-demo .shot>img{position:absolute;inset:0;z-index:1}.fc.has-demo .odyssey-demo{position:absolute;inset:0;z-index:4;width:100%;height:100%;object-fit:cover;background:#080d18;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .28s ease}
+.fc.has-demo .demo-launch{position:absolute;z-index:7;left:50%;top:50%;transform:translate(-50%,-50%);min-height:42px;padding:8px 13px 8px 9px;border:1px solid rgba(255,255,255,.3);border-radius:999px;display:flex;align-items:center;gap:8px;background:rgba(20,22,34,.76);color:#fff;box-shadow:0 15px 34px -16px rgba(0,0,0,.65);cursor:pointer;transition:transform .25s cubic-bezier(.22,1,.36,1),background .25s}
+.fc.has-demo .demo-launch:hover{transform:translate(-50%,-50%) scale(1.05);background:#6656c4}.fc.has-demo .demo-launch i{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#fff;color:#332d4c}.fc.has-demo .demo-launch svg{width:13px;height:13px;fill:currentColor;stroke:none}.fc.has-demo .demo-launch svg path{fill:currentColor;stroke:none}.fc.has-demo .demo-launch span{font-size:10px;font-weight:500;letter-spacing:.02em}
+.fc.has-demo .demo-close{position:absolute;z-index:8;right:10px;top:10px;width:38px;height:38px;border:1px solid rgba(255,255,255,.2);border-radius:50%;display:none;align-items:center;justify-content:center;background:rgba(15,16,25,.72);color:#fff;cursor:pointer}.fc.has-demo .demo-close svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round}
+.fc.has-demo.demo-playing .odyssey-demo{opacity:1;visibility:visible;pointer-events:auto}.fc.has-demo.demo-playing .demo-launch,.fc.has-demo.demo-playing .idx{opacity:0;pointer-events:none}.fc.has-demo.demo-playing .demo-close{display:flex}.fc.has-demo.demo-playing .shot::before,.fc.has-demo.demo-playing .shot::after{display:none}
+.fc.has-demo .odyssey-site{text-decoration:none}.fc.has-demo .odyssey-site:hover .ic{background:#7058d6!important;border-color:#7058d6!important;color:#fff!important;transform:scale(1.06) rotate(45deg)}
+@media(max-width:760px){.fc.has-demo .demo-launch{min-width:44px;min-height:44px;padding:7px 11px 7px 8px}.fc.has-demo .demo-launch i{width:28px;height:28px}.fc.has-demo .demo-launch span{font-size:9.5px}.fc.has-demo .demo-close{width:44px;height:44px}}
+.asset-manifest{position:absolute!important;width:1px!important;height:1px!important;overflow:hidden!important;opacity:0!important;pointer-events:none!important}
+@media(prefers-reduced-motion:reduce){.fc.has-demo .odyssey-demo,.fc.has-demo .demo-launch{transition:none!important}}
 </style>
 </head>
 <body>
+<div class="asset-manifest" aria-hidden="true"><img src="img/cover-odyssey-demo.jpg" alt=""><video preload="none"><source src="img/odyssey-demo.mp4" type="video/mp4"></video></div>
 
 <div class="prog"><i id="progBar"></i></div>
 
@@ -1511,10 +1522,10 @@ var WORK = [
   {r:11, org:'个人独立项目 · GitHub', t:'Odyssey · 人生坐标互动体验',
    big:'Vibe Coding', bigK:'独立设计与开发',
    why:'独立完成概念、内容结构、交互设计与 Next.js 开发，将人生阶段诊断、同路人匹配和本地收藏做成完整体验。',
-   img:'img/cover-odyssey.svg',
+   img:'img/cover-odyssey-demo.jpg',
    rows:[['3 步','人生坐标选择'],['互动匹配','生成同路人建议'],['本地收藏','保存个人结果']],
    roles:['概念策划','交互设计','Vibe Coding','前端开发'],
-   u:'https://xu-125.github.io/odyssey-guide/'}
+   u:'https://xu-125.github.io/odyssey-guide/', demoVideo:'img/odyssey-demo.mp4'}
 ];
 
 var I18N = {
@@ -1531,7 +1542,7 @@ var I18N = {
     'contact.roles':'AI 产品、增长策略、国际传播',
     'contact.email.personal':'个人邮箱','contact.email.sjtu':'学校邮箱','contact.wechat':'微信',
     'wechat.hint':'点击复制并打开微信','wechat.copied':'微信号已复制，请在添加朋友中粘贴',
-    open:'打开原文',repo:'打开互动体验',play:'播放视频',ownership:'个人负责',positions:'个职位',previous:'上一个',next:'下一个',item:'第 {n} 个'
+    open:'打开原文',repo:'打开网站',play:'观看演示',ownership:'个人负责',positions:'个职位',previous:'上一个',next:'下一个',item:'第 {n} 个'
   },
   en:{
     title:'Hazel Xu | Portfolio',
@@ -1546,7 +1557,7 @@ var I18N = {
     'contact.roles':'AI Products · Growth Strategy · Global Communications',
     'contact.email.personal':'Personal email','contact.email.sjtu':'School email','contact.wechat':'WeChat',
     'wechat.hint':'Copy WeChat ID and open WeChat','wechat.copied':'WeChat ID copied. Paste it in Add Contacts.',
-    open:'View project',repo:'Open experience',play:'Play video',ownership:'Owned',positions:'positions',previous:'Previous',next:'Next',item:'Project {n}'
+    open:'View project',repo:'Open website',play:'Watch demo',ownership:'Owned',positions:'positions',previous:'Previous',next:'Next',item:'Project {n}'
   }
 };
 
@@ -1701,25 +1712,32 @@ function renderWork(){
   var display=currentLang==='en'?WORK_EN:WORK;
   var h='';
   WORK.forEach(function(base,i){
-    var it=display[i], openLabel=base.video?I18N[currentLang].play:(base.r===11?I18N[currentLang].repo:I18N[currentLang].open);
-    var cardAttrs=base.video?' href="#ai-drama-video" data-video="1"':' href="'+base.u+'" target="_blank" rel="noopener"';
-    var actionIcon=base.video?'<svg viewBox="0 0 24 24"><path d="M9 7l8 5-8 5z"/></svg>':'<svg viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg>';
-    h += '<a class="fc" data-i="'+i+'"'+cardAttrs+'>'
+    var it=display[i], isDemo=!!base.demoVideo;
+    var openLabel=base.r===11?I18N[currentLang].repo:I18N[currentLang].open;
+    var externalIcon='<svg viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg>';
+    var playIcon='<svg viewBox="0 0 24 24"><path d="M9 7l8 5-8 5z"/></svg>';
+    var start=isDemo?'<div class="fc has-demo" data-i="'+i+'">':'<a class="fc" data-i="'+i+'" href="'+base.u+'" target="_blank" rel="noopener">';
+    var end=isDemo?'</div>':'</a>';
+    var shotMedia=isDemo
+      ? '<img src="'+base.img+'" alt="'+it.t+'" loading="lazy" draggable="false"><video class="odyssey-demo" controls playsinline preload="none" poster="'+base.img+'"><source src="'+base.demoVideo+'" type="video/mp4"></video><button class="demo-launch" type="button" aria-label="'+I18N[currentLang].play+'"><i>'+playIcon+'</i><span>'+I18N[currentLang].play+'</span></button><button class="demo-close" type="button" aria-label="'+(currentLang==='en'?'Close demo':'关闭演示')+'"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>'
+      : '<img src="'+base.img+'" alt="'+it.t+'" loading="lazy" draggable="false">';
+    var bottomAction=isDemo
+      ? '<a class="open odyssey-site" href="'+base.u+'" target="_blank" rel="noopener"><span>'+openLabel+'</span><i class="ic">'+externalIcon+'</i></a>'
+      : '<div class="open"><span>'+openLabel+'</span><i class="ic">'+externalIcon+'</i></div>';
+    h += start
        +   '<div class="face">'
        +     '<div class="shot">'
        +       '<span class="idx">'+(base.r<10?'0'+base.r:base.r)+'</span>'
-       +       '<span class="peek">'+openLabel+actionIcon+'</span>'
-       +       '<img src="'+base.img+'" alt="'+it.t+'" loading="lazy" draggable="false">'
+       +       shotMedia
        +     '</div>'
        +     '<div class="meta">'
        +       '<div class="og">'+it.org+'</div>'
        +       '<h3>'+it.t+'</h3>'
        +       '<div class="bg"><span class="v">'+it.big+'</span><span class="k">'+it.bigK+'</span></div>'
-       +       '<div class="open"><span>'+openLabel+'</span>'
-       +         '<i class="ic">'+actionIcon+'</i></div>'
+       +       bottomAction
        +     '</div>'
        +   '</div>'
-       + '</a>';
+       + end;
   });
   track.innerHTML=h;
   var p='';
@@ -1730,12 +1748,26 @@ function renderWork(){
 }
 
 var cards=[];
+function openOdysseyDemo(card){
+  var video=card&&card.querySelector('.odyssey-demo');if(!video)return;
+  card.classList.add('demo-playing');video.play().catch(function(){});
+}
+function closeOdysseyDemo(card){
+  var video=card&&card.querySelector('.odyssey-demo');if(!video)return;
+  card.classList.remove('demo-playing');video.pause();video.currentTime=0;
+}
+function closeAllWorkDemos(){cards.forEach(function(card){if(card.classList.contains('demo-playing'))closeOdysseyDemo(card);});}
 function bindCardEvents(){
   cards.forEach(function(c,i){
     c.addEventListener('click', function(e){
       if (horiz || Math.abs(mx)>7){ e.preventDefault(); return; }
       if (i!==cur){ e.preventDefault(); go(i); return; }
-      if(WORK[i].video){e.preventDefault();openVideoModal();}
+      if(!WORK[i].demoVideo)return;
+      if(e.target.closest('.odyssey-site'))return;
+      if(e.target.tagName==='VIDEO')return;
+      e.preventDefault();
+      if(e.target.closest('.demo-close')){closeOdysseyDemo(c);return;}
+      if(e.target.closest('.shot'))openOdysseyDemo(c);
     });
     c.addEventListener('dragstart', function(e){ e.preventDefault(); });
   });
@@ -1792,12 +1824,15 @@ function layout(){ place(pos); sync(); }
 
 /* pos 为连续位置（可超出 0..n-1），cur 为其取模结果 —— 两者始终同坐标系 */
 function setPos(p){
-  pos = p;
   var n = cards.length;
-  cur = ((Math.round(p) % n) + n) % n;
+  var nextCur = ((Math.round(p) % n) + n) % n;
+  if(nextCur!==cur)closeAllWorkDemos();
+  pos = p;
+  cur = nextCur;
   layout();
 }
 function go(i){
+  closeAllWorkDemos();
   var n = cards.length;
   i = ((i % n) + n) % n;
   if (i === cur) return;
