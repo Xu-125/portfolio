@@ -1272,6 +1272,23 @@ html[lang="en"] .card .cx.contact-grid .contact-copy small{font-family:'Times Ne
 @media(max-width:760px){.fc.has-demo .demo-launch{min-width:44px;min-height:44px;padding:7px 11px 7px 8px}.fc.has-demo .demo-launch i{width:28px;height:28px}.fc.has-demo .demo-launch span{font-size:9.5px}.fc.has-demo .demo-close{width:44px;height:44px}}
 .asset-manifest{position:absolute!important;width:1px!important;height:1px!important;overflow:hidden!important;opacity:0!important;pointer-events:none!important}
 @media(prefers-reduced-motion:reduce){.fc.has-demo .odyssey-demo,.fc.has-demo .demo-launch{transition:none!important}}
+/* ===== English clipping fix: reserve real line-box height ===== */
+html[lang="en"] .fc h3{display:block!important;flex:0 0 auto!important;min-height:2.4em;line-height:1.2!important;overflow:visible!important;-webkit-line-clamp:unset!important}
+html[lang="en"] .fc .og,html[lang="en"] .fc .bg,html[lang="en"] .fc .open{flex-shrink:0}
+@media(min-width:761px) and (max-height:760px){
+  html[lang="en"] #s-home{height:820px;min-height:820px;grid-template-rows:auto minmax(270px,1fr);overflow:visible}
+  html[lang="en"] #s-home .xp{min-height:270px}
+  html[lang="en"] #s-home .axview{min-height:190px}
+  html[lang="en"] #s-home .axrail{height:100%;min-height:190px}
+  html[lang="en"] .fc{height:min(94%,440px);margin-top:calc(min(94%,440px) / -2)}
+  html[lang="en"] .fc .shot{flex-basis:50%}
+  html[lang="en"] .fc .meta{padding-top:15px;padding-bottom:14px}
+  html[lang="en"] .fc h3{font-size:21px;min-height:2.35em;margin-top:6px}
+  html[lang="en"] .fc .bg{margin-top:8px}
+  html[lang="en"] .fc .bg .v{font-size:34px}
+  html[lang="en"] .fc .open{min-height:38px;padding-top:8px}
+}
+@media(max-width:760px){html[lang="en"] .fc h3{min-height:2.5em}}
 </style>
 </head>
 <body>
