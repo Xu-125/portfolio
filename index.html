@@ -1335,7 +1335,7 @@ html[lang="en"] .fc .og,html[lang="en"] .fc .bg,html[lang="en"] .fc .open{flex-s
 
     <div class="side rise d1">
       <div class="caps" id="capL"></div>
-      <div class="pf" id="profileMedia"><img src="img/portrait.png" alt="徐皓萱 Hazel Xu"><video class="profile-video" id="aiDramaVideo" controls playsinline preload="none" poster="img/cover-ai-drama.jpg"><source src="img/ai-drama-guide.mp4" type="video/mp4"></video><button class="profile-video-close" id="videoClose" type="button" aria-label="关闭视频"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button><button class="profile-video-launch" id="profileVideoLaunch" type="button" aria-label="播放个人形象视频"><span class="profile-play-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 7l8 5-8 5z"/></svg></span><span class="profile-video-label" data-i18n="hero.videoLabel">15 秒认识我</span></button></div>
+      <div class="pf" id="profileMedia"><img src="img/portrait.png" alt="徐皓萱 Hazel Xu"><video class="profile-video" id="aiDramaVideo" controls playsinline preload="none" poster="img/cover-ai-drama.jpg"><source src="img/ai-drama-guide.mp4" type="video/mp4"></video><button class="profile-video-close" id="videoClose" type="button" aria-label="关闭视频"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button><button class="profile-video-launch" id="profileVideoLaunch" type="button" aria-label="播放个人形象视频"><span class="profile-play-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 7l8 5-8 5z"/></svg></span><span class="profile-video-label" data-i18n="hero.videoLabel">15 秒视觉名片</span></button></div>
     </div>
 
     <div class="xp rise d2">
@@ -1560,7 +1560,7 @@ var I18N = {
   zh:{
     title:'徐皓萱 Hazel Xu',
     'name.primary':'徐皓萱','name.secondary':'Hazel Xu',
-    'hero.eyebrow':'AI 产品传播 × 增长策略','hero.position':'AI 产品、增长策略、国际传播','hero.promise':'','hero.viewWork':'查看代表作品','hero.contact':'联系我','hero.videoLabel':'15 秒认识我',
+    'hero.eyebrow':'AI 产品传播 × 增长策略','hero.position':'AI 产品、增长策略、国际传播','hero.promise':'','hero.viewWork':'查看代表作品','hero.contact':'联系我','hero.videoLabel':'15 秒视觉名片',
     'edu.sjtu.school':'上海交通大学','edu.sjtu.degree':'传播学 · 硕士','edu.sjtu.note':'学硕保送',
     'edu.ouc.school':'中国海洋大学','edu.ouc.degree':'新闻学 · 本科','edu.ouc.note':'GPA 3.93 · 专业 1/81',
     'section.experience':'实习经历','section.work':'代表作品','section.contact':'欢迎联系','work.tag':'3 个旗舰案例 · 8 个项目',
@@ -1575,7 +1575,7 @@ var I18N = {
   en:{
     title:'Hazel Xu | Portfolio',
     'name.primary':'Hazel Xu','name.secondary':'徐皓萱',
-    'hero.eyebrow':'AI Product Communications × Growth Strategy','hero.position':'AI Product Communications · Growth Strategy · Global Content','hero.promise':'','hero.viewWork':'View selected work','hero.contact':'Contact me','hero.videoLabel':'Meet Hazel in 15s',
+    'hero.eyebrow':'AI Product Communications × Growth Strategy','hero.position':'AI Product Communications · Growth Strategy · Global Content','hero.promise':'','hero.viewWork':'View selected work','hero.contact':'Contact me','hero.videoLabel':'15s Visual Profile',
     'edu.sjtu.school':'Shanghai Jiao Tong University','edu.sjtu.degree':'M.A. in Communication','edu.sjtu.note':'Recommended admission',
     'edu.ouc.school':'Ocean University of China','edu.ouc.degree':'B.A. in Journalism','edu.ouc.note':'GPA 3.93 · Ranked 1/81',
     'section.experience':'Experience','section.work':'Selected Work','section.contact':'Get in touch','work.tag':'3 flagship cases · 8 more projects',
@@ -2071,7 +2071,7 @@ function setLanguage(lang){
   wPrev.setAttribute('aria-label',I18N[lang].previous);
   wNext.setAttribute('aria-label',I18N[lang].next);
   var profileLaunch=document.getElementById('profileVideoLaunch');
-  if(profileLaunch)profileLaunch.setAttribute('aria-label',lang==='en'?'Play personal introduction video':'播放个人介绍短片');
+  if(profileLaunch)profileLaunch.setAttribute('aria-label',lang==='en'?'Play 15-second visual profile':'播放 15 秒视觉名片');
   renderNav(); renderCaps(); renderIntern(); renderWork(); setPos(pos); syncScroll();
   if(window.refreshAskHazel) window.refreshAskHazel();
   try{ localStorage.setItem('portfolio-language-v3',lang); }catch(err){}
