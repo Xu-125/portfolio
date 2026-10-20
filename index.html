@@ -406,6 +406,17 @@ body::after{
   color:var(--gold-2);transition:all .45s cubic-bezier(.19,1,.22,1);
 }
 .fc .open .ic svg{width:11px;height:11px;stroke:currentColor;fill:none;stroke-width:2}
+.fc .open-group{margin-top:auto;padding-top:clamp(9px,1.35vh,14px);display:flex;align-items:center;gap:8px;border-top:1px solid var(--hair-2)}
+.fc .open-group .open{margin:0;padding:0;border:0;min-height:44px;flex:1;text-decoration:none;justify-content:flex-start;border-radius:10px;transition:background .3s,color .3s;padding-left:8px}
+.fc .open-group .open:last-child{justify-content:space-between;padding-left:10px}
+.fc .open-group .open span{font-size:9.5px;letter-spacing:.01em;white-space:nowrap}
+.fc .open-group .open .ic{width:28px;height:28px;border-radius:9px}
+.fc .open-group .open:hover{background:#f0eefb}
+.fc .open-group .open:hover .ic{background:#7058d6!important;border-color:#7058d6!important;color:#fff!important;transform:scale(1.04) rotate(45deg)}
+.fc.has-links .shot{flex-basis:51%}
+.fc.has-links h3{flex-shrink:0;display:block;overflow:visible;font-size:clamp(19px,1.45vw,23px);line-height:1.22}
+.fc.has-links .bg{flex-shrink:0;margin-top:10px}
+.fc.has-links .open-group{flex-shrink:0}
 .fc.on:hover .open span{letter-spacing:.23em}
 .fc.on:hover .open .ic{background:var(--gold);border-color:var(--gold);color:#fff;transform:scale(1.12) rotate(45deg)}
 
@@ -1034,6 +1045,8 @@ html:not([lang="en"]) input{
   .stage{min-height:500px;margin-top:34px;perspective:1200px;touch-action:pan-y}.stage::before{width:430px;height:260px;opacity:.6}
   .fc{width:min(82vw,310px);height:430px;margin-left:calc(min(82vw,310px) / -2);margin-top:-215px}.fc .face{border-radius:24px}.fc .shot{flex-basis:57%}
   .fc .meta{padding:17px 18px 16px}.fc .og{font-size:12px}.fc h3{font-size:21px;line-height:1.25;margin-top:7px}.fc .bg{margin-top:13px}.fc .bg .v{font-size:34px}.fc .bg .k{font-size:12px}.fc .open{min-height:44px;padding-top:10px}.fc .open span{font-size:12px}.fc .open .ic{width:34px;height:34px}
+  .fc .open-group{gap:6px;padding-top:9px}.fc .open-group .open{min-height:44px;padding:0 0 0 7px}.fc .open-group .open:last-child{padding-left:8px}.fc .open-group .open span{font-size:10px}.fc .open-group .open .ic{width:31px;height:31px}
+  .fc.has-links .shot{flex-basis:48%}.fc.has-links .meta{padding-top:14px}.fc.has-links h3{font-size:18px;line-height:1.22;-webkit-line-clamp:2}.fc.has-links .bg{margin-top:8px}.fc.has-links .bg .v{font-size:31px}.fc.has-links .bg .k{font-size:10px}.fc.has-links .open-group{padding-top:7px}
   .wfoot{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:12px;padding-top:14px}.wnow{grid-column:1;grid-row:1}.wnow .l1{font-size:10px}.wnow .l2{font-size:16px;line-height:1.35;white-space:normal}
   .dotrow{display:none}.wnav{grid-column:2;grid-row:1;gap:8px}.wnav .cnt{font-size:12px}.wnav button.ar{width:44px;height:44px}.whint{display:none}
 
@@ -1506,13 +1519,13 @@ var WORK = [
    roles:['ToB 传播策划','高校渠道','赛事运营'],
    u:'https://mp.weixin.qq.com/s/EPmIVank0p6SkSMHH41gNw'},
 
-  {r:6, org:'飞书 AI', t:'飞书 AI 绝活大会 · 线下三城',
-   big:'800 人', bigK:'三城线下参与',
-   why:'设计「线下体验 → 线上 UGC → 二次传播」链路，把活动转成可持续的声量资产',
+  {r:6, org:'飞书 AI', t:'飞书 AI 绝活大会 · 增长与品牌声量',
+   big:'40.92 万+', bigK:'全网预估阅读',
+   why:'通过线下闭门场、创作者共创与多平台分发，形成 UGC 自然扩散与二次传播，推动用户增长并提升品牌话题声量。',
    img:'img/cover-summit.jpg',
-   rows:[['800 人','三城线下参与'],['3 城','杭州 · 北京 · 上海'],['+20%','活动期小红书声量'],['NPS 90%+','现场满意度']],
-   roles:['三城活动策划','UGC 链路设计','声量运营'],
-   u:'https://mp.weixin.qq.com/s/KlpiHeI3dctIUWQSOv5D1g'},
+   rows:[['254 篇','相关内容'],['192 位','参与创作者'],['2.84 万+','互动总量'],['3 城','杭州 · 北京 · 上海']],
+   roles:['活动策划','创作者共创','渠道整合','品牌声量运营'],
+   u:'https://mp.weixin.qq.com/s/KlpiHeI3dctIUWQSOv5D1g', secondaryUrl:'https://bytedance.feishuapp.com/app/app_17bcrm8gj31'},
 
   {r:7, org:'本科毕设', t:'乡村小学交互式长报道',
    big:'5 章', bigK:'交互式叙事结构',
@@ -1570,7 +1583,7 @@ var I18N = {
     'contact.roles':'AI 产品、增长策略、国际传播',
     'contact.email.personal':'个人邮箱','contact.email.sjtu':'学校邮箱','contact.wechat':'微信',
     'wechat.hint':'点击复制并打开微信','wechat.copied':'微信号已复制，请在添加朋友中粘贴',
-    open:'打开原文',repo:'打开网站',play:'观看演示',ownership:'个人负责',positions:'个职位',previous:'上一个',next:'下一个',item:'第 {n} 个'
+    open:'打开原文',report:'活动报道',recap:'上海复盘',repo:'打开网站',play:'观看演示',ownership:'个人负责',positions:'个职位',previous:'上一个',next:'下一个',item:'第 {n} 个'
   },
   en:{
     title:'Hazel Xu | Portfolio',
@@ -1585,7 +1598,7 @@ var I18N = {
     'contact.roles':'AI Products · Growth Strategy · Global Communications',
     'contact.email.personal':'Personal email','contact.email.sjtu':'School email','contact.wechat':'WeChat',
     'wechat.hint':'Copy WeChat ID and open WeChat','wechat.copied':'WeChat ID copied. Paste it in Add Contacts.',
-    open:'View project',repo:'Open website',play:'Watch demo',ownership:'Owned',positions:'positions',previous:'Previous',next:'Next',item:'Project {n}'
+    open:'View project',report:'Event story',recap:'Shanghai recap',repo:'Open website',play:'Watch demo',ownership:'Owned',positions:'positions',previous:'Previous',next:'Next',item:'Project {n}'
   }
 };
 
@@ -1616,7 +1629,7 @@ var WORK_EN = [
   {org:'Lark · Doubao Work',t:'AI Live Week: Strategy to Review',big:'3M',bigK:'Views across four livestreams',why:'Designed topics, distribution and post-campaign review across four consecutive livestreams to connect content reach with product activation.',rows:[['3M','Views across four livestreams'],['4 nights','Four-night live series'],['End to end','Planning · distribution · review']]},
   {org:'Lark',t:'AI-built Content Portfolio Site',big:'105',bigK:'Content pieces aggregated',why:'Independently designed and built an AI-assisted content site, turning fragmented posts into a searchable product experience.',rows:[['105','Content pieces aggregated'],['Independent','Design · development · launch'],['AI collaboration','Agent-assisted front-end build']]},
   {org:'Lark AI',t:'AI Pioneer Talent Competition',big:'4,000+',bigK:'Student teams registered',rows:[['4,000+','Student teams registered'],['Global','University coverage'],['B2B','Enterprise–university outreach']]},
-  {org:'Lark AI',t:'Lark AI Skills Summit: Three Cities',big:'800',bigK:'In-person participants',rows:[['800','In-person participants'],['3 cities','Hangzhou · Beijing · Shanghai'],['+20%','Xiaohongshu share of voice'],['NPS 90%+','On-site satisfaction']]},
+  {org:'Lark AI',t:'Lark AI Skills Summit: Growth & Brand Impact',big:'409.2K+',bigK:'Estimated reach across platforms',rows:[['254','Related posts'],['192','Participating creators'],['28.4K+','Total engagements'],['3 cities','Hangzhou · Beijing · Shanghai']]},
   {org:'Undergraduate Thesis',t:'Interactive Story on Rural Primary Schools',big:'5 chapters',bigK:'Interactive narrative',rows:[['5 chapters','Policy / Shaanxi / Hunan / voices / views'],['513K→70.6K','Rural primary schools, 1997–2023'],['Independent','Research · design · development']]},
   {org:"People's Daily Online",t:'Economy & Technology Reporting',big:'10M+',bigK:'Total views',rows:[['10M+','Total views'],['44','Bylined reports'],['9','Daily homepage headlines'],['+300%','Reach after ministry reposts']]},
   {org:'Lark Official Account',t:'Lark CodeM Product Launch',big:'550K+',bigK:'Launch-period content reads',rows:[['550K+','Launch-period content reads'],['10M+','Video views across platforms'],['50K+','First-week follower growth']]},
@@ -1742,18 +1755,20 @@ function renderWork(){
   var display=currentLang==='en'?WORK_EN:WORK;
   var h='';
   WORK.forEach(function(base,i){
-    var it=display[i], isDemo=!!base.demoVideo;
+    var it=display[i], isDemo=!!base.demoVideo, hasSecondary=!!base.secondaryUrl;
     var openLabel=base.demoVideo?I18N[currentLang].repo:I18N[currentLang].open;
     var externalIcon='<svg viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg>';
     var playIcon='<svg viewBox="0 0 24 24"><path d="M9 7l8 5-8 5z"/></svg>';
-    var start=isDemo?'<div class="fc has-demo" data-i="'+i+'">':'<a class="fc" data-i="'+i+'" href="'+base.u+'" target="_blank" rel="noopener">';
-    var end=isDemo?'</div>':'</a>';
+    var start=(isDemo||hasSecondary)?'<div class="fc'+(isDemo?' has-demo':' has-links')+'" data-i="'+i+'">':'<a class="fc" data-i="'+i+'" href="'+base.u+'" target="_blank" rel="noopener">';
+    var end=(isDemo||hasSecondary)?'</div>':'</a>';
     var shotMedia=isDemo
       ? '<img src="'+base.img+'" alt="'+it.t+'" loading="lazy" draggable="false"><video class="odyssey-demo" controls playsinline preload="none" poster="'+base.img+'"><source src="'+base.demoVideo+'" type="video/mp4"></video><button class="demo-launch" type="button" aria-label="'+I18N[currentLang].play+'"><i>'+playIcon+'</i><span>'+I18N[currentLang].play+'</span></button><button class="demo-close" type="button" aria-label="'+(currentLang==='en'?'Close demo':'关闭演示')+'"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>'
       : '<img src="'+base.img+'" alt="'+it.t+'" loading="lazy" draggable="false">';
     var bottomAction=isDemo
       ? '<a class="open odyssey-site" href="'+base.u+'" target="_blank" rel="noopener"><span>'+openLabel+'</span><i class="ic">'+externalIcon+'</i></a>'
-      : '<div class="open"><span>'+openLabel+'</span><i class="ic">'+externalIcon+'</i></div>';
+      : hasSecondary
+        ? '<div class="open-group"><a class="open project-link" href="'+base.u+'" target="_blank" rel="noopener"><span>'+I18N[currentLang].report+'</span></a><a class="open project-link recap-link" href="'+base.secondaryUrl+'" target="_blank" rel="noopener"><span>'+I18N[currentLang].recap+'</span><i class="ic">'+externalIcon+'</i></a></div>'
+        : '<div class="open"><span>'+openLabel+'</span><i class="ic">'+externalIcon+'</i></div>';
     h += start
        +   '<div class="face">'
        +     '<div class="shot">'
@@ -1792,9 +1807,9 @@ function bindCardEvents(){
     c.addEventListener('click', function(e){
       if (horiz || Math.abs(mx)>7){ e.preventDefault(); return; }
       if (i!==cur){ e.preventDefault(); go(i); return; }
-      if(!WORK[i].demoVideo)return;
-      if(e.target.closest('.odyssey-site'))return;
+      if(e.target.closest('.odyssey-site,.project-link'))return;
       if(e.target.tagName==='VIDEO')return;
+      if(!WORK[i].demoVideo)return;
       e.preventDefault();
       if(e.target.closest('.demo-close')){closeOdysseyDemo(c);return;}
       if(e.target.closest('.shot'))openOdysseyDemo(c);
@@ -2116,7 +2131,7 @@ function syncScroll(){
     zh:{
       welcome:'想更快认识我，可以从下面几个问题开始。',
       prompts:[
-        {q:'我最擅长什么？',a:'我最擅长把复杂产品讲清楚，再把内容放进完整的传播与增长链路。做飞书和豆包工作时，我不仅参与内容策划，也做竞品研究、冷启动规划、渠道分发和数据复盘；既关注内容质量，也关注用户有没有理解、采用和继续传播。',evidence:[1,2]},
+        {q:'我最擅长什么？',a:'我最擅长把复杂产品讲清楚，再把内容放进完整的传播与增长链路。飞书 AI 绝活大会通过线下闭门场、创作者共创和多平台分发，形成 254 篇相关内容、192 位参与创作者与 40.92 万+全网预估阅读；我既关注内容质量，也用渠道协同和数据复盘持续放大品牌声量。',evidence:[5,1]},
         {q:'我的能力组合是什么？',a:'我的能力不是单点的“会写内容”，而是内容、传播、分发、营销与系统性思维的组合。人民网和中国日报训练了事实判断与表达，海尔和小红书让我理解用户运营与转化，飞书的经历让我能围绕产品目标组织完整传播项目。',evidence:[7,1]},
         {q:'我怎么理解用户？',a:'我习惯先看用户正处在什么场景、卡在哪里、会用什么语言理解产品，再决定内容和渠道。在小红书的 Coding Agent 宣讲中，首周 DAU 提升 15%，课程覆盖 853 人次、NPS 91；在海尔，社群活跃度从 30% 提升到 65%。',evidence:[2,5]},
         {q:'我如何用 AI 工作？',a:'我会把 AI 嵌进研究、整理、生产和复盘，而不是只用来生成文案。在飞书，我搭建 Agent 工作流，把内容生产周期缩短 60%；也通过 Vibe Coding 独立完成内容网站和 Odyssey 互动体验，把想法直接做成可操作的产品。',evidence:[3,0]},
@@ -2127,7 +2142,7 @@ function syncScroll(){
     en:{
       welcome:'Choose a question for a quick introduction.',
       prompts:[
-        {q:'What do I do best?',a:'I am strongest at making complex products clear and connecting content to the full communication and growth journey. At Lark and Doubao Work, I worked across competitive research, launch planning, content, distribution and performance review—not just content production.',evidence:[1,2]},
+        {q:'What do I do best?',a:'I am strongest at making complex products clear and connecting content to a complete communications and growth journey. The Lark AI Skills Summit combined an in-person closed-door event, creator co-production and multi-platform distribution, generating 254 related posts, 192 participating creators and 409.2K+ estimated reach. I pair content quality with channel orchestration and performance review to grow brand impact.',evidence:[5,1]},
         {q:'What is my skill combination?',a:'My strength is not a single content skill, but a combination of content, communications, distribution, marketing and systems thinking. People’s Daily Online and China Daily sharpened my judgment and writing; Haier and Xiaohongshu developed my user-growth thinking; Lark taught me to organize communications around product goals.',evidence:[7,1]},
         {q:'How do I understand users?',a:'I begin with the user’s situation, friction and natural language before deciding the message and channel. For a Coding Agent roadshow at Xiaohongshu, first-week DAU increased 15%, the course reached 853 participants and earned NPS 91. At Haier, community activity rose from 30% to 65%.',evidence:[2,5]},
         {q:'How do I work with AI?',a:'I embed AI into research, synthesis, production and review instead of using it only to draft copy. At Lark, an agent workflow shortened the content cycle by 60%. Through Vibe Coding, I also independently built a content site and the Odyssey interactive experience.',evidence:[3,0]},
@@ -2148,7 +2163,7 @@ function syncScroll(){
     var wrap=document.createElement('div');wrap.className='ask-evidence';
     indexes.forEach(function(index){
       var base=WORK[index], copy=copyList[index];if(!base||!copy)return;
-      var card=document.createElement('a');card.className='evidence-card';card.href=base.u;card.target='_blank';card.rel='noopener';
+      var card=document.createElement('a');card.className='evidence-card';card.href=base.secondaryUrl||base.u;card.target='_blank';card.rel='noopener';
       var img=document.createElement('img');img.src=base.img;img.alt=copy.t;
       var text=document.createElement('span');
       var title=document.createElement('b');title.textContent=copy.t;
