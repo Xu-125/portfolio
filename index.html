@@ -406,17 +406,9 @@ body::after{
   color:var(--gold-2);transition:all .45s cubic-bezier(.19,1,.22,1);
 }
 .fc .open .ic svg{width:11px;height:11px;stroke:currentColor;fill:none;stroke-width:2}
-.fc .open-group{margin-top:auto;padding-top:clamp(9px,1.35vh,14px);display:flex;align-items:center;gap:8px;border-top:1px solid var(--hair-2)}
-.fc .open-group .open{margin:0;padding:0;border:0;min-height:44px;flex:1;text-decoration:none;justify-content:flex-start;border-radius:10px;transition:background .3s,color .3s;padding-left:8px}
-.fc .open-group .open:last-child{justify-content:space-between;padding-left:10px}
-.fc .open-group .open span{font-size:9.5px;letter-spacing:.01em;white-space:nowrap}
-.fc .open-group .open .ic{width:28px;height:28px;border-radius:9px}
-.fc .open-group .open:hover{background:#f0eefb}
-.fc .open-group .open:hover .ic{background:#7058d6!important;border-color:#7058d6!important;color:#fff!important;transform:scale(1.04) rotate(45deg)}
 .fc.has-links .shot{flex-basis:51%}
 .fc.has-links h3{flex-shrink:0;display:block;overflow:visible;font-size:clamp(19px,1.45vw,23px);line-height:1.22}
 .fc.has-links .bg{flex-shrink:0;margin-top:10px}
-.fc.has-links .open-group{flex-shrink:0}
 .fc.on:hover .open span{letter-spacing:.23em}
 .fc.on:hover .open .ic{background:var(--gold);border-color:var(--gold);color:#fff;transform:scale(1.12) rotate(45deg)}
 
@@ -1045,8 +1037,7 @@ html:not([lang="en"]) input{
   .stage{min-height:500px;margin-top:34px;perspective:1200px;touch-action:pan-y}.stage::before{width:430px;height:260px;opacity:.6}
   .fc{width:min(82vw,310px);height:430px;margin-left:calc(min(82vw,310px) / -2);margin-top:-215px}.fc .face{border-radius:24px}.fc .shot{flex-basis:57%}
   .fc .meta{padding:17px 18px 16px}.fc .og{font-size:12px}.fc h3{font-size:21px;line-height:1.25;margin-top:7px}.fc .bg{margin-top:13px}.fc .bg .v{font-size:34px}.fc .bg .k{font-size:12px}.fc .open{min-height:44px;padding-top:10px}.fc .open span{font-size:12px}.fc .open .ic{width:34px;height:34px}
-  .fc .open-group{gap:6px;padding-top:9px}.fc .open-group .open{min-height:44px;padding:0 0 0 7px}.fc .open-group .open:last-child{padding-left:8px}.fc .open-group .open span{font-size:10px}.fc .open-group .open .ic{width:31px;height:31px}
-  .fc.has-links .shot{flex-basis:48%}.fc.has-links .meta{padding-top:14px}.fc.has-links h3{font-size:18px;line-height:1.22;-webkit-line-clamp:2}.fc.has-links .bg{margin-top:8px}.fc.has-links .bg .v{font-size:31px}.fc.has-links .bg .k{font-size:10px}.fc.has-links .open-group{padding-top:7px}
+  .fc.has-links .shot{flex-basis:48%}.fc.has-links .meta{padding-top:14px}.fc.has-links h3{font-size:18px;line-height:1.22;-webkit-line-clamp:2}.fc.has-links .bg{margin-top:8px}.fc.has-links .bg .v{font-size:31px}.fc.has-links .bg .k{font-size:10px}
   .wfoot{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:12px;padding-top:14px}.wnow{grid-column:1;grid-row:1}.wnow .l1{font-size:10px}.wnow .l2{font-size:16px;line-height:1.35;white-space:normal}
   .dotrow{display:none}.wnav{grid-column:2;grid-row:1;gap:8px}.wnav .cnt{font-size:12px}.wnav button.ar{width:44px;height:44px}.whint{display:none}
 
@@ -1278,11 +1269,13 @@ html[lang="en"] .card .cx.contact-grid .contact-copy small{font-family:'Times Ne
 /* ===== Odyssey card: demo video + website link ===== */
 .fc.has-demo{cursor:default}.fc.has-demo .shot{cursor:pointer}.fc.has-demo .shot>img{position:absolute;inset:0;z-index:1}.fc.has-demo .odyssey-demo{position:absolute;inset:0;z-index:4;width:100%;height:100%;object-fit:cover;background:#080d18;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .28s ease}
 .fc.has-demo .demo-launch{position:absolute;z-index:7;left:50%;top:50%;transform:translate(-50%,-50%);min-height:42px;padding:8px 13px 8px 9px;border:1px solid rgba(255,255,255,.3);border-radius:999px;display:flex;align-items:center;gap:8px;background:rgba(20,22,34,.76);color:#fff;box-shadow:0 15px 34px -16px rgba(0,0,0,.65);cursor:pointer;transition:transform .25s cubic-bezier(.22,1,.36,1),background .25s}
+.fc.has-links .recap-hero{position:absolute;z-index:7;left:50%;top:50%;transform:translate(-50%,-50%);min-height:44px;padding:8px 13px 8px 9px;border:1px solid rgba(255,255,255,.36);border-radius:999px;display:flex;align-items:center;gap:8px;background:rgba(20,22,34,.78);color:#fff;text-decoration:none;box-shadow:0 15px 34px -16px rgba(0,0,0,.65);transition:transform .25s cubic-bezier(.22,1,.36,1),background .25s;white-space:nowrap}
+.fc.has-links .recap-hero:hover{transform:translate(-50%,-50%) scale(1.05);background:#6656c4}.fc.has-links .recap-hero i{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#fff;color:#332d4c}.fc.has-links .recap-hero svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:2}.fc.has-links .recap-hero span{font-size:10px;font-weight:500;letter-spacing:.02em}
 .fc.has-demo .demo-launch:hover{transform:translate(-50%,-50%) scale(1.05);background:#6656c4}.fc.has-demo .demo-launch i{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#fff;color:#332d4c}.fc.has-demo .demo-launch svg{width:13px;height:13px;fill:currentColor;stroke:none}.fc.has-demo .demo-launch svg path{fill:currentColor;stroke:none}.fc.has-demo .demo-launch span{font-size:10px;font-weight:500;letter-spacing:.02em}
 .fc.has-demo .demo-close{position:absolute;z-index:8;right:10px;top:10px;width:38px;height:38px;border:1px solid rgba(255,255,255,.2);border-radius:50%;display:none;align-items:center;justify-content:center;background:rgba(15,16,25,.72);color:#fff;cursor:pointer}.fc.has-demo .demo-close svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round}
 .fc.has-demo.demo-playing .odyssey-demo{opacity:1;visibility:visible;pointer-events:auto}.fc.has-demo.demo-playing .demo-launch,.fc.has-demo.demo-playing .idx{opacity:0;pointer-events:none}.fc.has-demo.demo-playing .demo-close{display:flex}.fc.has-demo.demo-playing .shot::before,.fc.has-demo.demo-playing .shot::after{display:none}
 .fc.has-demo .odyssey-site{text-decoration:none}.fc.has-demo .odyssey-site:hover .ic{background:#7058d6!important;border-color:#7058d6!important;color:#fff!important;transform:scale(1.06) rotate(45deg)}
-@media(max-width:760px){.fc.has-demo .demo-launch{min-width:44px;min-height:44px;padding:7px 11px 7px 8px}.fc.has-demo .demo-launch i{width:28px;height:28px}.fc.has-demo .demo-launch span{font-size:9.5px}.fc.has-demo .demo-close{width:44px;height:44px}}
+@media(max-width:760px){.fc.has-demo .demo-launch{min-width:44px;min-height:44px;padding:7px 11px 7px 8px}.fc.has-demo .demo-launch i{width:28px;height:28px}.fc.has-demo .demo-launch span{font-size:9.5px}.fc.has-demo .demo-close{width:44px;height:44px}.fc.has-links .recap-hero{min-height:44px;padding:7px 11px 7px 8px}.fc.has-links .recap-hero i{width:28px;height:28px}.fc.has-links .recap-hero span{font-size:9.5px}}
 .asset-manifest{position:absolute!important;width:1px!important;height:1px!important;overflow:hidden!important;opacity:0!important;pointer-events:none!important}
 @media(prefers-reduced-motion:reduce){.fc.has-demo .odyssey-demo,.fc.has-demo .demo-launch{transition:none!important}}
 /* ===== English clipping fix: reserve real line-box height ===== */
@@ -1583,7 +1576,7 @@ var I18N = {
     'contact.roles':'AI 产品、增长策略、国际传播',
     'contact.email.personal':'个人邮箱','contact.email.sjtu':'学校邮箱','contact.wechat':'微信',
     'wechat.hint':'点击复制并打开微信','wechat.copied':'微信号已复制，请在添加朋友中粘贴',
-    open:'打开原文',report:'活动报道',recap:'上海复盘',repo:'打开网站',play:'观看演示',ownership:'个人负责',positions:'个职位',previous:'上一个',next:'下一个',item:'第 {n} 个'
+    open:'打开原文',report:'活动报道',recap:'查看上海复盘',repo:'打开网站',play:'观看演示',ownership:'个人负责',positions:'个职位',previous:'上一个',next:'下一个',item:'第 {n} 个'
   },
   en:{
     title:'Hazel Xu | Portfolio',
@@ -1598,7 +1591,7 @@ var I18N = {
     'contact.roles':'AI Products · Growth Strategy · Global Communications',
     'contact.email.personal':'Personal email','contact.email.sjtu':'School email','contact.wechat':'WeChat',
     'wechat.hint':'Copy WeChat ID and open WeChat','wechat.copied':'WeChat ID copied. Paste it in Add Contacts.',
-    open:'View project',report:'Event story',recap:'Shanghai recap',repo:'Open website',play:'Watch demo',ownership:'Owned',positions:'positions',previous:'Previous',next:'Next',item:'Project {n}'
+    open:'View project',report:'Event story',recap:'View Shanghai recap',repo:'Open website',play:'Watch demo',ownership:'Owned',positions:'positions',previous:'Previous',next:'Next',item:'Project {n}'
   }
 };
 
@@ -1763,11 +1756,13 @@ function renderWork(){
     var end=(isDemo||hasSecondary)?'</div>':'</a>';
     var shotMedia=isDemo
       ? '<img src="'+base.img+'" alt="'+it.t+'" loading="lazy" draggable="false"><video class="odyssey-demo" controls playsinline preload="none" poster="'+base.img+'"><source src="'+base.demoVideo+'" type="video/mp4"></video><button class="demo-launch" type="button" aria-label="'+I18N[currentLang].play+'"><i>'+playIcon+'</i><span>'+I18N[currentLang].play+'</span></button><button class="demo-close" type="button" aria-label="'+(currentLang==='en'?'Close demo':'关闭演示')+'"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>'
-      : '<img src="'+base.img+'" alt="'+it.t+'" loading="lazy" draggable="false">';
+      : hasSecondary
+        ? '<img src="'+base.img+'" alt="'+it.t+'" loading="lazy" draggable="false"><a class="recap-hero project-link" href="'+base.secondaryUrl+'" target="_blank" rel="noopener" aria-label="'+I18N[currentLang].recap+'"><i>'+externalIcon+'</i><span>'+I18N[currentLang].recap+'</span></a>'
+        : '<img src="'+base.img+'" alt="'+it.t+'" loading="lazy" draggable="false">';
     var bottomAction=isDemo
       ? '<a class="open odyssey-site" href="'+base.u+'" target="_blank" rel="noopener"><span>'+openLabel+'</span><i class="ic">'+externalIcon+'</i></a>'
       : hasSecondary
-        ? '<div class="open-group"><a class="open project-link" href="'+base.u+'" target="_blank" rel="noopener"><span>'+I18N[currentLang].report+'</span></a><a class="open project-link recap-link" href="'+base.secondaryUrl+'" target="_blank" rel="noopener"><span>'+I18N[currentLang].recap+'</span><i class="ic">'+externalIcon+'</i></a></div>'
+        ? '<a class="open project-link" href="'+base.u+'" target="_blank" rel="noopener"><span>'+I18N[currentLang].report+'</span><i class="ic">'+externalIcon+'</i></a>'
         : '<div class="open"><span>'+openLabel+'</span><i class="ic">'+externalIcon+'</i></div>';
     h += start
        +   '<div class="face">'
