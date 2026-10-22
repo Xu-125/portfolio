@@ -338,6 +338,12 @@ body::after{
 .fc .shot{position:relative;width:100%;flex:0 0 50%;overflow:hidden;background:#f1efeb}
 .fc .shot img{width:100%;height:100%;object-fit:cover;transition:transform 1.4s cubic-bezier(.19,1,.22,1)}
 .fc.on:hover .shot img{transform:scale(1.045)}
+.fc .growth-cover{position:absolute;inset:0;padding:clamp(18px,2vw,28px);display:flex;flex-direction:column;justify-content:space-between;overflow:hidden;background:radial-gradient(circle at 84% 12%,rgba(77,184,195,.24),transparent 25%),radial-gradient(circle at 14% 100%,rgba(112,88,214,.18),transparent 31%),linear-gradient(145deg,#f7f9ff 0%,#eef4ff 46%,#e9f8f5 100%);color:#242132}
+.fc .growth-cover::before{content:'';position:absolute;right:-54px;top:-62px;width:178px;height:178px;border:1px solid rgba(112,88,214,.18);border-radius:50%;box-shadow:inset 0 0 0 24px rgba(255,255,255,.28)}
+.fc .growth-cover::after{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(63,54,95,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(63,54,95,.035) 1px,transparent 1px);background-size:22px 22px;mask-image:linear-gradient(to bottom,rgba(0,0,0,.66),transparent 88%)}
+.fc .growth-cover-head,.fc .growth-flow{position:relative;z-index:2}.fc .growth-cover-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}.fc .growth-cover-brand{font-family:var(--sans);font-size:10px;font-weight:650;letter-spacing:.05em;color:#443b68}.fc .growth-cover-badge{padding:5px 8px;border:1px solid rgba(70,62,104,.12);border-radius:999px;background:rgba(255,255,255,.72);font-size:8px;font-weight:600;color:#6656c4;white-space:nowrap}
+.fc .growth-cover-title{position:relative;z-index:2;max-width:82%;font-family:var(--sans);font-size:clamp(20px,2vw,29px);font-weight:520;line-height:1.1;letter-spacing:-.035em}.fc .growth-cover-title b{color:#6656c4;font-weight:520}
+.fc .growth-flow{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}.fc .growth-node{position:relative;min-width:0;padding:9px 8px 8px;border:1px solid rgba(62,55,89,.09);border-radius:12px;background:rgba(255,255,255,.78);box-shadow:0 12px 24px -22px rgba(39,31,75,.4)}.fc .growth-node:not(:last-child)::after{content:'';position:absolute;z-index:3;right:-8px;top:50%;width:9px;height:1px;background:linear-gradient(90deg,#7566c7,#43b8d0)}.fc .growth-node i{display:block;font-style:normal;font-size:7px;letter-spacing:.08em;color:#837a9d}.fc .growth-node b{display:block;margin-top:3px;font-family:var(--sans);font-size:9.5px;font-weight:550;line-height:1.2;color:#302a45}.fc .growth-node small{display:block;margin-top:4px;font-size:7.5px;line-height:1.25;color:#6e667d}.fc .growth-node:last-child{background:linear-gradient(145deg,rgba(226,223,254,.92),rgba(218,244,240,.88));border-color:rgba(112,88,214,.13)}
 .fc .shot::after{
   content:'';position:absolute;inset:0;pointer-events:none;
   background:linear-gradient(180deg,transparent 58%,rgba(255,255,255,.16));
@@ -1275,7 +1281,7 @@ html[lang="en"] .card .cx.contact-grid .contact-copy small{font-family:'Times Ne
 .fc.has-demo .demo-close{position:absolute;z-index:8;right:10px;top:10px;width:38px;height:38px;border:1px solid rgba(255,255,255,.2);border-radius:50%;display:none;align-items:center;justify-content:center;background:rgba(15,16,25,.72);color:#fff;cursor:pointer}.fc.has-demo .demo-close svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round}
 .fc.has-demo.demo-playing .odyssey-demo{opacity:1;visibility:visible;pointer-events:auto}.fc.has-demo.demo-playing .demo-launch,.fc.has-demo.demo-playing .idx{opacity:0;pointer-events:none}.fc.has-demo.demo-playing .demo-close{display:flex}.fc.has-demo.demo-playing .shot::before,.fc.has-demo.demo-playing .shot::after{display:none}
 .fc.has-demo .odyssey-site{text-decoration:none}.fc.has-demo .odyssey-site:hover .ic{background:#7058d6!important;border-color:#7058d6!important;color:#fff!important;transform:scale(1.06) rotate(45deg)}
-@media(max-width:760px){.fc.has-demo .demo-launch{min-width:44px;min-height:44px;padding:7px 11px 7px 8px}.fc.has-demo .demo-launch i{width:28px;height:28px}.fc.has-demo .demo-launch span{font-size:9.5px}.fc.has-demo .demo-close{width:44px;height:44px}.fc.has-links .recap-hero{min-height:44px;padding:7px 11px 7px 8px}.fc.has-links .recap-hero i{width:28px;height:28px}.fc.has-links .recap-hero span{font-size:9.5px}}
+@media(max-width:760px){.fc.has-demo .demo-launch{min-width:44px;min-height:44px;padding:7px 11px 7px 8px}.fc.has-demo .demo-launch i{width:28px;height:28px}.fc.has-demo .demo-launch span{font-size:9.5px}.fc.has-demo .demo-close{width:44px;height:44px}.fc.has-links .recap-hero{min-height:44px;padding:7px 11px 7px 8px}.fc.has-links .recap-hero i{width:28px;height:28px}.fc.has-links .recap-hero span{font-size:9.5px}.fc.growth-library .shot{flex-basis:52%}.fc.growth-library .meta{padding-top:13px;padding-bottom:12px}.fc.growth-library h3{font-size:18px;line-height:1.18;min-height:2.36em!important}.fc.growth-library .bg{margin-top:8px}.fc.growth-library .open{padding-top:7px}}
 .asset-manifest{position:absolute!important;width:1px!important;height:1px!important;overflow:hidden!important;opacity:0!important;pointer-events:none!important}
 @media(prefers-reduced-motion:reduce){.fc.has-demo .odyssey-demo,.fc.has-demo .demo-launch{transition:none!important}}
 /* ===== English clipping fix: reserve real line-box height ===== */
@@ -1295,12 +1301,12 @@ html[lang="en"] .fc .og,html[lang="en"] .fc .bg,html[lang="en"] .fc .open{flex-s
   html[lang="en"] .fc .open{min-height:38px;padding-top:8px}
 }
 @media(min-width:761px) and (max-height:560px){
-  html[lang="en"] .scroller{scroll-snap-type:none}
-  html[lang="en"] .sec{scroll-snap-align:none;scroll-snap-stop:normal}
-  html[lang="en"] #s-home{height:900px;min-height:900px;grid-template-rows:auto minmax(350px,1fr);overflow:visible;padding-bottom:30px}
-  html[lang="en"] #s-home .xp{min-height:350px}
-  html[lang="en"] #s-home .axview{min-height:270px}
-  html[lang="en"] #s-home .axrail{height:100%;min-height:270px}
+  .scroller{scroll-snap-type:none}
+  .sec{scroll-snap-align:none;scroll-snap-stop:normal}
+  #s-home{height:900px;min-height:900px;grid-template-rows:auto minmax(350px,1fr);overflow:visible;padding-bottom:30px}
+  #s-home .xp{min-height:350px}
+  #s-home .axview{min-height:270px}
+  #s-home .axrail{height:100%;min-height:270px}
 }
 @media(max-width:760px){html[lang="en"] .fc h3{min-height:2.5em}}
 </style>
@@ -1496,24 +1502,16 @@ var WORK = [
    roles:['选题设计','渠道运营','直播执行','数据复盘'],
    u:'https://bytedance.larkoffice.com/wiki/IlbqwK8b5ihYqYkmk09cPfglnLf'},
 
-  {r:4, org:'飞书 Lark', t:'新媒体内容官网 · AI 协同开发',
-   big:'105 条', bigK:'全网内容聚合',
-   why:'与 AI 协同独立完成设计与开发，把散落的全网内容做成可检索的产品化站点',
-   img:'img/cover-site.jpg',
-   rows:[['105 条','全网内容聚合'],['独立','设计 · 开发 · 上线'],['AI 协同','Agent 辅助前端实现']],
-   roles:['产品设计','AI 协同开发','内容架构','上线运维'],
-   u:'https://bytedance.feishuapp.cn/app/app_17b2u92x3ph'},
-
-  {r:5, org:'豆包工作 · 合作营销物料', t:'豆包工作对外传播案例库',
-   big:'AI 搭建', bigK:'合作物料产品化',
+  {r:4, org:'豆包工作 · 合作营销物料', t:'豆包工作对外传播案例库',
+   big:'合作提效', bigK:'功能介绍 × 案例证明',
    why:'使用 AI 独立搭建可浏览的对外传播案例库，把产品基础功能、应用场景与真实传播案例整理为合作沟通中可直接使用的网站物料。',
-   img:'img/cover-doubao.jpg',
+   img:'img/cover-doubao.jpg', specialCover:'growthLibrary',
    rows:[['案例库','聚合对外传播内容'],['产品转译','基础功能 × 应用场景'],['合作物料','网站化呈现与使用']],
    roles:['AI 建站','内容策展','产品能力转译','合作物料设计'],
    ctaZh:'打开案例库', ctaEn:'Open case library',
    u:'https://bytedance.doubao.link/app/app_17gfpw2974k'},
 
-  {r:6, org:'飞书 AI', t:'AI 先锋未来人才大赛',
+  {r:5, org:'飞书 AI', t:'AI 先锋未来人才大赛',
    big:'4000+', bigK:'高校学生团队报名',
    why:'覆盖国内外高校的 ToB 传播策划，是出海语境下的人才侧品牌建设',
    img:'img/cover-contest.jpg',
@@ -1521,7 +1519,7 @@ var WORK = [
    roles:['ToB 传播策划','高校渠道','赛事运营'],
    u:'https://mp.weixin.qq.com/s/EPmIVank0p6SkSMHH41gNw'},
 
-  {r:7, org:'飞书 AI', t:'飞书 AI 绝活大会 · 增长与品牌声量',
+  {r:6, org:'飞书 AI', t:'飞书 AI 绝活大会 · 增长与品牌声量',
    big:'40.92 万+', bigK:'全网预估阅读',
    why:'通过线下闭门场、创作者共创与多平台分发，形成 UGC 自然扩散与二次传播，推动用户增长并提升品牌话题声量。',
    img:'img/cover-summit.jpg',
@@ -1529,7 +1527,7 @@ var WORK = [
    roles:['活动策划','创作者共创','渠道整合','品牌声量运营'],
    u:'https://mp.weixin.qq.com/s/KlpiHeI3dctIUWQSOv5D1g', secondaryUrl:'https://bytedance.feishuapp.com/app/app_17bcrm8gj31'},
 
-  {r:8, org:'本科毕设', t:'乡村小学交互式长报道',
+  {r:7, org:'本科毕设', t:'乡村小学交互式长报道',
    big:'5 章', bigK:'交互式叙事结构',
    why:'独立完成田野调查、数据整理与前端开发，是策略叙事与技术落地的完整闭环',
    img:'img/cover-rural.jpg',
@@ -1537,7 +1535,7 @@ var WORK = [
    roles:['田野调查','数据整理','交互设计','前端开发'],
    u:'https://xu-125.github.io/ownedbyxhx/'},
 
-  {r:9, org:'人民网', t:'经济科技领域报道',
+  {r:8, org:'人民网', t:'经济科技领域报道',
    big:'千万+', bigK:'总浏览量',
    why:'高强度产出下的选题判断力与传播效果优化，是内容策略能力的底层训练',
    img:'img/cover-rmw.jpg',
@@ -1545,7 +1543,7 @@ var WORK = [
    roles:['选题判断','采访写作','传播优化'],
    u:'http://finance.people.com.cn/n1/2024/0730/c1004-40288626.html'},
 
-  {r:10, org:'飞书官方公众号', t:'飞书 CodeM 发布 · 产品官宣',
+  {r:9, org:'飞书官方公众号', t:'飞书 CodeM 发布 · 产品官宣',
    big:'55w+', bigK:'官宣期内容累计阅读',
    why:'飞书原生 AI 研发智能体 CodeM 产品官宣，从个人提效工具升级为团队级研发生产线',
    img:'img/cover-codem.jpg',
@@ -1553,7 +1551,7 @@ var WORK = [
    roles:['产品官宣','内容策划','渠道分发'],
    u:'https://mp.weixin.qq.com/s/kZgCl9dXXK5ytGEdMtkcmw'},
 
-  {r:11, org:'飞书官方公众号', t:'飞书 aily 全新升级 · AI 同事',
+  {r:10, org:'飞书官方公众号', t:'飞书 aily 全新升级 · AI 同事',
    big:'百万+', bigK:'单篇推文阅读',
    why:'飞书 aily 从 AI 工具进化为 AI 同事，支持多 Agent 协作与团队共享',
    img:'img/cover-aily.jpg',
@@ -1561,7 +1559,7 @@ var WORK = [
    roles:['产品升级传播','功能解读','用户教育'],
    u:'https://mp.weixin.qq.com/s/yohwmP2Mija-CXsXFTwE3g'},
 
-  {r:12, org:'豆包工作公众号', t:'豆包工作上新 · 模型更新',
+  {r:11, org:'豆包工作公众号', t:'豆包工作上新 · 模型更新',
    big:'新品', bigK:'模型与场景双更新',
    why:'豆包工作产品模型更新与新功能场景发布，覆盖更多工作场景',
    img:'img/cover-doubao.jpg',
@@ -1578,7 +1576,7 @@ var I18N = {
     'hero.eyebrow':'AI 产品传播 × 增长策略','hero.position':'AI 产品、增长策略、国际传播','hero.promise':'','hero.viewWork':'查看代表作品','hero.contact':'联系我','hero.videoLabel':'15 秒视觉名片',
     'edu.sjtu.school':'上海交通大学','edu.sjtu.degree':'传播学 · 硕士','edu.sjtu.note':'学硕保送',
     'edu.ouc.school':'中国海洋大学','edu.ouc.degree':'新闻学 · 本科','edu.ouc.note':'GPA 3.93 · 专业 1/81',
-    'section.experience':'实习经历','section.work':'代表作品','section.contact':'欢迎联系','work.tag':'3 个旗舰案例 · 9 个项目',
+    'section.experience':'实习经历','section.work':'代表作品','section.contact':'欢迎联系','work.tag':'3 个旗舰案例 · 8 个项目',
     'os.label':'AI 工作系统','os.research':'研究与洞察','os.strategy':'策略与判断','os.create':'Agent 协作生产','os.distribute':'多平台分发','os.review':'数据复盘',
     'ask.launcher':'快速了解','ask.kicker':'Hazel at a glance','ask.title':'快速了解','ask.subtitle':'从六个侧面了解我的能力、思考方式与作品。',
     'hint.dragExperience':'按住并横向拖动，查看全部经历','hint.dragWork':'拖动切换 · 点击卡片打开原文',
@@ -1593,7 +1591,7 @@ var I18N = {
     'hero.eyebrow':'AI Product Communications × Growth Strategy','hero.position':'AI Product Communications · Growth Strategy · Global Content','hero.promise':'','hero.viewWork':'View selected work','hero.contact':'Contact me','hero.videoLabel':'15s Visual Profile',
     'edu.sjtu.school':'Shanghai Jiao Tong University','edu.sjtu.degree':'M.A. in Communication','edu.sjtu.note':'Recommended admission',
     'edu.ouc.school':'Ocean University of China','edu.ouc.degree':'B.A. in Journalism','edu.ouc.note':'GPA 3.93 · Ranked 1/81',
-    'section.experience':'Experience','section.work':'Selected Work','section.contact':'Get in touch','work.tag':'3 flagship cases · 9 more projects',
+    'section.experience':'Experience','section.work':'Selected Work','section.contact':'Get in touch','work.tag':'3 flagship cases · 8 more projects',
     'os.label':'AI operating system','os.research':'Research & insight','os.strategy':'Strategy & judgment','os.create':'Agent-assisted creation','os.distribute':'Multi-channel distribution','os.review':'Performance review',
     'ask.launcher':'Quick view','ask.kicker':'Hazel at a glance','ask.title':'Quick view','ask.subtitle':'Six perspectives on my capabilities, thinking and work.',
     'hint.dragExperience':'Hold and drag horizontally to view all roles','hint.dragWork':'Drag to browse · Click a card to view the original',
@@ -1629,8 +1627,7 @@ var WORK_EN = [
   {org:'Independent Vibe Coding Project · GitHub',t:'Odyssey · Interactive Life Compass',big:'Vibe Coding',bigK:'Designed and built independently',why:'Independently shaped the concept, content architecture, interaction design and Next.js implementation for a life-stage diagnosis, guide matching and local collection experience.',rows:[['3 steps','Life-coordinate selection'],['Interactive match','Personal guide recommendation'],['Local collection','Save personal results']]},
   {org:'Lark · Doubao Work',t:'Doubao Work: 0→1 Launch',big:'10M+',bigK:'Video views across platforms',why:'Owned competitive research, launch strategy and the full announcement content matrix for a new AI agent product.',rows:[['10M+','Video views across platforms'],['550K+','Article reads'],['20K / 30K','Official Account / Video Channel followers'],['5 × 4','Competitors × platforms']]},
   {org:'Lark · Doubao Work',t:'AI Live Week: Strategy to Review',big:'3M',bigK:'Views across four livestreams',why:'Designed topics, distribution and post-campaign review across four consecutive livestreams to connect content reach with product activation.',rows:[['3M','Views across four livestreams'],['4 nights','Four-night live series'],['End to end','Planning · distribution · review']]},
-  {org:'Lark',t:'AI-built Content Portfolio Site',big:'105',bigK:'Content pieces aggregated',why:'Independently designed and built an AI-assisted content site, turning fragmented posts into a searchable product experience.',rows:[['105','Content pieces aggregated'],['Independent','Design · development · launch'],['AI collaboration','Agent-assisted front-end build']]},
-  {org:'Doubao Work · Partnership Marketing',t:'Doubao Work External Communications Case Library',big:'AI-built',bigK:'Partnership collateral as a product',why:'Independently built a browsable external communications case library with AI, translating product fundamentals, use cases and real communications work into a website for partner conversations.',rows:[['Case library','External communications content'],['Product translation','Core features × use cases'],['Partnership collateral','Website-based presentation']]},
+  {org:'Doubao Work · Partnership Marketing',t:'Doubao Work External Communications Case Library',big:'Partner-ready',bigK:'Features × proof × conversations',why:'Independently built a browsable external communications case library with AI, translating product fundamentals, use cases and real communications work into a website for partner conversations.',rows:[['Case library','External communications content'],['Product translation','Core features × use cases'],['Partnership collateral','Website-based presentation']]},
   {org:'Lark AI',t:'AI Pioneer Talent Competition',big:'4,000+',bigK:'Student teams registered',rows:[['4,000+','Student teams registered'],['Global','University coverage'],['B2B','Enterprise–university outreach']]},
   {org:'Lark AI',t:'Lark AI Skills Summit: Growth & Brand Impact',big:'409.2K+',bigK:'Estimated reach across platforms',rows:[['254','Related posts'],['192','Participating creators'],['28.4K+','Total engagements'],['3 cities','Hangzhou · Beijing · Shanghai']]},
   {org:'Undergraduate Thesis',t:'Interactive Story on Rural Primary Schools',big:'5 chapters',bigK:'Interactive narrative',rows:[['5 chapters','Policy / Shaanxi / Hunan / voices / views'],['513K→70.6K','Rural primary schools, 1997–2023'],['Independent','Research · design · development']]},
@@ -1762,11 +1759,15 @@ function renderWork(){
     var openLabel=base.demoVideo?I18N[currentLang].repo:(currentLang==='en'?(base.ctaEn||I18N[currentLang].open):(base.ctaZh||I18N[currentLang].open));
     var externalIcon='<svg viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg>';
     var playIcon='<svg viewBox="0 0 24 24"><path d="M9 7l8 5-8 5z"/></svg>';
-    var start=(isDemo||hasSecondary)?'<div class="fc'+(isDemo?' has-demo':' has-links')+'" data-i="'+i+'">':'<a class="fc" data-i="'+i+'" href="'+base.u+'" target="_blank" rel="noopener">';
+    var start=(isDemo||hasSecondary)?'<div class="fc'+(isDemo?' has-demo':' has-links')+'" data-i="'+i+'">':'<a class="fc'+(base.specialCover==='growthLibrary'?' growth-library':'')+'" data-i="'+i+'" href="'+base.u+'" target="_blank" rel="noopener">';
     var end=(isDemo||hasSecondary)?'</div>':'</a>';
+    var growthCoverZh='<div class="growth-cover"><div class="growth-cover-head"><span class="growth-cover-brand">Doubao Work</span><span class="growth-cover-badge">AI 搭建</span></div><div class="growth-cover-title">让合作方更快理解<br><b>产品价值</b></div><div class="growth-flow"><span class="growth-node"><i>01</i><b>产品功能</b><small>讲清能力</small></span><span class="growth-node"><i>02</i><b>真实案例</b><small>建立信任</small></span><span class="growth-node"><i>03</i><b>合作沟通</b><small>提升效率</small></span></div></div>';
+    var growthCoverEn='<div class="growth-cover"><div class="growth-cover-head"><span class="growth-cover-brand">Doubao Work</span><span class="growth-cover-badge">AI-built</span></div><div class="growth-cover-title">Turn product value into<br><b>partner-ready proof</b></div><div class="growth-flow"><span class="growth-node"><i>01</i><b>Features</b><small>Clarify value</small></span><span class="growth-node"><i>02</i><b>Cases</b><small>Build trust</small></span><span class="growth-node"><i>03</i><b>Partners</b><small>Move faster</small></span></div></div>';
     var shotMedia=isDemo
       ? '<img src="'+base.img+'" alt="'+it.t+'" loading="lazy" draggable="false"><video class="odyssey-demo" controls playsinline preload="none" poster="'+base.img+'"><source src="'+base.demoVideo+'" type="video/mp4"></video><button class="demo-launch" type="button" aria-label="'+I18N[currentLang].play+'"><i>'+playIcon+'</i><span>'+I18N[currentLang].play+'</span></button><button class="demo-close" type="button" aria-label="'+(currentLang==='en'?'Close demo':'关闭演示')+'"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>'
-      : hasSecondary
+      : base.specialCover==='growthLibrary'
+        ? (currentLang==='en'?growthCoverEn:growthCoverZh)
+        : hasSecondary
         ? '<img src="'+base.img+'" alt="'+it.t+'" loading="lazy" draggable="false"><a class="recap-hero project-link" href="'+base.secondaryUrl+'" target="_blank" rel="noopener" aria-label="'+I18N[currentLang].recap+'"><i>'+externalIcon+'</i><span>'+I18N[currentLang].recap+'</span></a>'
         : '<img src="'+base.img+'" alt="'+it.t+'" loading="lazy" draggable="false">';
     var bottomAction=isDemo
@@ -2136,23 +2137,23 @@ function syncScroll(){
     zh:{
       welcome:'想更快认识我，可以从下面几个问题开始。',
       prompts:[
-        {q:'我最擅长什么？',a:'我最擅长把复杂产品讲清楚，再把内容放进完整的传播与增长链路。飞书 AI 绝活大会通过线下闭门场、创作者共创和多平台分发，形成 254 篇相关内容、192 位参与创作者与 40.92 万+全网预估阅读；我既关注内容质量，也用渠道协同和数据复盘持续放大品牌声量。',evidence:[6,1]},
-        {q:'我的能力组合是什么？',a:'我的能力不是单点的“会写内容”，而是内容、传播、分发、营销与系统性思维的组合。人民网和中国日报训练了事实判断与表达，海尔和小红书让我理解用户运营与转化，飞书的经历让我能围绕产品目标组织完整传播项目。',evidence:[8,1]},
-        {q:'我怎么理解用户？',a:'我习惯先看用户正处在什么场景、卡在哪里、会用什么语言理解产品，再决定内容和渠道。在小红书的 Coding Agent 宣讲中，首周 DAU 提升 15%，课程覆盖 853 人次、NPS 91；在海尔，社群活跃度从 30% 提升到 65%。',evidence:[2,6]},
-        {q:'我如何用 AI 工作？',a:'我会把 AI 嵌进研究、整理、生产和复盘，而不是只用来生成文案。我通过 Vibe Coding 独立完成 Odyssey 互动体验，也用 AI 搭建豆包工作对外传播案例库，把产品基础功能、应用场景和真实案例整理成合作沟通中可以直接使用的网站物料。',evidence:[4,0]},
-        {q:'我的英文能力怎么样？',a:'我的 CET-6 成绩是 652，英语口语流利。曾在中国日报独立承担英文翻译与国际传播，完成 35 期对外专题并带来 80 万+海外曝光；在海尔参与 16 期全英文出海课程，海外创客使用率达到 75%。',evidence:[8]},
-        {q:'除了内容，我还能做什么？',a:'我还可以做产品 PR、增长策略、用户教育、国际传播和轻量产品原型。我的优势是能把用户洞察转成传播策略，再把策略落实为内容、渠道动作、AI 工作流或可直接用于合作沟通的网站物料，并根据数据继续迭代。',evidence:[4,0]}
+        {q:'我最擅长什么？',a:'我最擅长把复杂产品讲清楚，再把内容放进完整的传播与增长链路。飞书 AI 绝活大会通过线下闭门场、创作者共创和多平台分发，形成 254 篇相关内容、192 位参与创作者与 40.92 万+全网预估阅读；我既关注内容质量，也用渠道协同和数据复盘持续放大品牌声量。',evidence:[5,1]},
+        {q:'我的能力组合是什么？',a:'我的能力不是单点的“会写内容”，而是内容、传播、分发、营销与系统性思维的组合。人民网和中国日报训练了事实判断与表达，海尔和小红书让我理解用户运营与转化，飞书的经历让我能围绕产品目标组织完整传播项目。',evidence:[7,1]},
+        {q:'我怎么理解用户？',a:'我习惯先看用户正处在什么场景、卡在哪里、会用什么语言理解产品，再决定内容和渠道。在小红书的 Coding Agent 宣讲中，首周 DAU 提升 15%，课程覆盖 853 人次、NPS 91；在海尔，社群活跃度从 30% 提升到 65%。',evidence:[2,5]},
+        {q:'我如何用 AI 工作？',a:'我会把 AI 嵌进研究、整理、生产和复盘，而不是只用来生成文案。我通过 Vibe Coding 独立完成 Odyssey 互动体验，也用 AI 搭建豆包工作对外传播案例库，把产品基础功能、应用场景和真实案例整理成合作沟通中可以直接使用的网站物料。',evidence:[3,0]},
+        {q:'我的英文能力怎么样？',a:'我的 CET-6 成绩是 652，英语口语流利。曾在中国日报独立承担英文翻译与国际传播，完成 35 期对外专题并带来 80 万+海外曝光；在海尔参与 16 期全英文出海课程，海外创客使用率达到 75%。',evidence:[7]},
+        {q:'除了内容，我还能做什么？',a:'我还可以做产品 PR、增长策略、用户教育、国际传播和轻量产品原型。我的优势是能把用户洞察转成传播策略，再把策略落实为内容、渠道动作、AI 工作流或可直接用于合作沟通的网站物料，并根据数据继续迭代。',evidence:[3,0]}
       ]
     },
     en:{
       welcome:'Choose a question for a quick introduction.',
       prompts:[
-        {q:'What do I do best?',a:'I am strongest at making complex products clear and connecting content to a complete communications and growth journey. The Lark AI Skills Summit combined an in-person closed-door event, creator co-production and multi-platform distribution, generating 254 related posts, 192 participating creators and 409.2K+ estimated reach. I pair content quality with channel orchestration and performance review to grow brand impact.',evidence:[6,1]},
-        {q:'What is my skill combination?',a:'My strength is not a single content skill, but a combination of content, communications, distribution, marketing and systems thinking. People’s Daily Online and China Daily sharpened my judgment and writing; Haier and Xiaohongshu developed my user-growth thinking; Lark taught me to organize communications around product goals.',evidence:[8,1]},
-        {q:'How do I understand users?',a:'I begin with the user’s situation, friction and natural language before deciding the message and channel. For a Coding Agent roadshow at Xiaohongshu, first-week DAU increased 15%, the course reached 853 participants and earned NPS 91. At Haier, community activity rose from 30% to 65%.',evidence:[2,6]},
-        {q:'How do I work with AI?',a:'I embed AI into research, synthesis, production and review instead of using it only to draft copy. Through Vibe Coding, I independently built the Odyssey interactive experience. I also used AI to build the Doubao Work external communications case library, turning product fundamentals, use cases and real work into website-based partnership collateral.',evidence:[4,0]},
-        {q:'How strong is my English?',a:'I scored 652 on CET-6 and speak English fluently. At China Daily, I independently handled English translation and international communications across 35 features, generating 800K+ overseas impressions. At Haier, I supported 16 English-language global courses with 75% overseas-maker adoption.',evidence:[8]},
-        {q:'What else can I do beyond content?',a:'I can contribute to product PR, growth strategy, user education, global communications and lightweight product prototyping. I translate user insight into communication strategy, then deliver it through content, channels, AI workflows or website-based partnership collateral—and iterate from results.',evidence:[4,0]}
+        {q:'What do I do best?',a:'I am strongest at making complex products clear and connecting content to a complete communications and growth journey. The Lark AI Skills Summit combined an in-person closed-door event, creator co-production and multi-platform distribution, generating 254 related posts, 192 participating creators and 409.2K+ estimated reach. I pair content quality with channel orchestration and performance review to grow brand impact.',evidence:[5,1]},
+        {q:'What is my skill combination?',a:'My strength is not a single content skill, but a combination of content, communications, distribution, marketing and systems thinking. People’s Daily Online and China Daily sharpened my judgment and writing; Haier and Xiaohongshu developed my user-growth thinking; Lark taught me to organize communications around product goals.',evidence:[7,1]},
+        {q:'How do I understand users?',a:'I begin with the user’s situation, friction and natural language before deciding the message and channel. For a Coding Agent roadshow at Xiaohongshu, first-week DAU increased 15%, the course reached 853 participants and earned NPS 91. At Haier, community activity rose from 30% to 65%.',evidence:[2,5]},
+        {q:'How do I work with AI?',a:'I embed AI into research, synthesis, production and review instead of using it only to draft copy. Through Vibe Coding, I independently built the Odyssey interactive experience. I also used AI to build the Doubao Work external communications case library, turning product fundamentals, use cases and real work into website-based partnership collateral.',evidence:[3,0]},
+        {q:'How strong is my English?',a:'I scored 652 on CET-6 and speak English fluently. At China Daily, I independently handled English translation and international communications across 35 features, generating 800K+ overseas impressions. At Haier, I supported 16 English-language global courses with 75% overseas-maker adoption.',evidence:[7]},
+        {q:'What else can I do beyond content?',a:'I can contribute to product PR, growth strategy, user education, global communications and lightweight product prototyping. I translate user insight into communication strategy, then deliver it through content, channels, AI workflows or website-based partnership collateral—and iterate from results.',evidence:[3,0]}
       ]
     }
   };
