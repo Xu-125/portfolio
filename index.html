@@ -1435,7 +1435,7 @@ html[lang="en"] .fc .og,html[lang="en"] .fc .bg,html[lang="en"] .fc .open{flex-s
 <div class="ai-video-gallery" id="aiVideoGallery" aria-hidden="true" aria-labelledby="aiVideoGalleryTitle">
   <div class="ai-video-shell">
     <div class="ai-video-stage">
-      <video id="aiVideoPlayer" controls playsinline preload="metadata" poster="img/cover-ai-video-rusty-character.jpg"><source id="aiVideoSource" src="img/ai-video-rusty-character.mp4" type="video/mp4"></video>
+      <video id="aiVideoPlayer" controls playsinline preload="metadata" poster="img/cover-ai-video-handdrawn-girl.jpg"><source id="aiVideoSource" src="img/ai-video-handdrawn-girl.mp4" type="video/mp4"></video>
       <button class="ai-video-gallery-close" id="aiVideoGalleryClose" type="button" aria-label="关闭 AI 影像画廊"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
       <span class="ai-video-status" id="aiVideoStatus">01 / 05</span>
     </div>
@@ -1509,7 +1509,7 @@ var WORK = [
   {r:2, org:'个人独立创作 · AI 影像', t:'AI 影像创作 · 提示词到完整成片',
    big:'5 支', bigK:'独立完成 AI 视频',
    why:'独立调试提示词，完成创意构思、画面生成、镜头衔接、声音设计与后期剪辑，将不同视觉风格落成完整短片。',
-   img:'img/cover-ai-video-rusty-character.jpg', videoGallery:true,
+   img:'img/cover-ai-video-handdrawn-girl.jpg', videoGallery:true,
    rows:[['5 支','风格化 AI 短片'],['独立','提示词 × 生成 × 剪辑'],['15–30s','完整成片交付']],
    roles:['创意与脚本','提示词调试','画面生成','剪辑与成片'],u:'#ai-video-gallery'},
   {r:3, org:'飞书 Lark · 豆包工作', t:'豆包工作 0→1 冷启动与官宣',
@@ -1793,7 +1793,7 @@ function renderWork(){
     var growthCoverZh='<div class="growth-cover"><div class="growth-cover-head"><span class="growth-cover-brand">Doubao Work</span><span class="growth-cover-badge">AI 搭建</span></div><div class="growth-cover-title">让合作方更快理解<br><b>产品价值</b></div><div class="growth-flow"><span class="growth-node"><i>01</i><b>产品功能</b><small>讲清能力</small></span><span class="growth-node"><i>02</i><b>真实案例</b><small>建立信任</small></span><span class="growth-node"><i>03</i><b>合作沟通</b><small>提升效率</small></span></div></div>';
     var growthCoverEn='<div class="growth-cover"><div class="growth-cover-head"><span class="growth-cover-brand">Doubao Work</span><span class="growth-cover-badge">AI-built</span></div><div class="growth-cover-title">Turn product value into<br><b>partner-ready proof</b></div><div class="growth-flow"><span class="growth-node"><i>01</i><b>Features</b><small>Clarify value</small></span><span class="growth-node"><i>02</i><b>Cases</b><small>Build trust</small></span><span class="growth-node"><i>03</i><b>Partners</b><small>Move faster</small></span></div></div>';
     var shotMedia=isVideoGallery
-      ? '<div class="ai-video-mosaic"><img src="img/cover-ai-video-rusty-character.jpg" alt=""><img src="img/cover-ai-video-handdrawn-girl.jpg" alt=""><img src="img/cover-ai-video-rusty-menu.jpg" alt=""><img src="img/cover-ai-video-sunset-fragrance.jpg" alt=""><img src="img/cover-ai-video-harry-potter.jpg" alt=""></div><div class="ai-video-cover-label"><b>'+(currentLang==='en'?'Five films · one full workflow':'五支成片 · 一套完整工作流')+'</b><span>15–30s</span></div>'
+      ? '<div class="ai-video-mosaic"><img src="img/cover-ai-video-handdrawn-girl.jpg" alt=""><img src="img/cover-ai-video-sunset-fragrance.jpg" alt=""><img src="img/cover-ai-video-harry-potter.jpg" alt=""><img src="img/cover-ai-video-rusty-character.jpg" alt=""><img src="img/cover-ai-video-rusty-menu.jpg" alt=""></div><div class="ai-video-cover-label"><b>'+(currentLang==='en'?'Five films · one full workflow':'五支成片 · 一套完整工作流')+'</b><span>15–30s</span></div>'
       : isDemo
       ? '<img src="'+base.img+'" alt="'+it.t+'" loading="lazy" draggable="false"><video class="odyssey-demo" controls playsinline preload="none" poster="'+base.img+'"><source src="'+base.demoVideo+'" type="video/mp4"></video><button class="demo-launch" type="button" aria-label="'+I18N[currentLang].play+'"><i>'+playIcon+'</i><span>'+I18N[currentLang].play+'</span></button><button class="demo-close" type="button" aria-label="'+(currentLang==='en'?'Close demo':'关闭演示')+'"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>'
       : base.specialCover==='growthLibrary'
@@ -1861,11 +1861,11 @@ renderWork();
 
 /* AI 影像画廊：单播放器按需切换五支成片 */
 var AI_VIDEOS=[
-  {src:'img/ai-video-rusty-character.mp4',cover:'img/cover-ai-video-rusty-character.jpg',zh:'锈湖角色一镜到底',en:'Rusty Lake Character One-Take',duration:'30s'},
-  {src:'img/ai-video-handdrawn-girl.mp4',cover:'img/cover-ai-video-handdrawn-girl.jpg',zh:'手绘女孩 · 五种能力',en:'Hand-drawn Girl · Five Skills',duration:'30s'},
-  {src:'img/ai-video-rusty-menu.mp4',cover:'img/cover-ai-video-rusty-menu.jpg',zh:'锈湖菜单 · 字幕版',en:'Rusty Lake Menu · Captioned',duration:'30s'},
-  {src:'img/ai-video-sunset-fragrance.mp4',cover:'img/cover-ai-video-sunset-fragrance.jpg',zh:'日落入香与喷香',en:'Sunset Fragrance Study',duration:'15s'},
-  {src:'img/ai-video-harry-potter.mp4',cover:'img/cover-ai-video-harry-potter.jpg',zh:'哈利波特一镜到底',en:'Harry Potter One-Take',duration:'30s'}
+  {src:'img/ai-video-handdrawn-girl.mp4',cover:'img/cover-ai-video-handdrawn-girl.jpg',zh:'个人形象片 · 手绘女孩五种能力',en:'Personal Profile · Five Skills',duration:'30s'},
+  {src:'img/ai-video-sunset-fragrance.mp4',cover:'img/cover-ai-video-sunset-fragrance.jpg',zh:'广告片 · 日落香水',en:'Commercial · Sunset Fragrance',duration:'15s'},
+  {src:'img/ai-video-harry-potter.mp4',cover:'img/cover-ai-video-harry-potter.jpg',zh:'影视二创 · 哈利波特一镜到底',en:'Film Re-creation · Harry Potter One-Take',duration:'30s'},
+  {src:'img/ai-video-rusty-character.mp4',cover:'img/cover-ai-video-rusty-character.jpg',zh:'游戏视觉 · 锈湖劳拉',en:'Game Visual · Rusty Lake Laura',duration:'30s'},
+  {src:'img/ai-video-rusty-menu.mp4',cover:'img/cover-ai-video-rusty-menu.jpg',zh:'游戏视觉 · 锈湖酒馆',en:'Game Visual · Rusty Lake Tavern',duration:'30s'}
 ];
 var aiVideoGallery=document.getElementById('aiVideoGallery'),aiVideoPlayer=document.getElementById('aiVideoPlayer'),aiVideoSource=document.getElementById('aiVideoSource'),aiVideoList=document.getElementById('aiVideoList'),aiVideoStatus=document.getElementById('aiVideoStatus'),aiVideoClose=document.getElementById('aiVideoGalleryClose'),aiVideoCurrent=0;
 function renderAIVideoList(){if(!aiVideoList)return;aiVideoList.innerHTML=AI_VIDEOS.map(function(v,i){return '<button type="button" data-video-i="'+i+'" class="'+(i===aiVideoCurrent?'on':'')+'"><img src="'+v.cover+'" alt=""><b>'+(currentLang==='en'?v.en:v.zh)+'</b><small>'+v.duration+'</small></button>';}).join('');}
