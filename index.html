@@ -1282,6 +1282,7 @@ html[lang="en"] .card .cx.contact-grid .contact-copy small{font-family:'Times Ne
 .fc.has-demo.demo-playing .odyssey-demo{opacity:1;visibility:visible;pointer-events:auto}.fc.has-demo.demo-playing .demo-launch,.fc.has-demo.demo-playing .idx{opacity:0;pointer-events:none}.fc.has-demo.demo-playing .demo-close{display:flex}.fc.has-demo.demo-playing .shot::before,.fc.has-demo.demo-playing .shot::after{display:none}
 .fc.has-demo .odyssey-site{text-decoration:none}.fc.has-demo .odyssey-site:hover .ic{background:#7058d6!important;border-color:#7058d6!important;color:#fff!important;transform:scale(1.06) rotate(45deg)}
 @media(max-width:760px){.fc.has-demo .demo-launch{min-width:44px;min-height:44px;padding:7px 11px 7px 8px}.fc.has-demo .demo-launch i{width:28px;height:28px}.fc.has-demo .demo-launch span{font-size:9.5px}.fc.has-demo .demo-close{width:44px;height:44px}.fc.has-links .recap-hero{min-height:44px;padding:7px 11px 7px 8px}.fc.has-links .recap-hero i{width:28px;height:28px}.fc.has-links .recap-hero span{font-size:9.5px}.fc.growth-library .shot{flex-basis:52%}.fc.growth-library .meta{padding-top:13px;padding-bottom:12px}.fc.growth-library h3{font-size:18px;line-height:1.18;min-height:2.36em!important}.fc.growth-library .bg{margin-top:8px}.fc.growth-library .open{padding-top:7px}}
+.standalone-video-modal{position:fixed;inset:0;z-index:1250;display:grid;place-items:center;padding:clamp(14px,3vw,42px);background:rgba(10,9,14,.9);backdrop-filter:blur(18px);opacity:0;visibility:hidden;pointer-events:none;transition:opacity .32s,visibility .32s}.standalone-video-modal.open{opacity:1;visibility:visible;pointer-events:auto}.standalone-video-shell{position:relative;width:min(1180px,96vw);max-height:92dvh;display:grid;grid-template-rows:minmax(0,1fr) auto;overflow:hidden;border:1px solid rgba(255,255,255,.14);border-radius:24px;background:#08080c;color:#fff;box-shadow:0 50px 140px -42px rgba(0,0,0,.88)}.standalone-video-shell video{display:block;width:100%;max-height:calc(92dvh - 76px);aspect-ratio:16/9;object-fit:contain;background:#08080c}.standalone-video-meta{min-height:70px;padding:15px 22px;display:flex;align-items:center;justify-content:space-between;gap:18px;background:#f7f6fa;color:#211e2b}.standalone-video-meta b{font-family:var(--serif);font-size:clamp(18px,2vw,25px);font-weight:500}.standalone-video-meta span{font-size:11px;color:#756f7f}.standalone-video-close{position:absolute;z-index:4;right:14px;top:14px;width:46px;height:46px;border:1px solid rgba(255,255,255,.25);border-radius:50%;display:flex;align-items:center;justify-content:center;background:rgba(12,11,17,.78);color:#fff}.standalone-video-close svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round}@media(max-width:760px){.standalone-video-modal{padding:0}.standalone-video-shell{width:100%;height:100dvh;max-height:none;border:0;border-radius:0;grid-template-rows:1fr auto}.standalone-video-shell video{align-self:center;max-height:calc(100dvh - 88px)}.standalone-video-meta{min-height:88px;padding:17px 18px}.standalone-video-close{right:12px;top:12px}}
 .asset-manifest{position:absolute!important;width:1px!important;height:1px!important;overflow:hidden!important;opacity:0!important;pointer-events:none!important}
 @media(prefers-reduced-motion:reduce){.fc.has-demo .odyssey-demo,.fc.has-demo .demo-launch{transition:none!important}}
 /* ===== AI video collection card + immersive gallery ===== */
@@ -1449,6 +1450,14 @@ html[lang="en"] .fc .og,html[lang="en"] .fc .bg,html[lang="en"] .fc .open{flex-s
   </div>
 </div>
 
+<div class="standalone-video-modal" id="standaloneVideoModal" aria-hidden="true" aria-labelledby="standaloneVideoTitle">
+  <div class="standalone-video-shell">
+    <video id="standaloneVideoPlayer" controls playsinline preload="metadata" poster="img/cover-ai-video-hbn-ad.jpg"><source src="img/ai-video-hbn-ad.mp4" type="video/mp4"></video>
+    <button class="standalone-video-close" id="standaloneVideoClose" type="button" aria-label="关闭实拍广告"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    <div class="standalone-video-meta"><b id="standaloneVideoTitle" data-i18n="standalone.title">HBN · 品牌广告视频</b><span data-i18n="standalone.meta">独立策划、拍摄与剪辑 · 30s</span></div>
+  </div>
+</div>
+
 <button class="ask-launcher" id="askLauncher" type="button" aria-controls="askPanel" aria-expanded="false">
   <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H8l-4 4z"/><path d="M8 9h8M8 12h5"/></svg>
   <span data-i18n="ask.launcher">快速了解</span>
@@ -1594,7 +1603,7 @@ var I18N = {
     'edu.ouc.school':'中国海洋大学','edu.ouc.degree':'新闻学 · 本科','edu.ouc.note':'GPA 3.93 · 专业 1/81',
     'section.experience':'实习经历','section.work':'代表作品','section.contact':'欢迎联系','work.tag':'5 个重点方向 · 11 个项目',
     'os.label':'AI 工作系统','os.research':'研究与洞察','os.strategy':'策略与判断','os.create':'Agent 协作生产','os.distribute':'多平台分发','os.review':'数据复盘',
-    'videoGallery.kicker':'Independent AI filmmaking','videoGallery.title':'AI 影像创作','videoGallery.desc':'独立调试提示词，完成创意构思、画面生成、镜头衔接、声音与剪辑，交付完整成片。','videoGallery.step1':'创意与脚本','videoGallery.step2':'提示词调试','videoGallery.step3':'画面生成','videoGallery.step4':'剪辑与成片',
+    'videoGallery.kicker':'Independent AI filmmaking','videoGallery.title':'AI 影像创作','videoGallery.desc':'独立调试提示词，完成创意构思、画面生成、镜头衔接、声音与剪辑，交付完整成片。','videoGallery.step1':'创意与脚本','videoGallery.step2':'提示词调试','videoGallery.step3':'画面生成','videoGallery.step4':'剪辑与成片','standalone.title':'HBN · 品牌广告视频','standalone.meta':'独立策划、拍摄与剪辑 · 30s',
     'ask.launcher':'快速了解','ask.kicker':'Hazel at a glance','ask.title':'快速了解','ask.subtitle':'从六个侧面了解我的能力、思考方式与作品。',
     'hint.dragExperience':'按住并横向拖动，查看全部经历','hint.dragWork':'拖动切换 · 点击卡片打开原文',
     'contact.roles':'AI 产品、增长策略、国际传播',
@@ -1610,7 +1619,7 @@ var I18N = {
     'edu.ouc.school':'Ocean University of China','edu.ouc.degree':'B.A. in Journalism','edu.ouc.note':'GPA 3.93 · Ranked 1/81',
     'section.experience':'Experience','section.work':'Selected Work','section.contact':'Get in touch','work.tag':'5 focus areas · 11 projects',
     'os.label':'AI operating system','os.research':'Research & insight','os.strategy':'Strategy & judgment','os.create':'Agent-assisted creation','os.distribute':'Multi-channel distribution','os.review':'Performance review',
-    'videoGallery.kicker':'Independent AI filmmaking','videoGallery.title':'AI Video & Motion','videoGallery.desc':'I independently refined prompts and owned the full process—from concept and visual generation to shot transitions, sound and final editing.','videoGallery.step1':'Concept & script','videoGallery.step2':'Prompt iteration','videoGallery.step3':'Visual generation','videoGallery.step4':'Edit & delivery',
+    'videoGallery.kicker':'Independent AI filmmaking','videoGallery.title':'AI Video & Motion','videoGallery.desc':'I independently refined prompts and owned the full process—from concept and visual generation to shot transitions, sound and final editing.','videoGallery.step1':'Concept & script','videoGallery.step2':'Prompt iteration','videoGallery.step3':'Visual generation','videoGallery.step4':'Edit & delivery','standalone.title':'HBN · Brand Commercial','standalone.meta':'Concept, filming & editing by Hazel · 30s',
     'ask.launcher':'Quick view','ask.kicker':'Hazel at a glance','ask.title':'Quick view','ask.subtitle':'Six perspectives on my capabilities, thinking and work.',
     'hint.dragExperience':'Hold and drag horizontally to view all roles','hint.dragWork':'Drag to browse · Click a card to view the original',
     'contact.roles':'AI Products · Growth Strategy · Global Communications',
@@ -1783,8 +1792,10 @@ function renderWork(){
     var growthCoverEn='<div class="growth-cover"><div class="growth-cover-head"><span class="growth-cover-brand">Doubao Work</span><span class="growth-cover-badge">AI-built</span></div><div class="growth-cover-title">Turn product value into<br><b>partner-ready proof</b></div><div class="growth-flow"><span class="growth-node"><i>01</i><b>Features</b><small>Clarify value</small></span><span class="growth-node"><i>02</i><b>Cases</b><small>Build trust</small></span><span class="growth-node"><i>03</i><b>Partners</b><small>Move faster</small></span></div></div>';
     var shotMedia=isVideoGallery
       ? '<div class="ai-video-mosaic"><img src="img/cover-ai-video-handdrawn-girl.jpg" alt=""><img src="img/cover-ai-video-sunset-fragrance.jpg" alt=""><img src="img/cover-ai-video-harry-potter.jpg" alt=""><img src="img/cover-ai-video-rusty-character.jpg" alt=""><img src="img/cover-ai-video-rusty-menu.jpg" alt=""></div><div class="ai-video-cover-label"><b>'+(currentLang==='en'?'Five films · one full workflow':'五支成片 · 一套完整工作流')+'</b><span>15–30s</span></div>'
+      : isStandalone
+      ? '<img src="'+base.img+'" alt="'+it.t+'" loading="lazy" draggable="false"><button class="demo-launch standalone-launch" type="button" aria-label="'+openLabel+'"><i>'+playIcon+'</i><span>'+openLabel+'</span></button>'
       : isDemo
-      ? '<img src="'+base.img+'" alt="'+it.t+'" loading="lazy" draggable="false"><video class="odyssey-demo" controls playsinline preload="none" poster="'+base.img+'"><source src="'+base.demoVideo+'" type="video/mp4"></video><button class="demo-launch" type="button" aria-label="'+(isStandalone?openLabel:I18N[currentLang].play)+'"><i>'+playIcon+'</i><span>'+(isStandalone?openLabel:I18N[currentLang].play)+'</span></button><button class="demo-close" type="button" aria-label="'+(currentLang==='en'?'Close demo':'关闭演示')+'"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>'
+      ? '<img src="'+base.img+'" alt="'+it.t+'" loading="lazy" draggable="false"><video class="odyssey-demo" controls playsinline preload="none" poster="'+base.img+'"><source src="'+base.demoVideo+'" type="video/mp4"></video><button class="demo-launch" type="button" aria-label="'+I18N[currentLang].play+'"><i>'+playIcon+'</i><span>'+I18N[currentLang].play+'</span></button><button class="demo-close" type="button" aria-label="'+(currentLang==='en'?'Close demo':'关闭演示')+'"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>'
       : base.specialCover==='growthLibrary'
         ? (currentLang==='en'?growthCoverEn:growthCoverZh)
         : hasSecondary
@@ -1840,7 +1851,7 @@ function bindCardEvents(){
       if(e.target.closest('.odyssey-site,.project-link'))return;
       if(e.target.tagName==='VIDEO')return;
       if(WORK[i].videoGallery){e.preventDefault();openAIVideoGallery(0);return;}
-      if(WORK[i].standaloneVideo){e.preventDefault();if(e.target.closest('.demo-close')){closeOdysseyDemo(c);return;}openOdysseyDemo(c);return;}
+      if(WORK[i].standaloneVideo){e.preventDefault();openStandaloneVideo();return;}
       if(!WORK[i].demoVideo)return;
       e.preventDefault();
       if(e.target.closest('.demo-close')){closeOdysseyDemo(c);return;}
@@ -1865,6 +1876,12 @@ function selectAIVideo(i,autoplay){if(!aiVideoPlayer||!AI_VIDEOS[i])return;aiVid
 function openAIVideoGallery(i){if(!aiVideoGallery)return;selectAIVideo(i||0,false);aiVideoGallery.classList.add('open');aiVideoGallery.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';window.setTimeout(function(){aiVideoPlayer.play().catch(function(){});},80);if(aiVideoClose)aiVideoClose.focus();}
 function closeAIVideoGallery(){if(!aiVideoGallery)return;aiVideoGallery.classList.remove('open');aiVideoGallery.setAttribute('aria-hidden','true');if(aiVideoPlayer)aiVideoPlayer.pause();document.body.style.overflow='';}
 if(aiVideoList)aiVideoList.addEventListener('click',function(e){var b=e.target.closest('[data-video-i]');if(b)selectAIVideo(parseInt(b.dataset.videoI,10),true);});if(aiVideoClose)aiVideoClose.addEventListener('click',closeAIVideoGallery);if(aiVideoGallery)aiVideoGallery.addEventListener('click',function(e){if(e.target===aiVideoGallery)closeAIVideoGallery();});renderAIVideoList();
+
+/* 实拍广告：独立大尺寸弹窗，不与 AI 影像混合 */
+var standaloneVideoModal=document.getElementById('standaloneVideoModal'),standaloneVideoPlayer=document.getElementById('standaloneVideoPlayer'),standaloneVideoClose=document.getElementById('standaloneVideoClose');
+function openStandaloneVideo(){if(!standaloneVideoModal||!standaloneVideoPlayer)return;standaloneVideoModal.classList.add('open');standaloneVideoModal.setAttribute('aria-hidden','false');standaloneVideoClose.setAttribute('aria-label',currentLang==='en'?'Close commercial':'关闭实拍广告');document.body.style.overflow='hidden';window.setTimeout(function(){standaloneVideoPlayer.play().catch(function(){});},80);standaloneVideoClose.focus();}
+function closeStandaloneVideo(){if(!standaloneVideoModal||!standaloneVideoPlayer)return;standaloneVideoModal.classList.remove('open');standaloneVideoModal.setAttribute('aria-hidden','true');standaloneVideoPlayer.pause();standaloneVideoPlayer.currentTime=0;document.body.style.overflow='';}
+if(standaloneVideoClose)standaloneVideoClose.addEventListener('click',closeStandaloneVideo);if(standaloneVideoModal)standaloneVideoModal.addEventListener('click',function(e){if(e.target===standaloneVideoModal)closeStandaloneVideo();});
 
 /* 3D 参数：侧卡只露窄边，不遮挡中心 */
 var GAP  = 0.86;   // 相邻卡水平偏移（卡宽倍数）
@@ -2281,6 +2298,7 @@ if(profileVideoLaunch){profileVideoLaunch.setAttribute('aria-expanded','false');
 if(videoClose)videoClose.addEventListener('click',closeVideoModal);
 
 window.addEventListener('keydown', function(e){
+  if(e.key==='Escape'&&standaloneVideoModal&&standaloneVideoModal.classList.contains('open')){closeStandaloneVideo();return;}
   if(e.key==='Escape'&&aiVideoGallery&&aiVideoGallery.classList.contains('open')){closeAIVideoGallery();return;}
   if(e.key==='Escape'&&profileMedia&&profileMedia.classList.contains('video-open')){closeVideoModal();return;}
   if (Math.round(scroller.scrollTop/scroller.clientHeight)!==1) return;
